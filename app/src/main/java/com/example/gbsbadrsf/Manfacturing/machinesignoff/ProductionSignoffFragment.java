@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerFragment;
 
 
-public class ProductionSignoffFragment extends DaggerFragment {
+public class ProductionSignoffFragment extends DaggerFragment implements Signoffitemsdialog.OnInputSelected{
     @Inject
     ViewModelProviderFactory providerFactory;// to connect between injection in viewmodel
     FragmentProductionSignoffBinding fragmentProductionSignoffBinding;
@@ -51,8 +51,9 @@ public class ProductionSignoffFragment extends DaggerFragment {
         fragmentProductionSignoffBinding.signoffitemsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Signoffitemsdialog signoffitemsdialog=new Signoffitemsdialog();
-                signoffitemsdialog.show(getChildFragmentManager(),"signoffcustomDialog");
+                Signoffitemsdialog dialog = new Signoffitemsdialog();
+                dialog.setTargetFragment(ProductionSignoffFragment.this, 1);
+                dialog.show(getFragmentManager(), "MyCustomDialog");
             }
         });
         fragmentProductionSignoffBinding.saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,10 @@ public class ProductionSignoffFragment extends DaggerFragment {
                 MachineSignoffBody machineSignoffBody = new MachineSignoffBody();
 
                 machineSignoffBody.setMachineCode(fragmentProductionSignoffBinding.machinecodeEdt.getText().toString());
+                machineSignoffBody.setSignOutQty(fragmentProductionSignoffBinding.totalqtn.getText().toString());
+                //machineSignoffBody.setBasketLst(fragmentProductionSignoffBinding.basketcode.getText().toString());
+
+
                 machinesignoffViewModel.getmachinesignoff(machineSignoffBody,getContext());
 
 
@@ -109,5 +114,11 @@ public class ProductionSignoffFragment extends DaggerFragment {
 
     }
 
+
+    @Override
+    public void sendInput(String input) {
+        fragmentProductionSignoffBinding.totalqtn.setText(input);
+        fragmentProductionSignoffBinding.basketcode.setText(input);
+    }
 
 }

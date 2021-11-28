@@ -2600,6 +2600,7 @@ id title_template
 id toggle
 id top
 id topPanel
+id totalqtn
 id totalqtn_edt
 id totalqtn_txt
 id touch_outside

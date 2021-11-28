@@ -18,7 +18,7 @@ public class MachineSignoffBody {
     private String deviceSerialNo;
     @SerializedName("SignOutQty")
     @Expose
-    private Integer signOutQty;
+    private String signOutQty;
     @SerializedName("MachineCode")
     @Expose
     private String machineCode;
@@ -50,11 +50,11 @@ public class MachineSignoffBody {
         this.deviceSerialNo = deviceSerialNo;
     }
 
-    public Integer getSignOutQty() {
+    public String getSignOutQty() {
         return signOutQty;
     }
 
-    public void setSignOutQty(Integer signOutQty) {
+    public void setSignOutQty(String signOutQty) {
         this.signOutQty = signOutQty;
     }
 

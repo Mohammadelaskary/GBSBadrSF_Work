@@ -1,8 +1,12 @@
 package com.example.gbsbadrsf.Manfacturing.machinesignoff;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,12 +40,19 @@ import static com.example.gbsbadrsf.MainActivity.getBarcodeObject;
 
 public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.BarcodeListener,
         BarcodeReader.TriggerListener, productionsequenceadapter.onCheckedChangedListener {
-    private static final String TAG="signoffcustomDialog";
+    private static final String TAG = "MyCustomDialog";
+
+    public interface OnInputSelected{
+        void sendInput(String input);
+    }
+    public OnInputSelected mOnInputSelected;
+
 
     private RecyclerView recyclerView;
     private ProductionSignoffAdapter productionSignoffadapter;
     private com.honeywell.aidc.BarcodeReader barcodeReader;
-    EditText editText;
+    EditText editText,totalqtn,basketcode;
+    Button save;
     List<Basketcodelst> basketcodelstList;
 
     @Nullable
@@ -52,6 +63,28 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
         Switch simpleSwitch = view.findViewById(R.id.simpleSwitch); // initiate Switch
         recyclerView = view.findViewById(R.id.basketcode_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        basketcodelstList = new ArrayList<>();
+        setUpRecyclerView();
+        save=view.findViewById(R.id.save_btn);
+        totalqtn=view.findViewById(R.id.totalqtn_edt);
+        basketcode=view.findViewById(R.id.basketcode_edt);
+
+        clickinginsave();
+//simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//    @Override
+//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//        if (isChecked) {
+//            // do something when check is selected
+//        } else {
+//            //do something when unchecked
+//            recyclerView.setVisibility(View.GONE);
+//
+//        }
+//
+//    }
+//})      ;
+
+
 //        productionSignoffadapter =new ProductionSignoffAdapter(basketcodelstList);
 //        recyclerView.setAdapter(productionSignoffadapter);
 
@@ -68,7 +101,7 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
                 barcodeReader.setProperty(BarcodeReader.PROPERTY_TRIGGER_CONTROL_MODE,
                         BarcodeReader.TRIGGER_CONTROL_MODE_CLIENT_CONTROL);
             } catch (UnsupportedPropertyException e) {
-               // Toast.makeText(this, "Failed to apply properties", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(this, "Failed to apply properties", Toast.LENGTH_SHORT).show();
             }
             // register trigger state change listener
             barcodeReader.addTriggerListener(this);
@@ -102,6 +135,8 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
         return view;
     }
 
+
+
     @Override
     public void onCheckedChanged(int position, boolean isChecked, Ppr item) {
 
@@ -109,9 +144,24 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
 
     @Override
     public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
-        editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
+        // editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
+        Log.d("barcode",String.valueOf(barcodeReadEvent.getBarcodeData()));
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                // update the ui from here
+                editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
+                // if (!basketcodelstList.contains(String.valueOf(barcodeReadEvent.getBarcodeData()))){ TODO
+                basketcodelstList.add(new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData())));
+                productionSignoffadapter.notifyDataSetChanged();
+                // }
 
-        setUpRecyclerView();
+            }
+        });
+
+
+
 
     }
 
@@ -157,8 +207,8 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
             barcodeReader.release();
         }
     }
+
     private void setUpRecyclerView() {
-        basketcodelstList = new ArrayList<>();
         productionSignoffadapter = new ProductionSignoffAdapter(basketcodelstList);
         productionSignoffadapter.getproductionsequencelist(basketcodelstList);
         recyclerView.setAdapter(productionSignoffadapter);
@@ -168,4 +218,36 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
 
 
     }
+    private void clickinginsave() {
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                String input = totalqtn.getText().toString();
+                String basketcodeinput=basketcodelstList.toString();
+                if(!input.equals("")){
+
+                    mOnInputSelected.sendInput(input);
+                }
+                else if (!basketcodeinput.equals("")){
+                    mOnInputSelected.sendInput(basketcodeinput);
+                }
+
+
+                getDialog().dismiss();
+
+            }
+        });
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try{
+            mOnInputSelected = (OnInputSelected) getTargetFragment();
+        }catch (ClassCastException e){
+            Log.e(TAG, "onAttach: ClassCastException : " + e.getMessage() );
+        }
+    }
+
 }

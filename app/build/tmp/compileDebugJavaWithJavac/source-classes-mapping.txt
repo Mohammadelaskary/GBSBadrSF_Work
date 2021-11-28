@@ -78,9 +78,8 @@ com/example/gbsbadrsf/welding/WeldingMenuFragment.java
  com.example.gbsbadrsf.welding.WeldingMenuFragment
 com/example/gbsbadrsf/databinding/DefectqtnsLstBinding.java
  com.example.gbsbadrsf.databinding.DefectqtnsLstBinding
-com/example/gbsbadrsf/Manfacturing/machinesignoff/ProductionSignoffAdapter.java
- com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffAdapter
- com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffAdapter$ProductionSignoffViewHolder
+com/example/gbsbadrsf/Paint/PaintMenuFragment.java
+ com.example.gbsbadrsf.Paint.PaintMenuFragment
 com/example/gbsbadrsf/Reopendefects/ReopenDefectFragment.java
  com.example.gbsbadrsf.Reopendefects.ReopenDefectFragment
 com/example/gbsbadrsf/data/response/PprInfo.java
@@ -188,8 +187,8 @@ com/example/gbsbadrsf/databinding/FragmentAdddefectweBinding.java
  com.example.gbsbadrsf.databinding.FragmentAdddefectweBinding
 com/example/gbsbadrsf/databinding/FragmentContinueLoadingBinding.java
  com.example.gbsbadrsf.databinding.FragmentContinueLoadingBinding
-com/example/gbsbadrsf/Manfacturing/machinesignoff/Signoffitemsdialog.java
- com.example.gbsbadrsf.Manfacturing.machinesignoff.Signoffitemsdialog
+com/example/gbsbadrsf/Quality/Data/Defect.java
+ com.example.gbsbadrsf.Quality.Data.Defect
 com/example/gbsbadrsf/welding/qualityscrapwe/qualityscraplistweFragment.java
  com.example.gbsbadrsf.welding.qualityscrapwe.qualityscraplistweFragment
 com/example/gbsbadrsf/databinding/FragmentAddDefectsBinding.java
@@ -596,7 +595,11 @@ com/example/gbsbadrsf/repository/Authenticationrepository.java
 com/example/gbsbadrsf/productionsequence/SelectedLoadinsequenceinfoViewModel.java
  com.example.gbsbadrsf.productionsequence.SelectedLoadinsequenceinfoViewModel
  com.example.gbsbadrsf.productionsequence.SelectedLoadinsequenceinfoViewModel$1
-com/example/gbsbadrsf/Paint/PaintMenuFragment.java
- com.example.gbsbadrsf.Paint.PaintMenuFragment
-com/example/gbsbadrsf/Quality/Data/Defect.java
- com.example.gbsbadrsf.Quality.Data.Defect
+com/example/gbsbadrsf/Manfacturing/machinesignoff/Signoffitemsdialog.java
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.Signoffitemsdialog
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.Signoffitemsdialog$1
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.Signoffitemsdialog$2
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.Signoffitemsdialog$OnInputSelected
+com/example/gbsbadrsf/Manfacturing/machinesignoff/ProductionSignoffAdapter.java
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffAdapter
+ com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffAdapter$ProductionSignoffViewHolder

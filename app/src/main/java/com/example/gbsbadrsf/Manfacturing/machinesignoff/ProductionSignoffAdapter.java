@@ -46,7 +46,7 @@ public class ProductionSignoffAdapter extends RecyclerView.Adapter<ProductionSig
 
     @Override
     public int getItemCount() {
-        return 3;
+        return Basketcodelst.size();
     }
 
     class ProductionSignoffViewHolder extends RecyclerView.ViewHolder{

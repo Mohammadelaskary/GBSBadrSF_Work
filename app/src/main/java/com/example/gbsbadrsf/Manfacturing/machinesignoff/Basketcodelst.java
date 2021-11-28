@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Basketcodelst {
 //
+public Basketcodelst(String basketcode) {
+    this.basketcode = basketcode;
+}
     private String basketcode;
     public String getBasketcode() {
         return basketcode;

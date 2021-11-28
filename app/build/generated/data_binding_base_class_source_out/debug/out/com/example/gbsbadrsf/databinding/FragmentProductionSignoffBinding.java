@@ -22,6 +22,9 @@ public final class FragmentProductionSignoffBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView basketcode;
+
+  @NonNull
   public final TextView childcode;
 
   @NonNull
@@ -66,15 +69,20 @@ public final class FragmentProductionSignoffBinding implements ViewBinding {
   @NonNull
   public final MaterialButton signoffitemsBtn;
 
+  @NonNull
+  public final TextView totalqtn;
+
   private FragmentProductionSignoffBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView childcode, @NonNull TextView childcodeTxt, @NonNull TextView childesc,
-      @NonNull TextView jobordernum, @NonNull TextView jobordernumTxt, @NonNull TextView loadingqtn,
-      @NonNull TextView loadingquantityTxt, @NonNull EditText machinecodeEdt,
-      @NonNull TextView machinecodeTxt, @NonNull ImageView machinecodebarcodeImg,
-      @NonNull TextView operation, @NonNull TextView operationTxt,
-      @NonNull TextView productionsignoffTxt, @NonNull MaterialButton saveBtn,
-      @NonNull MaterialButton signoffitemsBtn) {
+      @NonNull TextView basketcode, @NonNull TextView childcode, @NonNull TextView childcodeTxt,
+      @NonNull TextView childesc, @NonNull TextView jobordernum, @NonNull TextView jobordernumTxt,
+      @NonNull TextView loadingqtn, @NonNull TextView loadingquantityTxt,
+      @NonNull EditText machinecodeEdt, @NonNull TextView machinecodeTxt,
+      @NonNull ImageView machinecodebarcodeImg, @NonNull TextView operation,
+      @NonNull TextView operationTxt, @NonNull TextView productionsignoffTxt,
+      @NonNull MaterialButton saveBtn, @NonNull MaterialButton signoffitemsBtn,
+      @NonNull TextView totalqtn) {
     this.rootView = rootView;
+    this.basketcode = basketcode;
     this.childcode = childcode;
     this.childcodeTxt = childcodeTxt;
     this.childesc = childesc;
@@ -90,6 +98,7 @@ public final class FragmentProductionSignoffBinding implements ViewBinding {
     this.productionsignoffTxt = productionsignoffTxt;
     this.saveBtn = saveBtn;
     this.signoffitemsBtn = signoffitemsBtn;
+    this.totalqtn = totalqtn;
   }
 
   @Override
@@ -119,6 +128,12 @@ public final class FragmentProductionSignoffBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.basketcode;
+      TextView basketcode = rootView.findViewById(id);
+      if (basketcode == null) {
+        break missingId;
+      }
+
       id = R.id.childcode;
       TextView childcode = rootView.findViewById(id);
       if (childcode == null) {
@@ -209,10 +224,16 @@ public final class FragmentProductionSignoffBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentProductionSignoffBinding((ConstraintLayout) rootView, childcode,
-          childcodeTxt, childesc, jobordernum, jobordernumTxt, loadingqtn, loadingquantityTxt,
-          machinecodeEdt, machinecodeTxt, machinecodebarcodeImg, operation, operationTxt,
-          productionsignoffTxt, saveBtn, signoffitemsBtn);
+      id = R.id.totalqtn;
+      TextView totalqtn = rootView.findViewById(id);
+      if (totalqtn == null) {
+        break missingId;
+      }
+
+      return new FragmentProductionSignoffBinding((ConstraintLayout) rootView, basketcode,
+          childcode, childcodeTxt, childesc, jobordernum, jobordernumTxt, loadingqtn,
+          loadingquantityTxt, machinecodeEdt, machinecodeTxt, machinecodebarcodeImg, operation,
+          operationTxt, productionsignoffTxt, saveBtn, signoffitemsBtn, totalqtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
