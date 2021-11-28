@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.manfacturing.Adddefects.AdddefectsAdapter;
 import com.example.gbsbadrsf.databinding.DefectnameandcodeLstBinding;
 
 public class adddefectweAdapter extends RecyclerView.Adapter<adddefectweAdapter.adddefectweViewHolder> {
@@ -17,13 +16,13 @@ public class adddefectweAdapter extends RecyclerView.Adapter<adddefectweAdapter.
 
     @NonNull
     @Override
-    public adddefectweAdapter.adddefectweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public adddefectweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         defectnameandcodeLstBinding = DefectnameandcodeLstBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new adddefectweAdapter.adddefectweViewHolder(defectnameandcodeLstBinding);
+        return new adddefectweViewHolder(defectnameandcodeLstBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adddefectweAdapter.adddefectweViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull adddefectweViewHolder holder, int position) {
         if (position==0){
 
 

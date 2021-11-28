@@ -1,20 +1,17 @@
 package com.example.gbsbadrsf.Quality.manfacturing.productionscraprequest;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.Util.OnClick;
 import com.example.gbsbadrsf.databinding.FragmentProductionscraplistinqualityBinding;
-import com.example.gbsbadrsf.databinding.FragmentQualityscraplistBinding;
-import com.example.gbsbadrsf.qualityscrap.qualityscraplistadapter;
 
 
 public class productionscraplistinqualityFragment extends Fragment implements OnClick {

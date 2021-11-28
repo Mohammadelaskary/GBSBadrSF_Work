@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,71 +14,49 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.gbsbadrsf.R;
-import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
-public final class FragmentQualityrepairBinding implements ViewBinding {
+public final class FragmentQualityRepairBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final EditText approvedqtyEdt;
+  public final ImageView basketBarcodeImg;
 
   @NonNull
-  public final TextView approvedqtyTxt;
+  public final EditText basketCodeEdt;
 
   @NonNull
-  public final TextView approvedqtyintableTxt;
+  public final TextView basketCodeTxt;
 
   @NonNull
-  public final ImageView basketbarcodeImg;
+  public final TextView childCode;
 
   @NonNull
-  public final EditText basketcodeEdt;
+  public final TextView childDesc;
 
   @NonNull
-  public final TextView basketcodeTxt;
+  public final TextView defectQtn;
 
   @NonNull
-  public final TextView childTxt;
+  public final TextView defectQtnTxt;
 
   @NonNull
-  public final TextView childcode;
+  public final TextView defectedQty;
 
   @NonNull
-  public final TextView childesc;
+  public final RecyclerView defectsDetailsList;
 
   @NonNull
-  public final TextView childintableTxt;
+  public final TextView defectsList;
 
   @NonNull
-  public final ConstraintLayout constraint;
+  public final TextView defectsQty;
 
   @NonNull
-  public final MaterialButton createscrapBtn;
-
-  @NonNull
-  public final TextView defectnameTxt;
-
-  @NonNull
-  public final TextView defectqtn;
-
-  @NonNull
-  public final RecyclerView defectqtnRv;
-
-  @NonNull
-  public final TextView defectqtyTxt;
-
-  @NonNull
-  public final TextView defectquantityTxt;
-
-  @NonNull
-  public final HorizontalScrollView hsv;
-
-  @NonNull
-  public final TextView notesTxt;
+  public final LinearLayout linearLayout;
 
   @NonNull
   public final TextView operation;
@@ -87,60 +65,36 @@ public final class FragmentQualityrepairBinding implements ViewBinding {
   public final TextView operationTxt;
 
   @NonNull
-  public final MaterialButton qtnokBtn;
+  public final TextView parentTxt;
 
   @NonNull
-  public final TextView qualityrepairTxt;
+  public final TextView qualityRepairTxt;
 
-  @NonNull
-  public final MaterialButton reopendefectBtn;
-
-  @NonNull
-  public final TextView repairedqtyTxt;
-
-  @NonNull
-  public final View view;
-
-  private FragmentQualityrepairBinding(@NonNull ConstraintLayout rootView,
-      @NonNull EditText approvedqtyEdt, @NonNull TextView approvedqtyTxt,
-      @NonNull TextView approvedqtyintableTxt, @NonNull ImageView basketbarcodeImg,
-      @NonNull EditText basketcodeEdt, @NonNull TextView basketcodeTxt, @NonNull TextView childTxt,
-      @NonNull TextView childcode, @NonNull TextView childesc, @NonNull TextView childintableTxt,
-      @NonNull ConstraintLayout constraint, @NonNull MaterialButton createscrapBtn,
-      @NonNull TextView defectnameTxt, @NonNull TextView defectqtn,
-      @NonNull RecyclerView defectqtnRv, @NonNull TextView defectqtyTxt,
-      @NonNull TextView defectquantityTxt, @NonNull HorizontalScrollView hsv,
-      @NonNull TextView notesTxt, @NonNull TextView operation, @NonNull TextView operationTxt,
-      @NonNull MaterialButton qtnokBtn, @NonNull TextView qualityrepairTxt,
-      @NonNull MaterialButton reopendefectBtn, @NonNull TextView repairedqtyTxt,
-      @NonNull View view) {
+  private FragmentQualityRepairBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ImageView basketBarcodeImg, @NonNull EditText basketCodeEdt,
+      @NonNull TextView basketCodeTxt, @NonNull TextView childCode, @NonNull TextView childDesc,
+      @NonNull TextView defectQtn, @NonNull TextView defectQtnTxt, @NonNull TextView defectedQty,
+      @NonNull RecyclerView defectsDetailsList, @NonNull TextView defectsList,
+      @NonNull TextView defectsQty, @NonNull LinearLayout linearLayout, @NonNull TextView operation,
+      @NonNull TextView operationTxt, @NonNull TextView parentTxt,
+      @NonNull TextView qualityRepairTxt) {
     this.rootView = rootView;
-    this.approvedqtyEdt = approvedqtyEdt;
-    this.approvedqtyTxt = approvedqtyTxt;
-    this.approvedqtyintableTxt = approvedqtyintableTxt;
-    this.basketbarcodeImg = basketbarcodeImg;
-    this.basketcodeEdt = basketcodeEdt;
-    this.basketcodeTxt = basketcodeTxt;
-    this.childTxt = childTxt;
-    this.childcode = childcode;
-    this.childesc = childesc;
-    this.childintableTxt = childintableTxt;
-    this.constraint = constraint;
-    this.createscrapBtn = createscrapBtn;
-    this.defectnameTxt = defectnameTxt;
-    this.defectqtn = defectqtn;
-    this.defectqtnRv = defectqtnRv;
-    this.defectqtyTxt = defectqtyTxt;
-    this.defectquantityTxt = defectquantityTxt;
-    this.hsv = hsv;
-    this.notesTxt = notesTxt;
+    this.basketBarcodeImg = basketBarcodeImg;
+    this.basketCodeEdt = basketCodeEdt;
+    this.basketCodeTxt = basketCodeTxt;
+    this.childCode = childCode;
+    this.childDesc = childDesc;
+    this.defectQtn = defectQtn;
+    this.defectQtnTxt = defectQtnTxt;
+    this.defectedQty = defectedQty;
+    this.defectsDetailsList = defectsDetailsList;
+    this.defectsList = defectsList;
+    this.defectsQty = defectsQty;
+    this.linearLayout = linearLayout;
     this.operation = operation;
     this.operationTxt = operationTxt;
-    this.qtnokBtn = qtnokBtn;
-    this.qualityrepairTxt = qualityrepairTxt;
-    this.reopendefectBtn = reopendefectBtn;
-    this.repairedqtyTxt = repairedqtyTxt;
-    this.view = view;
+    this.parentTxt = parentTxt;
+    this.qualityRepairTxt = qualityRepairTxt;
   }
 
   @Override
@@ -150,14 +104,14 @@ public final class FragmentQualityrepairBinding implements ViewBinding {
   }
 
   @NonNull
-  public static FragmentQualityrepairBinding inflate(@NonNull LayoutInflater inflater) {
+  public static FragmentQualityRepairBinding inflate(@NonNull LayoutInflater inflater) {
     return inflate(inflater, null, false);
   }
 
   @NonNull
-  public static FragmentQualityrepairBinding inflate(@NonNull LayoutInflater inflater,
+  public static FragmentQualityRepairBinding inflate(@NonNull LayoutInflater inflater,
       @Nullable ViewGroup parent, boolean attachToParent) {
-    View root = inflater.inflate(R.layout.fragment_qualityrepair, parent, false);
+    View root = inflater.inflate(R.layout.fragment_quality_repair, parent, false);
     if (attachToParent) {
       parent.addView(root);
     }
@@ -165,122 +119,80 @@ public final class FragmentQualityrepairBinding implements ViewBinding {
   }
 
   @NonNull
-  public static FragmentQualityrepairBinding bind(@NonNull View rootView) {
+  public static FragmentQualityRepairBinding bind(@NonNull View rootView) {
     // The body of this method is generated in a way you would not otherwise write.
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.approvedqty_edt;
-      EditText approvedqtyEdt = rootView.findViewById(id);
-      if (approvedqtyEdt == null) {
+      id = R.id.basket_barcode_img;
+      ImageView basketBarcodeImg = rootView.findViewById(id);
+      if (basketBarcodeImg == null) {
         break missingId;
       }
 
-      id = R.id.approvedqty_txt;
-      TextView approvedqtyTxt = rootView.findViewById(id);
-      if (approvedqtyTxt == null) {
+      id = R.id.basket_code_edt;
+      EditText basketCodeEdt = rootView.findViewById(id);
+      if (basketCodeEdt == null) {
         break missingId;
       }
 
-      id = R.id.approvedqtyintable_txt;
-      TextView approvedqtyintableTxt = rootView.findViewById(id);
-      if (approvedqtyintableTxt == null) {
+      id = R.id.basket_code_txt;
+      TextView basketCodeTxt = rootView.findViewById(id);
+      if (basketCodeTxt == null) {
         break missingId;
       }
 
-      id = R.id.basketbarcode_img;
-      ImageView basketbarcodeImg = rootView.findViewById(id);
-      if (basketbarcodeImg == null) {
+      id = R.id.child_code;
+      TextView childCode = rootView.findViewById(id);
+      if (childCode == null) {
         break missingId;
       }
 
-      id = R.id.basketcode_edt;
-      EditText basketcodeEdt = rootView.findViewById(id);
-      if (basketcodeEdt == null) {
+      id = R.id.child_desc;
+      TextView childDesc = rootView.findViewById(id);
+      if (childDesc == null) {
         break missingId;
       }
 
-      id = R.id.basketcode_txt;
-      TextView basketcodeTxt = rootView.findViewById(id);
-      if (basketcodeTxt == null) {
+      id = R.id.defect_qtn;
+      TextView defectQtn = rootView.findViewById(id);
+      if (defectQtn == null) {
         break missingId;
       }
 
-      id = R.id.child_txt;
-      TextView childTxt = rootView.findViewById(id);
-      if (childTxt == null) {
+      id = R.id.defect_qtn_txt;
+      TextView defectQtnTxt = rootView.findViewById(id);
+      if (defectQtnTxt == null) {
         break missingId;
       }
 
-      id = R.id.childcode;
-      TextView childcode = rootView.findViewById(id);
-      if (childcode == null) {
+      id = R.id.defected_qty;
+      TextView defectedQty = rootView.findViewById(id);
+      if (defectedQty == null) {
         break missingId;
       }
 
-      id = R.id.childesc;
-      TextView childesc = rootView.findViewById(id);
-      if (childesc == null) {
+      id = R.id.defects_details_list;
+      RecyclerView defectsDetailsList = rootView.findViewById(id);
+      if (defectsDetailsList == null) {
         break missingId;
       }
 
-      id = R.id.childintable_txt;
-      TextView childintableTxt = rootView.findViewById(id);
-      if (childintableTxt == null) {
+      id = R.id.defects_list;
+      TextView defectsList = rootView.findViewById(id);
+      if (defectsList == null) {
         break missingId;
       }
 
-      id = R.id.constraint;
-      ConstraintLayout constraint = rootView.findViewById(id);
-      if (constraint == null) {
+      id = R.id.defects_qty;
+      TextView defectsQty = rootView.findViewById(id);
+      if (defectsQty == null) {
         break missingId;
       }
 
-      id = R.id.createscrap_btn;
-      MaterialButton createscrapBtn = rootView.findViewById(id);
-      if (createscrapBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.defectname_txt;
-      TextView defectnameTxt = rootView.findViewById(id);
-      if (defectnameTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.defectqtn;
-      TextView defectqtn = rootView.findViewById(id);
-      if (defectqtn == null) {
-        break missingId;
-      }
-
-      id = R.id.defectqtn_rv;
-      RecyclerView defectqtnRv = rootView.findViewById(id);
-      if (defectqtnRv == null) {
-        break missingId;
-      }
-
-      id = R.id.defectqty_txt;
-      TextView defectqtyTxt = rootView.findViewById(id);
-      if (defectqtyTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.defectquantity_txt;
-      TextView defectquantityTxt = rootView.findViewById(id);
-      if (defectquantityTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.hsv;
-      HorizontalScrollView hsv = rootView.findViewById(id);
-      if (hsv == null) {
-        break missingId;
-      }
-
-      id = R.id.notes_txt;
-      TextView notesTxt = rootView.findViewById(id);
-      if (notesTxt == null) {
+      id = R.id.linearLayout;
+      LinearLayout linearLayout = rootView.findViewById(id);
+      if (linearLayout == null) {
         break missingId;
       }
 
@@ -296,41 +208,22 @@ public final class FragmentQualityrepairBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.qtnok_btn;
-      MaterialButton qtnokBtn = rootView.findViewById(id);
-      if (qtnokBtn == null) {
+      id = R.id.parent_txt;
+      TextView parentTxt = rootView.findViewById(id);
+      if (parentTxt == null) {
         break missingId;
       }
 
-      id = R.id.qualityrepair_txt;
-      TextView qualityrepairTxt = rootView.findViewById(id);
-      if (qualityrepairTxt == null) {
+      id = R.id.quality_repair_txt;
+      TextView qualityRepairTxt = rootView.findViewById(id);
+      if (qualityRepairTxt == null) {
         break missingId;
       }
 
-      id = R.id.reopendefect_btn;
-      MaterialButton reopendefectBtn = rootView.findViewById(id);
-      if (reopendefectBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.repairedqty_txt;
-      TextView repairedqtyTxt = rootView.findViewById(id);
-      if (repairedqtyTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.view;
-      View view = rootView.findViewById(id);
-      if (view == null) {
-        break missingId;
-      }
-
-      return new FragmentQualityrepairBinding((ConstraintLayout) rootView, approvedqtyEdt,
-          approvedqtyTxt, approvedqtyintableTxt, basketbarcodeImg, basketcodeEdt, basketcodeTxt,
-          childTxt, childcode, childesc, childintableTxt, constraint, createscrapBtn, defectnameTxt,
-          defectqtn, defectqtnRv, defectqtyTxt, defectquantityTxt, hsv, notesTxt, operation,
-          operationTxt, qtnokBtn, qualityrepairTxt, reopendefectBtn, repairedqtyTxt, view);
+      return new FragmentQualityRepairBinding((ConstraintLayout) rootView, basketBarcodeImg,
+          basketCodeEdt, basketCodeTxt, childCode, childDesc, defectQtn, defectQtnTxt, defectedQty,
+          defectsDetailsList, defectsList, defectsQty, linearLayout, operation, operationTxt,
+          parentTxt, qualityRepairTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

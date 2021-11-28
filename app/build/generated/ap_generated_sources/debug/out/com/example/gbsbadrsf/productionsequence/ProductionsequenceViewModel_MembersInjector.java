@@ -24,7 +24,8 @@ public final class ProductionsequenceViewModel_MembersInjector implements Member
 
   public static MembersInjector<ProductionsequenceViewModel> create(
       Provider<ApiInterface> apiInterfaceProvider, Provider<Gson> gsonProvider) {
-    return new ProductionsequenceViewModel_MembersInjector(apiInterfaceProvider, gsonProvider);}
+    return new ProductionsequenceViewModel_MembersInjector(apiInterfaceProvider, gsonProvider);
+  }
 
   @Override
   public void injectMembers(ProductionsequenceViewModel instance) {

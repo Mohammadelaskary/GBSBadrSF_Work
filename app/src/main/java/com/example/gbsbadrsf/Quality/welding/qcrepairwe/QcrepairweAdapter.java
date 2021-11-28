@@ -1,14 +1,12 @@
 package com.example.gbsbadrsf.Quality.welding.qcrepairwe;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.paint.qualityrepairpaint.qualityrepairpaintAdapter;
 import com.example.gbsbadrsf.databinding.DefectlistinqualityrepairBinding;
 
 public class QcrepairweAdapter extends RecyclerView.Adapter<QcrepairweAdapter.QcrepairweViewHolder> {
@@ -16,13 +14,13 @@ public class QcrepairweAdapter extends RecyclerView.Adapter<QcrepairweAdapter.Qc
     DefectlistinqualityrepairBinding defectlistinqualityrepairBinding;
     @NonNull
     @Override
-    public QcrepairweAdapter.QcrepairweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public QcrepairweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         defectlistinqualityrepairBinding = DefectlistinqualityrepairBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new QcrepairweAdapter.QcrepairweViewHolder(defectlistinqualityrepairBinding);
+        return new QcrepairweViewHolder(defectlistinqualityrepairBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QcrepairweAdapter.QcrepairweViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull QcrepairweViewHolder holder, int position) {
         if (position==0){
 
 

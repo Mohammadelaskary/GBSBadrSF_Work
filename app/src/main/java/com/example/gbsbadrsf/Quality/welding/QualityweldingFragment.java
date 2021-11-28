@@ -1,16 +1,14 @@
 package com.example.gbsbadrsf.Quality.welding;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.example.gbsbadrsf.R;
-import com.example.gbsbadrsf.databinding.FragmentPaintqualityBinding;
 import com.example.gbsbadrsf.databinding.FragmentQualityweldingBinding;
 
 
@@ -47,9 +45,9 @@ public class QualityweldingFragment extends Fragment {
     }
 
     private void attachListeners() {
-        fragmentQualityweldingBinding.adddefectBtn.setOnClickListener(__ -> {
+        fragmentQualityweldingBinding.qualityOperationBtn.setOnClickListener(__ -> {
 
-            Navigation.findNavController(getView()).navigate(R.id.action_qualityweldingFragment_to_adddefectwe);
+            Navigation.findNavController(getView()).navigate(R.id.action_quality_welding_fragment_to_welding_quality_operation);
 
         });
         fragmentQualityweldingBinding.qualityrepairBtn.setOnClickListener(__ -> {

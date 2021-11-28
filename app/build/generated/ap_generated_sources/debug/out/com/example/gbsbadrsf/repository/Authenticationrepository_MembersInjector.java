@@ -18,7 +18,8 @@ public final class Authenticationrepository_MembersInjector implements MembersIn
 
   public static MembersInjector<Authenticationrepository> create(
       Provider<ApiInterface> apiInterfaceProvider) {
-    return new Authenticationrepository_MembersInjector(apiInterfaceProvider);}
+    return new Authenticationrepository_MembersInjector(apiInterfaceProvider);
+  }
 
   @Override
   public void injectMembers(Authenticationrepository instance) {

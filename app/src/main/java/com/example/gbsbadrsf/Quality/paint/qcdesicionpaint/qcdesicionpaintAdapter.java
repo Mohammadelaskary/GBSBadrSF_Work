@@ -14,13 +14,13 @@ public class qcdesicionpaintAdapter extends RecyclerView.Adapter<qcdesicionpaint
 
     @NonNull
     @Override
-    public qcdesicionpaintAdapter.qcdesicionpaintViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public qcdesicionpaintViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         defectqtnsLstBinding = DefectqtnsLstBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new qcdesicionpaintAdapter.qcdesicionpaintViewHolder(defectqtnsLstBinding);
+        return new qcdesicionpaintViewHolder(defectqtnsLstBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull qcdesicionpaintAdapter.qcdesicionpaintViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull qcdesicionpaintViewHolder holder, int position) {
         if (position==0){
 
 

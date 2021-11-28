@@ -1,16 +1,14 @@
 package com.example.gbsbadrsf.Quality.paint;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.example.gbsbadrsf.R;
-import com.example.gbsbadrsf.databinding.FragmentManfacturingmenuBinding;
 import com.example.gbsbadrsf.databinding.FragmentPaintqualityBinding;
 
 
@@ -48,7 +46,7 @@ public class PaintqualityFragment extends Fragment {
     }
 
     private void attachListeners() {
-        fragmentPaintqualityBinding.adddefectBtn.setOnClickListener(__ -> {
+        fragmentPaintqualityBinding.qualityOperationBtn.setOnClickListener(__ -> {
 
             Navigation.findNavController(getView()).navigate(R.id.action_paintqualityFragment_to_adddefectpaint);
 

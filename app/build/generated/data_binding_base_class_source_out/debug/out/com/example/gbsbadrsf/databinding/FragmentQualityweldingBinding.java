@@ -20,10 +20,10 @@ public final class FragmentQualityweldingBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton adddefectBtn;
+  public final MaterialButton productionscraprequestBtn;
 
   @NonNull
-  public final MaterialButton productionscraprequestBtn;
+  public final MaterialButton qualityOperationBtn;
 
   @NonNull
   public final MaterialButton qualitydesicionBtn;
@@ -38,12 +38,13 @@ public final class FragmentQualityweldingBinding implements ViewBinding {
   public final TextView weldingqualityTxt;
 
   private FragmentQualityweldingBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton adddefectBtn, @NonNull MaterialButton productionscraprequestBtn,
-      @NonNull MaterialButton qualitydesicionBtn, @NonNull MaterialButton qualityrepairBtn,
-      @NonNull MaterialButton scraprequestBtn, @NonNull TextView weldingqualityTxt) {
+      @NonNull MaterialButton productionscraprequestBtn,
+      @NonNull MaterialButton qualityOperationBtn, @NonNull MaterialButton qualitydesicionBtn,
+      @NonNull MaterialButton qualityrepairBtn, @NonNull MaterialButton scraprequestBtn,
+      @NonNull TextView weldingqualityTxt) {
     this.rootView = rootView;
-    this.adddefectBtn = adddefectBtn;
     this.productionscraprequestBtn = productionscraprequestBtn;
+    this.qualityOperationBtn = qualityOperationBtn;
     this.qualitydesicionBtn = qualitydesicionBtn;
     this.qualityrepairBtn = qualityrepairBtn;
     this.scraprequestBtn = scraprequestBtn;
@@ -77,15 +78,15 @@ public final class FragmentQualityweldingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.adddefect_btn;
-      MaterialButton adddefectBtn = rootView.findViewById(id);
-      if (adddefectBtn == null) {
-        break missingId;
-      }
-
       id = R.id.productionscraprequest_btn;
       MaterialButton productionscraprequestBtn = rootView.findViewById(id);
       if (productionscraprequestBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.quality_operation_btn;
+      MaterialButton qualityOperationBtn = rootView.findViewById(id);
+      if (qualityOperationBtn == null) {
         break missingId;
       }
 
@@ -113,9 +114,9 @@ public final class FragmentQualityweldingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentQualityweldingBinding((ConstraintLayout) rootView, adddefectBtn,
-          productionscraprequestBtn, qualitydesicionBtn, qualityrepairBtn, scraprequestBtn,
-          weldingqualityTxt);
+      return new FragmentQualityweldingBinding((ConstraintLayout) rootView,
+          productionscraprequestBtn, qualityOperationBtn, qualitydesicionBtn, qualityrepairBtn,
+          scraprequestBtn, weldingqualityTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

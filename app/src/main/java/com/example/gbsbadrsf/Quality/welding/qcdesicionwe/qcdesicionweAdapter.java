@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.paint.qcdesicionpaint.qcdesicionpaintAdapter;
 import com.example.gbsbadrsf.databinding.DefectqtnsLstBinding;
 
 public class qcdesicionweAdapter  extends RecyclerView.Adapter<qcdesicionweAdapter.qcdesicionweViewHolder> {
@@ -15,13 +14,13 @@ public class qcdesicionweAdapter  extends RecyclerView.Adapter<qcdesicionweAdapt
 
     @NonNull
     @Override
-    public qcdesicionweAdapter.qcdesicionweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public qcdesicionweViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         defectqtnsLstBinding = DefectqtnsLstBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new qcdesicionweAdapter.qcdesicionweViewHolder(defectqtnsLstBinding);
+        return new qcdesicionweViewHolder(defectqtnsLstBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull qcdesicionweAdapter.qcdesicionweViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull qcdesicionweViewHolder holder, int position) {
         if (position==0){
 
 

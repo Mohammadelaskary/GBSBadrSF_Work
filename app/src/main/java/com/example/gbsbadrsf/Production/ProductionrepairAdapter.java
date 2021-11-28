@@ -1,11 +1,9 @@
 package com.example.gbsbadrsf.Production;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,12 +22,12 @@ public class ProductionrepairAdapter extends RecyclerView.Adapter<Productionrepa
 
     @NonNull
     @Override
-    public ProductionrepairAdapter.ProductionrepairViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductionrepairViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding = QcnotesLstBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
         return new ProductionrepairViewHolder(binding);    }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductionrepairAdapter.ProductionrepairViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductionrepairViewHolder holder, int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

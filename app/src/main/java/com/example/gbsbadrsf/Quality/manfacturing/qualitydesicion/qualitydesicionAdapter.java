@@ -7,8 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.qualityrepairAdapter;
-import com.example.gbsbadrsf.databinding.DefectlistinqualityrepairBinding;
 import com.example.gbsbadrsf.databinding.DefectqtnsLstBinding;
 
 public class qualitydesicionAdapter extends RecyclerView.Adapter<qualitydesicionAdapter.qualitydesicionViewHolder> {
@@ -16,13 +14,13 @@ public class qualitydesicionAdapter extends RecyclerView.Adapter<qualitydesicion
 
     @NonNull
     @Override
-    public qualitydesicionAdapter.qualitydesicionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public qualitydesicionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         defectqtnsLstBinding = DefectqtnsLstBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new qualitydesicionAdapter.qualitydesicionViewHolder(defectqtnsLstBinding);
+        return new qualitydesicionViewHolder(defectqtnsLstBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull qualitydesicionAdapter.qualitydesicionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull qualitydesicionViewHolder holder, int position) {
         if (position==0){
 
 

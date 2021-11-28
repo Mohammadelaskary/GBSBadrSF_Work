@@ -27,7 +27,8 @@ public final class MachineLoadingFragment_MembersInjector implements MembersInje
   public static MembersInjector<MachineLoadingFragment> create(
       Provider<DispatchingAndroidInjector<Object>> androidInjectorProvider,
       Provider<ViewModelProviderFactory> providerFactoryProvider) {
-    return new MachineLoadingFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);}
+    return new MachineLoadingFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);
+  }
 
   @Override
   public void injectMembers(MachineLoadingFragment instance) {

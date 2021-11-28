@@ -1,16 +1,13 @@
 package com.example.gbsbadrsf.Quality.welding.productionscraprequestwe;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.gbsbadrsf.R;
+import androidx.fragment.app.Fragment;
+
 import com.example.gbsbadrsf.databinding.FragmentProductionScraprequestweBinding;
-import com.example.gbsbadrsf.databinding.FragmentProductionscraprequestqcBinding;
 
 
 public class ProductionScraprequestwe extends Fragment {

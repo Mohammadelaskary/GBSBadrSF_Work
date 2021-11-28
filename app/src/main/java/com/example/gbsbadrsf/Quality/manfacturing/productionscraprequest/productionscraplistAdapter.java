@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gbsbadrsf.Util.OnClick;
 import com.example.gbsbadrsf.databinding.ProductionscrapLstBinding;
-import com.example.gbsbadrsf.databinding.QualityscrapLstBinding;
-import com.example.gbsbadrsf.qualityscrap.qualityscraplistadapter;
 
 public class productionscraplistAdapter extends RecyclerView.Adapter<productionscraplistAdapter.productionscraplistViewHolder> {
     ProductionscrapLstBinding productionscrapLstBinding;
@@ -22,13 +20,13 @@ public class productionscraplistAdapter extends RecyclerView.Adapter<productions
     }
     @NonNull
     @Override
-    public productionscraplistAdapter.productionscraplistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public productionscraplistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         productionscrapLstBinding = ProductionscrapLstBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new productionscraplistAdapter.productionscraplistViewHolder(productionscrapLstBinding);
+        return new productionscraplistViewHolder(productionscrapLstBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull productionscraplistAdapter.productionscraplistViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull productionscraplistViewHolder holder, int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +43,7 @@ public class productionscraplistAdapter extends RecyclerView.Adapter<productions
     class productionscraplistViewHolder extends RecyclerView.ViewHolder{
         TextView jobordernametxt,jobordername,Deptxt,Dep,operationtxt,operation,scrapquantitytxt,scrapquantity;
 
-        public productionscraplistViewHolder(@NonNull  ProductionscrapLstBinding itemView) {
+        public productionscraplistViewHolder(@NonNull ProductionscrapLstBinding itemView) {
             super(itemView.getRoot());
             jobordernametxt=itemView.jobordernumTxt;
             jobordername=itemView.jobordername;

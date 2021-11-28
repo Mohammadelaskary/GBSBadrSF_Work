@@ -27,7 +27,8 @@ public final class SigninFragment_MembersInjector implements MembersInjector<Sig
   public static MembersInjector<SigninFragment> create(
       Provider<DispatchingAndroidInjector<Object>> androidInjectorProvider,
       Provider<ViewModelProviderFactory> providerFactoryProvider) {
-    return new SigninFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);}
+    return new SigninFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);
+  }
 
   @Override
   public void injectMembers(SigninFragment instance) {

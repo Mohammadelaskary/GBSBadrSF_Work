@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Production.ProductionrepairAdapter;
 import com.example.gbsbadrsf.Util.OnClick;
 import com.example.gbsbadrsf.databinding.QcnotesLstBinding;
 

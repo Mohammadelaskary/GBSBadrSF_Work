@@ -18,7 +18,8 @@ public final class Productionsequencerepository_MembersInjector implements Membe
 
   public static MembersInjector<Productionsequencerepository> create(
       Provider<ApiInterface> apiInterfaceProvider) {
-    return new Productionsequencerepository_MembersInjector(apiInterfaceProvider);}
+    return new Productionsequencerepository_MembersInjector(apiInterfaceProvider);
+  }
 
   @Override
   public void injectMembers(Productionsequencerepository instance) {

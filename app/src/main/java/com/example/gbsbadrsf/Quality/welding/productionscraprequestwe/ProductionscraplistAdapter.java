@@ -8,9 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.manfacturing.productionscraprequest.productionscraplistAdapter;
 import com.example.gbsbadrsf.Util.OnClick;
-import com.example.gbsbadrsf.databinding.ProductionscrapLstBinding;
 import com.example.gbsbadrsf.databinding.ProductionscraplstWeBinding;
 
 public class ProductionscraplistAdapter extends RecyclerView.Adapter<ProductionscraplistAdapter.ProductionscraplistViewHolder> {
@@ -22,13 +20,13 @@ public class ProductionscraplistAdapter extends RecyclerView.Adapter<Productions
     }
     @NonNull
     @Override
-    public ProductionscraplistAdapter.ProductionscraplistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductionscraplistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         productionscraplstWeBinding = ProductionscraplstWeBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new ProductionscraplistAdapter.ProductionscraplistViewHolder(productionscraplstWeBinding);
+        return new ProductionscraplistViewHolder(productionscraplstWeBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductionscraplistAdapter.ProductionscraplistViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductionscraplistViewHolder holder, int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +43,7 @@ public class ProductionscraplistAdapter extends RecyclerView.Adapter<Productions
     class ProductionscraplistViewHolder extends RecyclerView.ViewHolder{
         TextView jobordernametxt,jobordername,Deptxt,Dep,operationtxt,operation,scrapquantitytxt,scrapquantity;
 
-        public ProductionscraplistViewHolder(@NonNull  ProductionscraplstWeBinding itemView) {
+        public ProductionscraplistViewHolder(@NonNull ProductionscraplstWeBinding itemView) {
             super(itemView.getRoot());
             jobordernametxt=itemView.jobordernumTxt;
             jobordername=itemView.jobordername;

@@ -3,8 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/drawable-hdpi/ic_down_arrow.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/add_defects_details_button.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/basketcode_lst.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/defect_item.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_display_defect_details.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingmenu.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingquality.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_add_defect_details.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paint_quality_operation.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paintquality.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_production_repair.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_defect_repair.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitymainmenu.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitywelding.xml" value="0.1" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_random_quality_inception.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_welding_add_defects_details.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/qty_child_qty_defect_item.xml" value="0.1361111111111111" />
       </map>
     </option>
   </component>

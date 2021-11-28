@@ -31,7 +31,8 @@ public final class ProductionSequence_MembersInjector implements MembersInjector
   public static MembersInjector<ProductionSequence> create(
       Provider<DispatchingAndroidInjector<Object>> androidInjectorProvider,
       Provider<ViewModelProviderFactory> providerProvider, Provider<Gson> gsonProvider) {
-    return new ProductionSequence_MembersInjector(androidInjectorProvider, providerProvider, gsonProvider);}
+    return new ProductionSequence_MembersInjector(androidInjectorProvider, providerProvider, gsonProvider);
+  }
 
   @Override
   public void injectMembers(ProductionSequence instance) {

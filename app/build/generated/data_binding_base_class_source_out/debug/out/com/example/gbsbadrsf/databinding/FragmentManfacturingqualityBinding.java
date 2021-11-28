@@ -20,13 +20,13 @@ public final class FragmentManfacturingqualityBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton adddefectBtn;
-
-  @NonNull
   public final TextView manfacturingqualityTxt;
 
   @NonNull
   public final MaterialButton productionscraprequestBtn;
+
+  @NonNull
+  public final MaterialButton qualityOperationBtn;
 
   @NonNull
   public final MaterialButton qualitydesicionBtn;
@@ -35,19 +35,24 @@ public final class FragmentManfacturingqualityBinding implements ViewBinding {
   public final MaterialButton qualityrepairBtn;
 
   @NonNull
-  public final MaterialButton scraprequestBtn;
+  public final MaterialButton randomQualityInspection;
+
+  @NonNull
+  public final MaterialButton rejectionRequestBtn;
 
   private FragmentManfacturingqualityBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton adddefectBtn, @NonNull TextView manfacturingqualityTxt,
-      @NonNull MaterialButton productionscraprequestBtn, @NonNull MaterialButton qualitydesicionBtn,
-      @NonNull MaterialButton qualityrepairBtn, @NonNull MaterialButton scraprequestBtn) {
+      @NonNull TextView manfacturingqualityTxt, @NonNull MaterialButton productionscraprequestBtn,
+      @NonNull MaterialButton qualityOperationBtn, @NonNull MaterialButton qualitydesicionBtn,
+      @NonNull MaterialButton qualityrepairBtn, @NonNull MaterialButton randomQualityInspection,
+      @NonNull MaterialButton rejectionRequestBtn) {
     this.rootView = rootView;
-    this.adddefectBtn = adddefectBtn;
     this.manfacturingqualityTxt = manfacturingqualityTxt;
     this.productionscraprequestBtn = productionscraprequestBtn;
+    this.qualityOperationBtn = qualityOperationBtn;
     this.qualitydesicionBtn = qualitydesicionBtn;
     this.qualityrepairBtn = qualityrepairBtn;
-    this.scraprequestBtn = scraprequestBtn;
+    this.randomQualityInspection = randomQualityInspection;
+    this.rejectionRequestBtn = rejectionRequestBtn;
   }
 
   @Override
@@ -77,12 +82,6 @@ public final class FragmentManfacturingqualityBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.adddefect_btn;
-      MaterialButton adddefectBtn = rootView.findViewById(id);
-      if (adddefectBtn == null) {
-        break missingId;
-      }
-
       id = R.id.manfacturingquality_txt;
       TextView manfacturingqualityTxt = rootView.findViewById(id);
       if (manfacturingqualityTxt == null) {
@@ -92,6 +91,12 @@ public final class FragmentManfacturingqualityBinding implements ViewBinding {
       id = R.id.productionscraprequest_btn;
       MaterialButton productionscraprequestBtn = rootView.findViewById(id);
       if (productionscraprequestBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.quality_operation_btn;
+      MaterialButton qualityOperationBtn = rootView.findViewById(id);
+      if (qualityOperationBtn == null) {
         break missingId;
       }
 
@@ -107,15 +112,21 @@ public final class FragmentManfacturingqualityBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.scraprequest_btn;
-      MaterialButton scraprequestBtn = rootView.findViewById(id);
-      if (scraprequestBtn == null) {
+      id = R.id.random_quality_inspection;
+      MaterialButton randomQualityInspection = rootView.findViewById(id);
+      if (randomQualityInspection == null) {
         break missingId;
       }
 
-      return new FragmentManfacturingqualityBinding((ConstraintLayout) rootView, adddefectBtn,
-          manfacturingqualityTxt, productionscraprequestBtn, qualitydesicionBtn, qualityrepairBtn,
-          scraprequestBtn);
+      id = R.id.rejection_request_btn;
+      MaterialButton rejectionRequestBtn = rootView.findViewById(id);
+      if (rejectionRequestBtn == null) {
+        break missingId;
+      }
+
+      return new FragmentManfacturingqualityBinding((ConstraintLayout) rootView,
+          manfacturingqualityTxt, productionscraprequestBtn, qualityOperationBtn,
+          qualitydesicionBtn, qualityrepairBtn, randomQualityInspection, rejectionRequestBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

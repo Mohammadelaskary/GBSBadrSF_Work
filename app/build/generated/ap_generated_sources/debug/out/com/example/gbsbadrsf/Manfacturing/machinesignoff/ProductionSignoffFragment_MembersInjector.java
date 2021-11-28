@@ -27,7 +27,8 @@ public final class ProductionSignoffFragment_MembersInjector implements MembersI
   public static MembersInjector<ProductionSignoffFragment> create(
       Provider<DispatchingAndroidInjector<Object>> androidInjectorProvider,
       Provider<ViewModelProviderFactory> providerFactoryProvider) {
-    return new ProductionSignoffFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);}
+    return new ProductionSignoffFragment_MembersInjector(androidInjectorProvider, providerFactoryProvider);
+  }
 
   @Override
   public void injectMembers(ProductionSignoffFragment instance) {
