@@ -324,10 +324,6 @@
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_qualitywelding.xml"
     },
     {
-        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionscrap.xml",
-        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_productionscrap.xml"
-    },
-    {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionscraplistwe.xml",
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_productionscraplistwe.xml"
     },
@@ -394,6 +390,10 @@
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_quality.xml",
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_quality.xml"
+    },
+    {
+        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_production_rejection.xml",
+        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_production_rejection.xml"
     },
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_paintquality.xml",

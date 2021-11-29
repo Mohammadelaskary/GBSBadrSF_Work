@@ -128,7 +128,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mi
 	android:allowBackup
 		ADDED from E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:20:9-47
+		ADDED from E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:20:9-41
 	android:usesCleartextTraffic
 		ADDED from E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:19:9-44
 	android:name

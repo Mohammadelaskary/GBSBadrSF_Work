@@ -1,4 +1,4 @@
-#Thu Nov 25 21:37:47 EET 2021
+#Mon Nov 29 13:18:12 EET 2021
 base.0=E\:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

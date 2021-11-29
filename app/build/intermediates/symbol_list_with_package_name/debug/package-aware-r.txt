@@ -1713,6 +1713,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_round_warning
 drawable mainentry
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -1837,7 +1838,6 @@ id action_manfacturingmenuFragment_to_machineLoadingFragment
 id action_manfacturingmenuFragment_to_mainScrapmanagment
 id action_manfacturingmenuFragment_to_mainmachineloading
 id action_manfacturingmenuFragment_to_mainmachinesignoff
-id action_manfacturingqualityFragment_to_addDefectsFragment
 id action_manfacturingqualityFragment_to_productionscrapFragment
 id action_manfacturingqualityFragment_to_productionscraplistinqualityFragment
 id action_manfacturingqualityFragment_to_quality_operation_fragment
@@ -2439,6 +2439,7 @@ id random_quality_inspection
 id random_quality_inspection_txt
 id ratio
 id rectangles
+id rejected_qty_edt
 id rejection_request_btn
 id reopen_defect_btn
 id reopendef_appbar
@@ -2760,6 +2761,7 @@ layout fragment_paintsignoff
 layout fragment_planning_menu
 layout fragment_production_defect_repair
 layout fragment_production_menu
+layout fragment_production_rejection
 layout fragment_production_repair
 layout fragment_production_scraprequestwe
 layout fragment_production_sequence
@@ -2767,7 +2769,6 @@ layout fragment_production_signoff
 layout fragment_productionrepairpaint
 layout fragment_productionrepairwe
 layout fragment_productionrepstatus
-layout fragment_productionscrap
 layout fragment_productionscrapapproval
 layout fragment_productionscraplist
 layout fragment_productionscraplistinquality

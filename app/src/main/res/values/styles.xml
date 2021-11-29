@@ -42,13 +42,15 @@
 
     <style name="SpinnerTheme" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/spinner_drop</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="MainTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="MainTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
 
     </style>
 

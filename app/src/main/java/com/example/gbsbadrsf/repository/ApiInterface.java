@@ -1,7 +1,10 @@
 package com.example.gbsbadrsf.repository;
 
 import com.example.gbsbadrsf.Model.ApiResponseDefectsManufacturing;
+import com.example.gbsbadrsf.Model.ApiResponseDepartmentsList;
+import com.example.gbsbadrsf.Model.ApiResponseGetBasketInfo;
 import com.example.gbsbadrsf.Model.ApiResponseLastMoveManufacturingBasket;
+import com.example.gbsbadrsf.Production.Data.ApiResponseSaveRejectionRequest;
 import com.example.gbsbadrsf.Quality.Data.AddManufacturingDefectData;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQuality;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
@@ -27,7 +30,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface ApiInterface {
+public interface  ApiInterface {
 
 @GET("GetManufacturingLoadingSequenceByJobOrder")
    Single<APIResponse<List<Ppr>>> getproductionsequence(@Query("JobOrderName") String jobordername);
@@ -121,6 +124,12 @@ public interface ApiInterface {
             @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("Code") String Code
     );
+  @GET("GetBasketInfo")
+  Single<ApiResponseGetBasketInfo> getBasketInfo(
+          @Query("UserID") int userId,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("BasketCode") String BasketCode
+  );
     @GET("SaveQualityRandomInpection")
     Single<ApiResponseSaveRandomQualityInception> SaveQualityRandomInspection(
             @Query("UserID") int userId,
@@ -131,9 +140,19 @@ public interface ApiInterface {
             @Query("Notes") String Notes
     );
 
+  @GET("SaveRejectionRequest")
+  Single<ApiResponseSaveRejectionRequest> SaveRejectionRequest(
+          @Query("UserID") int userId,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("BasketCode") String BasketCode,
+          @Query("RejectionQty") int RejectionQty,
+          @Query("DepartmentID") int DepartmentID
+  );
 
-
-
+  @GET("GetDepartmentsList")
+  Single<ApiResponseDepartmentsList> getDepartmentsList(
+          @Query("UserID") int UserID
+  );
 
 
 }

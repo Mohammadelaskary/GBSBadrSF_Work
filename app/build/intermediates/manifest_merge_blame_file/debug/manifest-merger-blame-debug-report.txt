@@ -48,8 +48,8 @@
 26        android:supportsRtl="true"
 26-->E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:18:9-35
 27        android:testOnly="true"
-28        android:theme="@style/Theme.GBSBadrSF"
-28-->E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:20:9-47
+28        android:theme="@style/MainTheme"
+28-->E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:20:9-41
 29        android:usesCleartextTraffic="true" >
 29-->E:\waleed\GBSGhabbour\app\src\main\AndroidManifest.xml:19:9-44
 30        <activity android:name="com.example.gbsbadrsf.MainActivity" >
