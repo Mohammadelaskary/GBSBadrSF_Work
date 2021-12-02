@@ -381,12 +381,14 @@
 
     <fragment
         android:id="@+id/qualitydesicionFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment"
         android:label="fragment_qualitydesicion"
-        tools:layout="@layout/fragment_qualitydesicion" >
+        tools:layout="@layout/fragment_quality_desicion" >
         <action
             android:id="@+id/action_qualitydesicionFragment_to_scrapFragment"
             app:destination="@id/scrapFragment" />
+        <action android:id="@+id/action_fragment_quality_decision_to_fragment_display_defect_details"
+            app:destination="@id/fragment_display_defect_details"/>
     </fragment>
     <fragment
         android:id="@+id/scrapFragment"

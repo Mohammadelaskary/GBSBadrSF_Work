@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_basketcode_lst.xml.flat",
-        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\basketcode_lst.xml"
-    },
-    {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
         "source": "E:\\waleed\\GBSGhabbour\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_basketcode_lst.xml.flat",
+        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\basketcode_lst.xml"
     },
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_barcodel.png.flat",
@@ -38,10 +38,6 @@
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_quality.xml.flat",
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_quality.xml"
-    },
-    {
-        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_qualitydesicion.xml.flat",
-        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_qualitydesicion.xml"
     },
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_round_warning.png.flat",
@@ -78,6 +74,10 @@
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_quality_desicion.xml.flat",
+        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_quality_desicion.xml"
     },
     {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_productionscraplist.xml.flat",

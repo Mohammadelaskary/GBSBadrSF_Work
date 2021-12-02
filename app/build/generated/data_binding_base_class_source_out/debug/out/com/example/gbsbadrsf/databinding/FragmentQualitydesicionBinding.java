@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.gbsbadrsf.R;
@@ -20,15 +20,12 @@ import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
-public final class FragmentQualitydesicionBinding implements ViewBinding {
+public final class FragmentQualityDesicionBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final TextView DefectqtnTxt;
-
-  @NonNull
-  public final TextView approvedqtyintableTxt;
 
   @NonNull
   public final ImageView basketbarcodeImg;
@@ -49,22 +46,16 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
   public final TextView childesc;
 
   @NonNull
-  public final ConstraintLayout constraint;
+  public final LinearLayout constraint;
+
+  @NonNull
+  public final RecyclerView defectedQtnDefectsQtyRecycler;
 
   @NonNull
   public final TextView defectnameTxt;
 
   @NonNull
   public final TextView defectqtn;
-
-  @NonNull
-  public final RecyclerView defectqtnRv;
-
-  @NonNull
-  public final TextView defectqtyTxt;
-
-  @NonNull
-  public final HorizontalScrollView hsv;
 
   @NonNull
   public final TextView operation;
@@ -82,32 +73,22 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
   public final TextView qualitydesicionTxt;
 
   @NonNull
-  public final TextView repairedqtyTxt;
-
-  @NonNull
   public final TextView sampleqtyTxt;
 
   @NonNull
   public final MaterialButton saveBtn;
 
-  @NonNull
-  public final View view;
-
-  private FragmentQualitydesicionBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView DefectqtnTxt, @NonNull TextView approvedqtyintableTxt,
-      @NonNull ImageView basketbarcodeImg, @NonNull EditText basketcodeEdt,
-      @NonNull TextView basketcodeTxt, @NonNull TextView childTxt, @NonNull TextView childcode,
-      @NonNull TextView childesc, @NonNull ConstraintLayout constraint,
-      @NonNull TextView defectnameTxt, @NonNull TextView defectqtn,
-      @NonNull RecyclerView defectqtnRv, @NonNull TextView defectqtyTxt,
-      @NonNull HorizontalScrollView hsv, @NonNull TextView operation,
-      @NonNull TextView operationTxt, @NonNull TextView qcdecisionXt,
-      @NonNull AppCompatSpinner qfinaldesicionSpin, @NonNull TextView qualitydesicionTxt,
-      @NonNull TextView repairedqtyTxt, @NonNull TextView sampleqtyTxt,
-      @NonNull MaterialButton saveBtn, @NonNull View view) {
+  private FragmentQualityDesicionBinding(@NonNull ScrollView rootView,
+      @NonNull TextView DefectqtnTxt, @NonNull ImageView basketbarcodeImg,
+      @NonNull EditText basketcodeEdt, @NonNull TextView basketcodeTxt, @NonNull TextView childTxt,
+      @NonNull TextView childcode, @NonNull TextView childesc, @NonNull LinearLayout constraint,
+      @NonNull RecyclerView defectedQtnDefectsQtyRecycler, @NonNull TextView defectnameTxt,
+      @NonNull TextView defectqtn, @NonNull TextView operation, @NonNull TextView operationTxt,
+      @NonNull TextView qcdecisionXt, @NonNull AppCompatSpinner qfinaldesicionSpin,
+      @NonNull TextView qualitydesicionTxt, @NonNull TextView sampleqtyTxt,
+      @NonNull MaterialButton saveBtn) {
     this.rootView = rootView;
     this.DefectqtnTxt = DefectqtnTxt;
-    this.approvedqtyintableTxt = approvedqtyintableTxt;
     this.basketbarcodeImg = basketbarcodeImg;
     this.basketcodeEdt = basketcodeEdt;
     this.basketcodeTxt = basketcodeTxt;
@@ -115,37 +96,33 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
     this.childcode = childcode;
     this.childesc = childesc;
     this.constraint = constraint;
+    this.defectedQtnDefectsQtyRecycler = defectedQtnDefectsQtyRecycler;
     this.defectnameTxt = defectnameTxt;
     this.defectqtn = defectqtn;
-    this.defectqtnRv = defectqtnRv;
-    this.defectqtyTxt = defectqtyTxt;
-    this.hsv = hsv;
     this.operation = operation;
     this.operationTxt = operationTxt;
     this.qcdecisionXt = qcdecisionXt;
     this.qfinaldesicionSpin = qfinaldesicionSpin;
     this.qualitydesicionTxt = qualitydesicionTxt;
-    this.repairedqtyTxt = repairedqtyTxt;
     this.sampleqtyTxt = sampleqtyTxt;
     this.saveBtn = saveBtn;
-    this.view = view;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
   @NonNull
-  public static FragmentQualitydesicionBinding inflate(@NonNull LayoutInflater inflater) {
+  public static FragmentQualityDesicionBinding inflate(@NonNull LayoutInflater inflater) {
     return inflate(inflater, null, false);
   }
 
   @NonNull
-  public static FragmentQualitydesicionBinding inflate(@NonNull LayoutInflater inflater,
+  public static FragmentQualityDesicionBinding inflate(@NonNull LayoutInflater inflater,
       @Nullable ViewGroup parent, boolean attachToParent) {
-    View root = inflater.inflate(R.layout.fragment_qualitydesicion, parent, false);
+    View root = inflater.inflate(R.layout.fragment_quality_desicion, parent, false);
     if (attachToParent) {
       parent.addView(root);
     }
@@ -153,7 +130,7 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
   }
 
   @NonNull
-  public static FragmentQualitydesicionBinding bind(@NonNull View rootView) {
+  public static FragmentQualityDesicionBinding bind(@NonNull View rootView) {
     // The body of this method is generated in a way you would not otherwise write.
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
@@ -161,12 +138,6 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
       id = R.id.Defectqtn_txt;
       TextView DefectqtnTxt = rootView.findViewById(id);
       if (DefectqtnTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.approvedqtyintable_txt;
-      TextView approvedqtyintableTxt = rootView.findViewById(id);
-      if (approvedqtyintableTxt == null) {
         break missingId;
       }
 
@@ -207,8 +178,14 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
       }
 
       id = R.id.constraint;
-      ConstraintLayout constraint = rootView.findViewById(id);
+      LinearLayout constraint = rootView.findViewById(id);
       if (constraint == null) {
+        break missingId;
+      }
+
+      id = R.id.defected_qtn_defects_qty_recycler;
+      RecyclerView defectedQtnDefectsQtyRecycler = rootView.findViewById(id);
+      if (defectedQtnDefectsQtyRecycler == null) {
         break missingId;
       }
 
@@ -221,24 +198,6 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
       id = R.id.defectqtn;
       TextView defectqtn = rootView.findViewById(id);
       if (defectqtn == null) {
-        break missingId;
-      }
-
-      id = R.id.defectqtn_rv;
-      RecyclerView defectqtnRv = rootView.findViewById(id);
-      if (defectqtnRv == null) {
-        break missingId;
-      }
-
-      id = R.id.defectqty_txt;
-      TextView defectqtyTxt = rootView.findViewById(id);
-      if (defectqtyTxt == null) {
-        break missingId;
-      }
-
-      id = R.id.hsv;
-      HorizontalScrollView hsv = rootView.findViewById(id);
-      if (hsv == null) {
         break missingId;
       }
 
@@ -272,12 +231,6 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.repairedqty_txt;
-      TextView repairedqtyTxt = rootView.findViewById(id);
-      if (repairedqtyTxt == null) {
-        break missingId;
-      }
-
       id = R.id.sampleqty_txt;
       TextView sampleqtyTxt = rootView.findViewById(id);
       if (sampleqtyTxt == null) {
@@ -290,17 +243,10 @@ public final class FragmentQualitydesicionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.view;
-      View view = rootView.findViewById(id);
-      if (view == null) {
-        break missingId;
-      }
-
-      return new FragmentQualitydesicionBinding((ConstraintLayout) rootView, DefectqtnTxt,
-          approvedqtyintableTxt, basketbarcodeImg, basketcodeEdt, basketcodeTxt, childTxt,
-          childcode, childesc, constraint, defectnameTxt, defectqtn, defectqtnRv, defectqtyTxt, hsv,
-          operation, operationTxt, qcdecisionXt, qfinaldesicionSpin, qualitydesicionTxt,
-          repairedqtyTxt, sampleqtyTxt, saveBtn, view);
+      return new FragmentQualityDesicionBinding((ScrollView) rootView, DefectqtnTxt,
+          basketbarcodeImg, basketcodeEdt, basketcodeTxt, childTxt, childcode, childesc, constraint,
+          defectedQtnDefectsQtyRecycler, defectnameTxt, defectqtn, operation, operationTxt,
+          qcdecisionXt, qfinaldesicionSpin, qualitydesicionTxt, sampleqtyTxt, saveBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

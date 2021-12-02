@@ -12,6 +12,7 @@
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingmenu.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingquality.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_add_defect_details.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_add_defects.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paint_quality_operation.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paintquality.xml" value="0.1" />
@@ -21,7 +22,9 @@
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_productionscrap.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_productionscraprequestqc.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_defect_repair.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_desicion.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_repair.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitydesicion.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitymainmenu.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitywelding.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_random_quality_inception.xml" value="0.1361111111111111" />

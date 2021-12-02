@@ -1823,6 +1823,7 @@ id action_context_bar
 id action_divider
 id action_fragment_manufacturing_quality_to_fragment_random_quality_inception
 id action_fragment_production_repair_to_fragment_production_defect_repair
+id action_fragment_quality_decision_to_fragment_display_defect_details
 id action_image
 id action_machineLoadingFragment_to_addworkersFragment
 id action_mainScrapmanagment_to_productionscrapFragment
@@ -2049,6 +2050,7 @@ id defect_qtn_txt
 id defect_spin
 id defect_txt
 id defected_details_txt
+id defected_qtn_defects_qty_recycler
 id defected_qtn_edt
 id defected_qty
 id defectedqtn_txt
@@ -2779,8 +2781,8 @@ layout fragment_qcdesicionwe
 layout fragment_qcrepairwe
 layout fragment_quality
 layout fragment_quality_defect_repair
+layout fragment_quality_desicion
 layout fragment_quality_repair
-layout fragment_qualitydesicion
 layout fragment_qualitydesicionpaint
 layout fragment_qualitymainmenu
 layout fragment_qualityrepairpaint

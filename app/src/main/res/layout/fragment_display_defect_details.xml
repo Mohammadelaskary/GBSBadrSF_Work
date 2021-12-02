@@ -120,6 +120,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="@id/defectedqtn_txt"
                 app:layout_constraintTop_toBottomOf="@id/defectedqtn_txt" />
 

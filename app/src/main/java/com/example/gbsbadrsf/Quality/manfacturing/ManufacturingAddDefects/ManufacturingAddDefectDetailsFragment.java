@@ -133,7 +133,8 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
             jobOrderId,
             operationId,
             parentId=3,
-            sampleQty;
+            sampleQty,
+            userId=1;
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -144,7 +145,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
                 } else {
                     AddManufacturingDefectData data = new AddManufacturingDefectData();
                     defectedQty=Integer.parseInt(binding.defectedQtnEdt.getText().toString().trim());
-                    data.setUserId(1);
+                    data.setUserId(userId);
                     data.setDeviceSerialNo(deviceSerialNumber);
                     data.setJobOrderId(jobOrderId);
                     data.setParentID(parentId);

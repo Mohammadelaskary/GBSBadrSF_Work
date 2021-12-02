@@ -9,6 +9,7 @@ import com.example.gbsbadrsf.Quality.Data.AddManufacturingDefectData;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQuality;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseGettingFinalQualityDecision;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.Defect;
 import com.example.gbsbadrsf.data.response.APIResponse;
@@ -22,6 +23,7 @@ import com.example.gbsbadrsf.data.response.Ppr;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.UserInfo;
 
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -65,11 +67,16 @@ public interface  ApiInterface {
             @Query("ChildId") int ChildId
     );
 
-    @GET("GetManufacturingDefectedQtyByBasketCode")
-    Single<ApiResponseDefectsManufacturing> getManufacturingDefectedQtyByBasketCode(
+    @GET("GetQualityOperationByBasketCode")
+    Single<ApiResponseDefectsManufacturing> getQualityOperationByBasketCode(
+            @Query("UserID") long userId,
+            @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("BasketCode") String BasketCode
     );
-
+    @GET("GetManufacturingDefectedQtyByBasketCode")
+    Single<ApiResponseDefectsManufacturing> getManufacturingDefectedQtyByBasketCode(
+          @Query("BasketCode") String BasketCode
+    );
     @POST("AddManufacturingDefect")
     Single<ApiResponseDefectsManufacturing> AddManufacturingDefect(
             @Body AddManufacturingDefectData data
@@ -152,6 +159,18 @@ public interface  ApiInterface {
   @GET("GetDepartmentsList")
   Single<ApiResponseDepartmentsList> getDepartmentsList(
           @Query("UserID") int UserID
+  );
+  @GET("GetFinalQualityDecision")
+  Single<ApiResponseGettingFinalQualityDecision> getFinalQualityDecision(
+          @Query("UserID") int UserID
+  );
+
+  @GET("QualityOperationSignOff")
+  Single<ApiResponseDepartmentsList> saveQualityOperationSignOff(
+          @Query("UserID") int UserID,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("DT") Date DT,
+          @Query("FinalQualityDecisionId") int FinalQualityDecisionId
   );
 
 

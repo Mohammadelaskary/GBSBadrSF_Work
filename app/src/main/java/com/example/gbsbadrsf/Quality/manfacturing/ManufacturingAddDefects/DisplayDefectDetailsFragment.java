@@ -20,7 +20,7 @@ import java.util.List;
 public class DisplayDefectDetailsFragment extends Fragment {
 
 
-    private String sampleQty;
+    private int sampleQty;
 
     public DisplayDefectDetailsFragment() {
         // Required empty public constructor
@@ -53,9 +53,10 @@ public class DisplayDefectDetailsFragment extends Fragment {
         adapter = new DefectsListAdapter(true);
         binding.defectsSelectList.setAdapter(adapter);
     }
-
+    int defectedQty;
     private void getReceivedData() {
         if (getArguments()!=null) {
+            sampleQty = getArguments().getInt("sampleQty");
             List<DefectsManufacturing> defectsManufacturingList = getArguments().getParcelableArrayList("defectsManufacturingList");
             for (DefectsManufacturing defectsManufacturing:defectsManufacturingList){
                 int defectId = defectsManufacturing.getDefectId();
@@ -63,9 +64,10 @@ public class DisplayDefectDetailsFragment extends Fragment {
                 Defect defect = new Defect();
                 defect.setId(defectId);
                 defect.setName(defectName);
-                if (!foundDefects.contains(defect))
+                if (!foundDefects.contains(defect)) {
                     foundDefects.add(defect);
-
+                    defectedQty = defectsManufacturing.getDeffectedQty();
+                }
                 LastMoveManufacturingBasket basketData = getArguments().getParcelable("basketData");
                 fillData(basketData);
             }
@@ -80,7 +82,8 @@ public class DisplayDefectDetailsFragment extends Fragment {
         String operationName = basketData.getOperationEnName();
         binding.childcode.setText(childCode);
         binding.childesc.setText(childDesc);
-        binding.defectedQtnEdt.setText(operationName);
-        binding.sampleQtnEdt.setText(sampleQty);
+        binding.operation.setText(operationName);
+        binding.defectedQtnEdt.setText(String.valueOf(defectedQty));
+        binding.sampleQtnEdt.setText(String.valueOf(sampleQty));
     }
 }

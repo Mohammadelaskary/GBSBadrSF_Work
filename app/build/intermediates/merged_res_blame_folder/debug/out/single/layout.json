@@ -232,6 +232,10 @@
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_paintdstation.xml"
     },
     {
+        "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_quality_desicion.xml",
+        "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_quality_desicion.xml"
+    },
+    {
         "merged": "E:\\waleed\\GBSGhabbour\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_production_scraprequestwe.xml",
         "source": "E:\\waleed\\GBSGhabbour\\app\\src\\main\\res\\layout\\fragment_production_scraprequestwe.xml"
     },

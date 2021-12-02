@@ -34,7 +34,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
 
     LastMoveManufacturingBasket basketData;
-    int childId,jobOrderId,parentId=0;
+    int childId,jobOrderId,parentId=0,sampleQty;
     String basketCode,newBasketCode="Bskt2";
     ManufacturingAddDefectsViewModel viewModel;
     @Inject
@@ -73,7 +73,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
     }
 
     private void setUpRecyclerView() {
-        adapter = new QualityAddDefectChildsQtyDefectsQtyAdapter(this,this.getView());
+        adapter = new QualityAddDefectChildsQtyDefectsQtyAdapter(this);
         binding.defectsList.setAdapter(adapter);
 
     }
@@ -149,7 +149,6 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
         }
 
     }
-    int sampleQty;
     private void initViews() {
         binding.plusIcon.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -170,8 +169,8 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
 
     @Override
-    public void OnQtyDefectedQtyDefectsItemClicked(int id) {
-        {
+    public void OnQtyDefectedQtyDefectsItemClicked(int id,View view) {
+
             ArrayList<DefectsManufacturing> customDefectsManufacturingList = new ArrayList<>();
             for (DefectsManufacturing defectsManufacturing : defectsManufacturingList) {
                 if (defectsManufacturing.getManufacturingDefectsId() == id)
@@ -180,7 +179,8 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("defectsManufacturingList", customDefectsManufacturingList);
             bundle.putParcelable("basketData", basketData);
+            bundle.putInt("sampleQty",sampleQty);
             Navigation.findNavController(getView()).navigate(R.id.action_manufacturing_add_defects_fragment_to_display_defect_details_fragment, bundle);
-        }
+
     }
 }
