@@ -1,5 +1,6 @@
 package com.example.gbsbadrsf.Production;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,24 +37,24 @@ public class RepairProductionQualityAdapter extends RecyclerView.Adapter<RepairP
         int defectedQty   = defectsManufacturing.getDeffectedQty();
         int repairedQty   = defectsManufacturing.getQtyRepaired();
         int approvedQty   = defectsManufacturing.getQtyApproved();
-        boolean isRepaired = defectsManufacturing.getDefectStatusProduction()!=0;
-        boolean isApproved = defectsManufacturing.getDefectStatusApprove()!=0;
-
+        boolean isRepaired = repairedQty!=0;
+        boolean isApproved = approvedQty!=0;
         holder.binding.defectName.setText(defectName);
         holder.binding.pendingRepairQty.setText(String.valueOf(defectedQty));
-        if (!isRepaired&&!isApproved) {
+        if (!isRepaired) {
             holder.binding.repairedQty.setText("Waiting for repair");
             holder.binding.pendingQcApproveQty.setText("Waiting for repair");
             holder.binding.qualityApprovedQty.setText("Waiting for repair");
-        } else if (isRepaired&&!isApproved){
-            holder.binding.repairedQty.setText(repairedQty);
-            holder.binding.pendingQcApproveQty.setText(repairedQty);
-            holder.binding.qualityApprovedQty.setText("Waiting for Quality Approval");
         } else {
-            holder.binding.repairedQty.setText(repairedQty);
-            holder.binding.pendingQcApproveQty.setText(repairedQty);
-            holder.binding.qualityApprovedQty.setText(approvedQty);
+            holder.binding.repairedQty.setText(repairedQty+"");
+            holder.binding.pendingQcApproveQty.setText(repairedQty+"");
+            if (isApproved) {
+                holder.binding.qualityApprovedQty.setText(approvedQty+"");
+            } else {
+                holder.binding.qualityApprovedQty.setText("Waiting for Quality Approval");
+            }
         }
+
         if (currentPosition == position){
             activateItem(holder.itemView);
         } else {

@@ -72,10 +72,11 @@ public class ProductionRejectionViewModel extends ViewModel {
     }
     public void saveRejectionRequest(int userId,
                                      String deviceSerialNo,
-                                     String basketCode,
+                                     String oldBasketCode,
+                                     String newBasketCode,
                                      int rejectionQty,
                                      int departmentID){
-        disposable.add(apiInterface.SaveRejectionRequest(userId,deviceSerialNo,basketCode,rejectionQty,departmentID)
+        disposable.add(apiInterface.SaveRejectionRequest(userId,deviceSerialNo,oldBasketCode,newBasketCode,rejectionQty,departmentID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe( __ -> apiResponseSaveRejectionRequestStatus.postValue(Status.LOADING))

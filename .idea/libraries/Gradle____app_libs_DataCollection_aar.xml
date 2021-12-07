@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/DataCollection.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b53819592ab226c683653110f722b0e/jetified-DataCollection/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b53819592ab226c683653110f722b0e/jetified-DataCollection/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b53819592ab226c683653110f722b0e/jetified-DataCollection/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/087a100734349c01f8f94ce22d9d74ac/transformed/DataCollection/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/087a100734349c01f8f94ce22d9d74ac/transformed/DataCollection/res" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-3/087a100734349c01f8f94ce22d9d74ac/transformed/DataCollection/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -12,6 +12,7 @@ public class AddManufacturingDefectData {
     private int QtyDefected;
     private String Notes;
     private int SampleQty;
+    private boolean IsNewSampleQty;
     private List<Integer> DefectList;
 
     public AddManufacturingDefectData() {
@@ -95,5 +96,13 @@ public class AddManufacturingDefectData {
 
     public void setDefectList(List<Integer> defectList) {
         DefectList = defectList;
+    }
+
+    public boolean isNewSampleQty() {
+        return IsNewSampleQty;
+    }
+
+    public void setNewSampleQty(boolean newSampleQty) {
+        IsNewSampleQty = newSampleQty;
     }
 }

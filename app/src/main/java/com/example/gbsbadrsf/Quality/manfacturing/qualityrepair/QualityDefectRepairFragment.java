@@ -52,6 +52,8 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
     @Inject
     ViewModelProviderFactory provider;
     RepairProductionQualityAdapter adapter;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,8 +89,14 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
         viewModel.getAddManufacturingRepairQuality().observe(getViewLifecycleOwner(),response-> {
             String statusMessage = response.getResponseStatus().getStatusMessage();
             if (statusMessage.equals(SAVED_SUCCESSFULLY)){
-                Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+                for (DefectsManufacturing defectsManufacturing:defectsManufacturingList){
+                    if (defectsManufacturing.getManufacturingDefectsId()==defectsManufacturingDetailsId){
+                        defectsManufacturing.setQtyApproved(Integer.parseInt(approvedQty));
+                        adapter.notifyDataSetChanged();
+                    }
+                }
             }
+            Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -129,9 +137,13 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
 
     @Override
     public void onRepairItemClicked(DefectsManufacturing defectsManufacturing) {
-        binding.approvedQty.getEditText().setText(String.valueOf(defectsManufacturing.getDeffectedQty()));
-        defectsManufacturingDetailsId = defectsManufacturing.getDefectsManufacturingDetailsId();
-        defectStatus = defectsManufacturing.getDefectStatus();
+        int repairedQty = defectsManufacturing.getQtyRepaired();
+        if (repairedQty!=0) {
+            binding.approvedQty.getEditText().setText(String.valueOf(repairedQty));
+            defectsManufacturingDetailsId = defectsManufacturing.getDefectsManufacturingDetailsId();
+            defectStatus = defectsManufacturing.getDefectStatus();
+        } else
+            binding.approvedQty.getEditText().setText("Defect isn't repaired yet!");
     }
     int userId = 1,defectsManufacturingDetailsId=-1,defectStatus;
     String notes="df", deviceSerialNumber="sdf",approvedQty;

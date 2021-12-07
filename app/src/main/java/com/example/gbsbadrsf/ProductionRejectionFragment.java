@@ -97,6 +97,38 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
                 binding.rejectedQtyEdt.setError(null);
             }
         });
+        binding.oldBasketCode.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                binding.oldBasketCode.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                binding.oldBasketCode.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                binding.oldBasketCode.setError(null);
+            }
+        });
+        binding.newBasketCode.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                binding.newBasketCode.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                binding.newBasketCode.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                binding.newBasketCode.setError(null);
+            }
+        });
     }
 
     private void attachButtonsToListener() {
@@ -105,20 +137,23 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
         binding.newdefBtn.setOnClickListener(this);
     }
 
-    String basketCode = "Bskt1",childCode,childDesc,jobOrderName,deviceSerial="dev1";
+    String oldBasketCode = "Bskt1",childCode,childDesc,jobOrderName,deviceSerial="dev1";
     int basketQty;
     LastMoveManufacturingBasketInfo basketData;
 
     private void getBasketData() {
-        viewModel.getBasketDataViewModel(userId,deviceSerial,basketCode);
+        viewModel.getBasketDataViewModel(userId,deviceSerial,oldBasketCode);
         viewModel.getApiResponseBasketDataLiveData().observe(getViewLifecycleOwner(),apiResponseLastMoveManufacturingBasket -> {
             basketData = apiResponseLastMoveManufacturingBasket.getLastMoveManufacturingBasketInfo();
             String statusMessage = apiResponseLastMoveManufacturingBasket.getResponseStatus().getStatusMessage();
+            if (statusMessage.equals(GETTING_DATA_SUCCESSFULLY)){
             childCode = basketData.getChildCode();
             childDesc = basketData.getChildDescription();
             jobOrderName = basketData.getJobOrderName();
             basketQty    = basketData.getQty();
             fillViewsData();
+            } else
+                binding.oldBasketCode.setError(statusMessage);
         });
     }
 
@@ -191,7 +226,7 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
                 //                String newBasketCode = binding.basketEdt.getText().toString().trim();
                 String newBasketCode = "Bskt10";
                 if (newBasketCode.isEmpty())
-                    showDialog("Please scan or enter basket code!");
+                    binding.newBasketCode.setError("Please scan or enter new basket code!");
                 boolean validResponsibility = binding.responsibledepSpin.getSelectedItemPosition()>=0&&binding.responsibledepSpin.getSelectedItemPosition()<departments.size();
                 if (validResponsibility){
                     Department department = departments.get(binding.responsibledepSpin.getSelectedItemPosition());
@@ -199,8 +234,8 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
                 } else {
                     Toast.makeText(getContext(), "Please Select A Responsibility!", Toast.LENGTH_SHORT).show();
                 }
-                if (!emptyRejectedQty&&validRejectedQty&&validRejectedQty&&!newBasketCode.isEmpty()){
-                    saveRejectedRequest(userId,deviceSerial,newBasketCode,Integer.parseInt(rejectedQtyString),departmentId);
+                if (!emptyRejectedQty&&validRejectedQty&&validRejectedQty&&!newBasketCode.isEmpty()&&!childCode.isEmpty()){
+                    saveRejectedRequest(userId,deviceSerial,oldBasketCode,newBasketCode,Integer.parseInt(rejectedQtyString),departmentId);
                 }
             } break;
             case R.id.existingdef_btn:{
@@ -212,25 +247,25 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
         }
     }
 
-    private void saveRejectedRequest(int userId, String deviceSerial, String newBasketCode, int rejectedQty, int departmentId) {
-        viewModel.saveRejectionRequest(userId,deviceSerial,newBasketCode,rejectedQty,departmentId);
+    private void saveRejectedRequest(int userId, String deviceSerial,String oldBasketCode, String newBasketCode, int rejectedQty, int departmentId) {
+        viewModel.saveRejectionRequest(userId,deviceSerial,oldBasketCode,newBasketCode,rejectedQty,departmentId);
         viewModel.getApiResponseSaveRejectionRequestLiveData().observe(getViewLifecycleOwner(),apiResponseSaveRejectionRequest -> {
             String statusMessage = apiResponseSaveRejectionRequest.getResponseStatus().getStatusMessage();
             Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
         });
     }
 
-    private void showDialog(String s) {
-       new AlertDialog.Builder(getContext())
-               .setMessage(s)
-               .setIcon(R.drawable.ic_round_warning)
-               .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       dialog.dismiss();
-                       binding.basketcodeEdt.requestFocus();
-                   }
-               })
-               .show();
-    }
+//    private void showDialog(String s) {
+//       new AlertDialog.Builder(getContext())
+//               .setMessage(s)
+//               .setIcon(R.drawable.ic_round_warning)
+//               .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+//                   @Override
+//                   public void onClick(DialogInterface dialog, int which) {
+//                       dialog.dismiss();
+//                       binding.basketcodeEdt.requestFocus();
+//                   }
+//               })
+//               .show();
+//    }
 }

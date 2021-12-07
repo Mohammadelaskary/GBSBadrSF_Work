@@ -2,18 +2,24 @@ package com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gbsbadrsf.MainActivity;
 import com.example.gbsbadrsf.Model.LastMoveManufacturingBasket;
 import com.example.gbsbadrsf.Model.QtyDefectsQtyDefected;
 import com.example.gbsbadrsf.Quality.Data.DefectsManufacturing;
@@ -23,45 +29,113 @@ import com.example.gbsbadrsf.Quality.Data.RandomQualityInceptionViewModel;
 import com.example.gbsbadrsf.Quality.QualityAddDefectChildsQtyDefectsQtyAdapter;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.SetOnQtyDefectedQtyDefectsItemClicked;
 import com.example.gbsbadrsf.R;
+import com.example.gbsbadrsf.SetUpBarCodeReader;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.databinding.FragmentQualityDesicionBinding;
 import com.example.gbsbadrsf.productionsequence.SimpleDividerItemDecoration;
+import com.honeywell.aidc.BarcodeFailureEvent;
+import com.honeywell.aidc.BarcodeReadEvent;
+import com.honeywell.aidc.BarcodeReader;
+import com.honeywell.aidc.ScannerNotClaimedException;
+import com.honeywell.aidc.ScannerUnavailableException;
+import com.honeywell.aidc.TriggerStateChangeEvent;
+import com.honeywell.aidc.UnsupportedPropertyException;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
 
-public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyDefectedQtyDefectsItemClicked, View.OnClickListener {
+public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyDefectedQtyDefectsItemClicked, View.OnClickListener, BarcodeReader.BarcodeListener,
+        BarcodeReader.TriggerListener {
 
     FragmentQualityDesicionBinding binding;
     QualityDecisionViewModel viewModel;
     @Inject
     ViewModelProviderFactory provider;
-
+    private BarcodeReader barcodeReader;
+    String basketCode= "Bskt1";
+    SetUpBarCodeReader setUpBarCodeReader;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentQualityDesicionBinding.inflate(inflater, container, false);
+        setUpBarCodeReader = new SetUpBarCodeReader(this,this);
+        addBasketCodeEditTextWatcher();
         initViewModel();
         initProgressDialog();
         initRecyclerView();
         getFinalQualityDecisionsList(userId);
         setUpFinalQualityDecisionSpinner();
-        getBasketData("Bskt1");
+//        getBasketData(basketCode);
+        observeGettingDecisions();
         observeGettingDefectsManufacturing();
-
+        obseveSavingOperationSignOff();
+        observeSavingOperationSignOffStatus();
         initViews();
 
 
         return binding.getRoot();
 
+    }
+
+    private void observeGettingDecisions() {
+        viewModel.getApiResponseGettingFinalQualityDecisionStatus().observe(getViewLifecycleOwner(),status -> {
+            if (status==Status.LOADING)
+                progressDialog.show();
+            else
+                progressDialog.dismiss();
+        });
+    }
+
+
+    private void addBasketCodeEditTextWatcher() {
+        binding.basketCode.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                binding.basketCode.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                getBasketData(charSequence.toString().trim());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                binding.basketCode.setError(null);
+            }
+        });
+    }
+
+    private void observeSavingOperationSignOffStatus() {
+        viewModel.getSaveQualityOperationSignOffStatus().observe(getViewLifecycleOwner(),status -> {
+            if (status==Status.LOADING)
+                progressDialog.show();
+            else
+                progressDialog.dismiss();
+        });
+    }
+
+    private void obseveSavingOperationSignOff() {
+        NavController navController = NavHostFragment.findNavController(QualityDecisionFragment.this);
+        viewModel.getSaveQualityOperationSignOffLiveData().observe(getViewLifecycleOwner(),apiResponseSavingOperationSignOffDecision -> {
+            String statusMessage = apiResponseSavingOperationSignOffDecision.getResponseStatus().getStatusMessage();
+            Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
+            if (statusMessage.equals("Done successfully"))
+                navController.popBackStack();
+            else
+                Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void getFinalQualityDecisionsList(int userId) {
@@ -79,7 +153,6 @@ public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyD
     List<FinalQualityDecision> finalQualityDecisions = new ArrayList<>();
     ArrayAdapter<FinalQualityDecision> spinnerAdapter;
     private void setUpFinalQualityDecisionSpinner() {
-
         spinnerAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item,finalQualityDecisions);
         binding.qfinaldesicionSpin.setAdapter(spinnerAdapter);
     }
@@ -128,8 +201,24 @@ public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyD
 
                 setBasketData(defectsManufacturings.get(0));
                 fillViews();
+            } else {
+                binding.basketCode.setError(statusMessage);
+                dischargeViews();
             }
         });
+    }
+
+    private void dischargeViews() {
+        childCode = "";
+        childDesc="";
+        operation = "";
+        defectedQty = "";
+        binding.childcode.setText(childCode);
+        binding.childesc.setText(childDesc);
+        binding.operation.setText(operation);
+        binding.defectqtn.setText(defectedQty);
+        qtyDefectsQtyDefectedList.clear();
+        adapter.notifyDataSetChanged();
     }
 
     private void setBasketData(DefectsManufacturing defectsManufacturing) {
@@ -173,7 +262,7 @@ public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyD
     private void initViews() {
         binding.saveBtn.setOnClickListener(this);
     }
-    LastMoveManufacturingBasket basketData = null;
+    LastMoveManufacturingBasket basketData ;
     @Override
     public void OnQtyDefectedQtyDefectsItemClicked(int id,View view) {
         ArrayList<DefectsManufacturing> customDefectsManufacturingList = new ArrayList<>();
@@ -200,11 +289,51 @@ public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyD
         int id = v.getId();
         switch (id){
             case R.id.save_btn:{
-                Date date = Calendar.getInstance().getTime();
+                String date = getTodayDate();
                 FinalQualityDecision finalQualityDecision = (FinalQualityDecision) binding.qfinaldesicionSpin.getSelectedItem();
                 int decisionId = finalQualityDecision.getFinalQualityDecisionId();
-
+                if (!childCode.isEmpty()){
+                    viewModel.saveQualityOperationSignOff(userId,deviceSerialNumber,date,decisionId);
+                } else
+                    binding.basketCode.setError("Please scan or enter basket code!");
             } break;
         }
+    }
+
+    private String getTodayDate() {
+        return new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+    }
+
+    @Override
+    public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // update UI to reflect the data
+                binding.basketCode.getEditText().setText(setUpBarCodeReader.scannedData(barcodeReadEvent));
+            }
+        });
+    }
+
+    @Override
+    public void onFailureEvent(BarcodeFailureEvent barcodeFailureEvent) {
+
+    }
+
+    @Override
+    public void onTriggerEvent(TriggerStateChangeEvent triggerStateChangeEvent) {
+       setUpBarCodeReader.onTrigger(triggerStateChangeEvent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpBarCodeReader.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        setUpBarCodeReader.onPause();
     }
 }

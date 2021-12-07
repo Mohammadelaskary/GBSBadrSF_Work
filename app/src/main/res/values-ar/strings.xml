@@ -148,6 +148,8 @@
     <string name="job_order_qty">Job Order Qty</string>
     <string name="rejected_qty">Rejected Qty</string>
     <string name="create_rejection_request">Create Rejection Request</string>
+    <string name="new_sample">New Sample</string>
+    <string name="approved_quantity">Approved Quantity</string>
 
 
 </resources>

@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_add_defects.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_rejection.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_repair.xml" value="0.16939890710382513" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_defect_repair.xml" value="0.16939890710382513" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_desicion.xml" value="0.13046448087431695" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_repair.xml" value="0.176" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/drawable-hdpi/ic_down_arrow.xml" value="0.1" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/drawable/spinner_drop.xml" value="0.146875" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/add_defects_details_button.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/basketcode_lst.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/defect_item.xml" value="0.1361111111111111" />
@@ -12,19 +18,11 @@
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingmenu.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manfacturingquality.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_add_defect_details.xml" value="0.1361111111111111" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_add_defects.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paint_quality_operation.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_paintquality.xml" value="0.1" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_production_defect_repair.xml" value="0.1361111111111111" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_production_rejection.xml" value="0.16" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_production_repair.xml" value="0.25" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_productionscrap.xml" value="0.1361111111111111" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_productionscraprequestqc.xml" value="0.1361111111111111" />
+        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_production_repair.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_defect_repair.xml" value="0.1361111111111111" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_desicion.xml" value="0.1" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_quality_repair.xml" value="0.1361111111111111" />
-        <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitydesicion.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitymainmenu.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_qualitywelding.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/fragment_random_quality_inception.xml" value="0.1361111111111111" />
@@ -33,7 +31,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

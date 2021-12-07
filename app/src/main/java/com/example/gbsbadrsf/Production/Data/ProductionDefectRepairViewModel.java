@@ -3,6 +3,7 @@ package com.example.gbsbadrsf.Production.Data;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.repository.ApiInterface;
@@ -15,7 +16,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class ProductionDefectRepairViewModel extends ViewModel {
-    MutableLiveData<ResponseStatus> addManufacturingRepairProduction ;
+    MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepairProduction ;
     MutableLiveData<Status> addManufacturingRepairProductionStatus;
     @Inject
     ApiInterface apiInterface;
@@ -60,7 +61,7 @@ public class ProductionDefectRepairViewModel extends ViewModel {
                 ));
     }
 
-    public MutableLiveData<ResponseStatus> getAddManufacturingRepairProduction() {
+    public MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> getAddManufacturingRepairProduction() {
         return addManufacturingRepairProduction;
     }
 

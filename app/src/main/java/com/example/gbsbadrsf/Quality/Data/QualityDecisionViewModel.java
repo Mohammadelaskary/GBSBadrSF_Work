@@ -7,6 +7,7 @@ import com.example.gbsbadrsf.Model.ApiResponseDefectsManufacturing;
 import com.example.gbsbadrsf.Model.ApiResponseDepartmentsList;
 import com.example.gbsbadrsf.Model.ApiResponseGetBasketInfo;
 import com.example.gbsbadrsf.Production.Data.ApiResponseSaveRejectionRequest;
+import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.repository.ApiInterface;
 import com.google.gson.Gson;
@@ -22,6 +23,8 @@ public class QualityDecisionViewModel extends ViewModel {
     MutableLiveData<Status> defectsManufacturingListStatus;
     MutableLiveData<ApiResponseGettingFinalQualityDecision> apiResponseGettingFinalQualityDecisionMutableLiveData;
     MutableLiveData<Status> apiResponseGettingFinalQualityDecisionStatus;
+    MutableLiveData<ApiResponseSavingOperationSignOffDecision> saveQualityOperationSignOffLiveData;
+    MutableLiveData<Status> saveQualityOperationSignOffStatus;
 
     @Inject
     ApiInterface apiInterface;
@@ -38,6 +41,8 @@ public class QualityDecisionViewModel extends ViewModel {
         defectsManufacturingListStatus = new MutableLiveData<>();
         apiResponseGettingFinalQualityDecisionMutableLiveData = new MutableLiveData<>();
         apiResponseGettingFinalQualityDecisionStatus = new MutableLiveData<>();
+        saveQualityOperationSignOffLiveData = new MutableLiveData<>();
+        saveQualityOperationSignOffStatus = new MutableLiveData<>();
     }
 
     public void getQualityOperationByBasketCode(int userId,String deviceSerialNumber,String basketCode){
@@ -67,6 +72,20 @@ public class QualityDecisionViewModel extends ViewModel {
                 ));
     }
 
+    public void saveQualityOperationSignOff(int userId,String deviceSerialNumber,String date,int finalQualityDecisionId){
+        disposable.add(apiInterface.saveQualityOperationSignOff(userId,deviceSerialNumber,date,finalQualityDecisionId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe( __ -> saveQualityOperationSignOffStatus.postValue(Status.LOADING))
+                .subscribe(
+                        response -> {saveQualityOperationSignOffLiveData.postValue(response);
+                            saveQualityOperationSignOffStatus.postValue(Status.SUCCESS); },
+                        throwable -> {
+                            saveQualityOperationSignOffStatus.postValue(Status.ERROR);
+                        }
+                ));
+    }
+
     public MutableLiveData<ApiResponseDefectsManufacturing> getDefectsManufacturingListLiveData() {
         return defectsManufacturingListLiveData;
     }
@@ -81,5 +100,13 @@ public class QualityDecisionViewModel extends ViewModel {
 
     public MutableLiveData<Status> getApiResponseGettingFinalQualityDecisionStatus() {
         return apiResponseGettingFinalQualityDecisionStatus;
+    }
+
+    public MutableLiveData<ApiResponseSavingOperationSignOffDecision> getSaveQualityOperationSignOffLiveData() {
+        return saveQualityOperationSignOffLiveData;
+    }
+
+    public MutableLiveData<Status> getSaveQualityOperationSignOffStatus() {
+        return saveQualityOperationSignOffStatus;
     }
 }

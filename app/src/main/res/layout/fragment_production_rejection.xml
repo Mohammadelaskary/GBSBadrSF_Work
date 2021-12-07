@@ -35,29 +35,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <TextView
-                android:id="@+id/basket_txt"
-                style="@style/styleoftextbold"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/old_basket_code"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="15dp"
-                android:text="@string/basket"
+                android:hint="Old Basket Code"
+                app:errorEnabled="true"
+                app:errorTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/colorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/basketbarcode"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/basket_edt"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="55dp"
-                android:background="@drawable/edt_bg"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@id/basket_txt"
-                app:layout_constraintTop_toBottomOf="@id/basket_txt" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <ImageView
                 android:id="@+id/basketbarcode"
@@ -65,8 +65,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:src="@drawable/barcodel"
+                app:layout_constraintBottom_toBottomOf="@+id/old_basket_code"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/basket_edt" />
+                app:layout_constraintTop_toTopOf="@id/old_basket_code" />
 
 
             <TextView
@@ -76,8 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/child"
-                app:layout_constraintStart_toStartOf="@id/basket_txt"
-                app:layout_constraintTop_toBottomOf="@id/basket_edt" />
+                app:layout_constraintStart_toStartOf="@id/old_basket_code"
+                app:layout_constraintTop_toBottomOf="@id/old_basket_code" />
 
             <TextView
                 android:id="@+id/childdesc"
@@ -107,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/job_order_number_txt"
-                app:layout_constraintStart_toStartOf="@id/basket_txt"
+                app:layout_constraintStart_toStartOf="@id/old_basket_code"
                 app:layout_constraintTop_toBottomOf="@id/childcode" />
 
             <TextView
@@ -154,7 +155,7 @@
                 app:errorTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="@+id/basketbarcode"
-                app:layout_constraintStart_toStartOf="@id/basket_txt"
+                app:layout_constraintStart_toStartOf="@id/old_basket_code"
                 app:layout_constraintTop_toBottomOf="@id/basketqtn_txt">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -177,17 +178,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rejected_qty_edt" />
 
-            <EditText
-                android:id="@+id/basketcode_edt"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/new_basket_code"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="55dp"
-                android:background="@drawable/edt_bg"
-                android:textColor="@color/black"
+                android:layout_marginEnd="15dp"
+                android:hint="Old Basket Code"
+                app:errorEnabled="true"
+                app:errorTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/colorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/basketbarcode_img"
                 app:layout_constraintStart_toStartOf="@id/basketcodescan_txt"
-                app:layout_constraintTop_toBottomOf="@id/basketcodescan_txt" />
+                app:layout_constraintTop_toBottomOf="@id/basketcodescan_txt">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:id="@+id/basketbarcode_img"
@@ -195,8 +206,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:src="@drawable/barcodel"
+                app:layout_constraintBottom_toBottomOf="@+id/new_basket_code"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/basketcode_edt" />
+                app:layout_constraintTop_toTopOf="@+id/new_basket_code" />
 
 
             <TextView

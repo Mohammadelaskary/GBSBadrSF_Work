@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.gbsbadrsf.Model.ApiResponseDefectsManufacturing;
 import com.example.gbsbadrsf.Model.ApiResponseLastMoveManufacturingBasket;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.repository.ApiInterface;
@@ -21,7 +22,7 @@ public class ProductionRepairViewModel extends ViewModel {
     MutableLiveData<Status> apiResponseBasketDataStatus;
     MutableLiveData<ApiResponseDefectsManufacturing> defectsManufacturingListLiveData;
     MutableLiveData<Status> defectsManufacturingListStatus;
-    MutableLiveData<ResponseStatus> addManufacturingRepairProduction;
+    MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepairProduction;
     MutableLiveData<Status> addManufacturingRepairProductionStatus;
 
     @Inject
@@ -90,7 +91,7 @@ public class ProductionRepairViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe( __ -> addManufacturingRepairProductionStatus.postValue(Status.LOADING))
                 .subscribe(
-                        response -> {addManufacturingRepairProduction.postValue(response);
+                        apiResponseAddingManufacturingRepairQualityProduction -> {addManufacturingRepairProduction.postValue(apiResponseAddingManufacturingRepairQualityProduction);
                             addManufacturingRepairProductionStatus.postValue(Status.SUCCESS); },
                         throwable -> {
                             addManufacturingRepairProductionStatus.postValue(Status.ERROR);
@@ -115,7 +116,7 @@ public class ProductionRepairViewModel extends ViewModel {
         return defectsManufacturingListStatus;
     }
 
-    public MutableLiveData<ResponseStatus> getAddManufacturingRepairProduction() {
+    public MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> getAddManufacturingRepairProduction() {
         return addManufacturingRepairProduction;
     }
 
