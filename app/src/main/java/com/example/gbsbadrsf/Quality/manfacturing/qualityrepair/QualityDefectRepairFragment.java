@@ -52,6 +52,8 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
     @Inject
     ViewModelProviderFactory provider;
     RepairProductionQualityAdapter adapter;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,8 +89,14 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
         viewModel.getAddManufacturingRepairQuality().observe(getViewLifecycleOwner(),response-> {
             String statusMessage = response.getResponseStatus().getStatusMessage();
             if (statusMessage.equals(SAVED_SUCCESSFULLY)){
-                Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+                for (DefectsManufacturing defectsManufacturing:defectsManufacturingList){
+                    if (defectsManufacturing.getManufacturingDefectsId()==defectsManufacturingDetailsId){
+                        defectsManufacturing.setQtyApproved(Integer.parseInt(approvedQty));
+                        adapter.notifyDataSetChanged();
+                    }
+                }
             }
+            Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -129,9 +137,13 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
 
     @Override
     public void onRepairItemClicked(DefectsManufacturing defectsManufacturing) {
-        binding.approvedQty.getEditText().setText(String.valueOf(defectsManufacturing.getDeffectedQty()));
+        int repairedQty = defectsManufacturing.getQtyRepaired();
         defectsManufacturingDetailsId = defectsManufacturing.getDefectsManufacturingDetailsId();
-        defectStatus = defectsManufacturing.getDefectStatus();
+        if (repairedQty!=0) {
+            binding.approvedQty.getEditText().setText(String.valueOf(repairedQty));
+            defectStatus = defectsManufacturing.getDefectStatus();
+        } else
+            binding.approvedQty.getEditText().setText("Defect isn't repaired yet!");
     }
     int userId = 1,defectsManufacturingDetailsId=-1,defectStatus;
     String notes="df", deviceSerialNumber="sdf",approvedQty;
@@ -143,7 +155,7 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
             case R.id.save_btn:{
                 if (defectsManufacturingDetailsId!=-1){
                     approvedQty = binding.approvedQty.getEditText().getText().toString().trim();
-                    if (containsOnlyDigits(approvedQty)){
+                    if (containsOnlyDigits(approvedQty)&&!approvedQty.isEmpty()){
                         viewModel.addManufacturingRepairQuality(
                                 userId,
                                 deviceSerialNumber,
@@ -152,9 +164,11 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
                                 defectStatus,
                                 Integer.parseInt(approvedQty)
                         );
+                    } else {
+                        binding.approvedQty.setError("Please enter valid approved Quantity");
                     }
                 } else {
-                    Toast.makeText(getContext(), "Please first select defect to repair!", Toast.LENGTH_SHORT).show();
+                    binding.approvedQty.setError("Please first select defect to repair!");
                 }
             } break;
         }

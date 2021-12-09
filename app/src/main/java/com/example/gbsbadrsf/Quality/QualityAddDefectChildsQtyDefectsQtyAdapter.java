@@ -16,10 +16,8 @@ import java.util.List;
 public class QualityAddDefectChildsQtyDefectsQtyAdapter extends RecyclerView.Adapter<QualityAddDefectChildsQtyDefectsQtyAdapter.QtyChildQtyDefectItemViewHolder> {
     List<QtyDefectsQtyDefected> qtyDefectsQtyDefectedList;
     SetOnQtyDefectedQtyDefectsItemClicked onQtyDefectedQtyDefectsItemClicked;
-    View view;
-    public QualityAddDefectChildsQtyDefectsQtyAdapter(SetOnQtyDefectedQtyDefectsItemClicked onQtyDefectedQtyDefectsItemClicked, View view) {
+    public QualityAddDefectChildsQtyDefectsQtyAdapter(SetOnQtyDefectedQtyDefectsItemClicked onQtyDefectedQtyDefectsItemClicked) {
         this.onQtyDefectedQtyDefectsItemClicked = onQtyDefectedQtyDefectsItemClicked;
-        this.view = view;
     }
 
     @Override
@@ -30,7 +28,7 @@ public class QualityAddDefectChildsQtyDefectsQtyAdapter extends RecyclerView.Ada
             holder.binding.defectsQty.setText(String.valueOf(defectsQty));
             holder.binding.defectedQty.setText(String.valueOf(defectedQty));
             holder.itemView.setOnClickListener(v -> {
-                onQtyDefectedQtyDefectsItemClicked.OnQtyDefectedQtyDefectsItemClicked(qtyDefectsQtyDefected.getManufacturingDefectId());
+                onQtyDefectedQtyDefectsItemClicked.OnQtyDefectedQtyDefectsItemClicked(qtyDefectsQtyDefected.getManufacturingDefectId(),v);
             });
     }
 

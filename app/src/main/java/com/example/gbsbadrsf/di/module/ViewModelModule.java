@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel;
 import com.example.gbsbadrsf.Production.Data.ProductionDefectRepairViewModel;
+import com.example.gbsbadrsf.Production.Data.ProductionRejectionViewModel;
 import com.example.gbsbadrsf.Production.Data.ProductionRepairViewModel;
 import com.example.gbsbadrsf.Quality.Data.ManufacturingAddDefectsDetailsViewModel;
 import com.example.gbsbadrsf.Quality.Data.ManufacturingAddDefectsViewModel;
 import com.example.gbsbadrsf.Quality.Data.ManufacturingQualityOperationViewModel;
+import com.example.gbsbadrsf.Quality.Data.QualityDecisionViewModel;
 import com.example.gbsbadrsf.Quality.Data.QualityDefectRepairViewModel;
 import com.example.gbsbadrsf.Quality.Data.RandomQualityInceptionViewModel;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.QualityRepairViewModel;
@@ -84,5 +86,13 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(RandomQualityInceptionViewModel.class)
     public abstract ViewModel bindRandomQualityInceptionViewModel (RandomQualityInceptionViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProductionRejectionViewModel.class)
+    public abstract ViewModel bindProductionRejectionViewModel (ProductionRejectionViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(QualityDecisionViewModel.class)
+    public abstract ViewModel bindQualityDecisionViewModel (QualityDecisionViewModel viewModel);
 
 }

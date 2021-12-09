@@ -1,12 +1,19 @@
 package com.example.gbsbadrsf.repository;
 
 import com.example.gbsbadrsf.Model.ApiResponseDefectsManufacturing;
+import com.example.gbsbadrsf.Model.ApiResponseDepartmentsList;
+import com.example.gbsbadrsf.Model.ApiResponseGetBasketInfo;
 import com.example.gbsbadrsf.Model.ApiResponseLastMoveManufacturingBasket;
+import com.example.gbsbadrsf.Production.Data.ApiResponseSaveRejectionRequest;
 import com.example.gbsbadrsf.Quality.Data.AddManufacturingDefectData;
-import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQuality;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddManufacturingDefectedChildToBasket;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingDefect;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseGettingFinalQualityDecision;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveRandomQualityInception;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseSavingOperationSignOffDecision;
 import com.example.gbsbadrsf.Quality.Data.Defect;
 import com.example.gbsbadrsf.data.response.APIResponse;
 import com.example.gbsbadrsf.data.response.APIResponseLoadingsequenceinfo;
@@ -27,7 +34,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface ApiInterface {
+public interface  ApiInterface {
 
 @GET("GetManufacturingLoadingSequenceByJobOrder")
    Single<APIResponse<List<Ppr>>> getproductionsequence(@Query("JobOrderName") String jobordername);
@@ -62,13 +69,18 @@ public interface ApiInterface {
             @Query("ChildId") int ChildId
     );
 
-    @GET("GetManufacturingDefectedQtyByBasketCode")
-    Single<ApiResponseDefectsManufacturing> getManufacturingDefectedQtyByBasketCode(
+    @GET("GetQualityOperationByBasketCode")
+    Single<ApiResponseDefectsManufacturing> getQualityOperationByBasketCode(
+            @Query("UserID") long userId,
+            @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("BasketCode") String BasketCode
     );
-
+    @GET("GetManufacturingDefectedQtyByBasketCode")
+    Single<ApiResponseDefectsManufacturing> getManufacturingDefectedQtyByBasketCode(
+          @Query("BasketCode") String BasketCode
+    );
     @POST("AddManufacturingDefect")
-    Single<ApiResponseDefectsManufacturing> AddManufacturingDefect(
+    Single<ApiResponseAddingManufacturingDefect> AddManufacturingDefect(
             @Body AddManufacturingDefectData data
     );
 
@@ -88,7 +100,7 @@ public interface ApiInterface {
     );
 
     @GET("AddManufacturingDefectedChildToBasket")
-    Single<ResponseStatus> addManufacturingDefectedChildToBasket(
+    Single<ApiResponseAddManufacturingDefectedChildToBasket> addManufacturingDefectedChildToBasket(
             @Query("JobOrderId") int JobOrderId,
             @Query("ParentID") int ParentID,
             @Query("ChildId") int ChildId,
@@ -96,7 +108,7 @@ public interface ApiInterface {
             @Query("NewBasketCode") String NewBasketCode
     );
     @GET("ManufacturingRepair_Production")
-    Single<ResponseStatus> addManufacturingRepair_Production(
+    Single<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepair_Production(
             @Query("UserID") long userId,
             @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("DefectsManufacturingDetailsId") int DefectsManufacturingDetailsId,
@@ -106,7 +118,7 @@ public interface ApiInterface {
     );
 
     @GET("ManufacturingRepair_QC")
-    Single<ApiResponseAddingManufacturingRepairQuality> addManufacturingRepair_QC(
+    Single<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepair_QC(
             @Query("UserID") long userId,
             @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("DefectsManufacturingDetailsId") int DefectsManufacturingDetailsId,
@@ -121,6 +133,12 @@ public interface ApiInterface {
             @Query("DeviceSerialNo") String deviceSerialNumber,
             @Query("Code") String Code
     );
+  @GET("GetBasketInfo")
+  Single<ApiResponseGetBasketInfo> getBasketInfo(
+          @Query("UserID") int userId,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("BasketCode") String BasketCode
+  );
     @GET("SaveQualityRandomInpection")
     Single<ApiResponseSaveRandomQualityInception> SaveQualityRandomInspection(
             @Query("UserID") int userId,
@@ -131,9 +149,32 @@ public interface ApiInterface {
             @Query("Notes") String Notes
     );
 
+  @GET("SaveRejectionRequest")
+  Single<ApiResponseSaveRejectionRequest> SaveRejectionRequest(
+          @Query("UserID") int userId,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("OldBasketCode") String oldBasketCode,
+          @Query("NewBasketCode") String newBasketCode,
+          @Query("RejectionQty") int RejectionQty,
+          @Query("DepartmentID") int DepartmentID
+  );
 
+  @GET("GetDepartmentsList")
+  Single<ApiResponseDepartmentsList> getDepartmentsList(
+          @Query("UserID") int UserID
+  );
+  @GET("GetFinalQualityDecision")
+  Single<ApiResponseGettingFinalQualityDecision> getFinalQualityDecision(
+          @Query("UserID") int UserID
+  );
 
-
+  @POST("QualityOperationSignOff")
+  Single<ApiResponseSavingOperationSignOffDecision> saveQualityOperationSignOff(
+          @Query("UserID") int UserID,
+          @Query("DeviceSerialNo") String deviceSerialNumber,
+          @Query("DT") String date,
+          @Query("FinalQualityDecisionId") int FinalQualityDecisionId
+  );
 
 
 }

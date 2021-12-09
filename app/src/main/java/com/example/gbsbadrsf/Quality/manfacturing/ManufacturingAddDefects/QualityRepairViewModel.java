@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.gbsbadrsf.Model.ApiResponseDefectsManufacturing;
 import com.example.gbsbadrsf.Model.ApiResponseLastMoveManufacturingBasket;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.repository.ApiInterface;
@@ -24,7 +25,7 @@ public class QualityRepairViewModel extends ViewModel {
     MutableLiveData<Status> apiResponseBasketDataStatus;
     MutableLiveData<ApiResponseDefectsManufacturing> defectsManufacturingListLiveData;
     MutableLiveData<Status> defectsManufacturingListStatus;
-    MutableLiveData<ResponseStatus> addManufacturingRepairQuality;
+    MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepairQuality;
     MutableLiveData<Status> addManufacturingRepairQualityStatus;
     @Inject
     Gson gson;

@@ -14,7 +14,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class QualityDefectRepairViewModel extends ViewModel {
-    MutableLiveData<ApiResponseAddingManufacturingRepairQuality> addManufacturingRepairQuality;
+    MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> addManufacturingRepairQuality;
     MutableLiveData<Status> addManufacturingRepairQualityStatus;
     @Inject
     ApiInterface apiInterface;
@@ -62,7 +62,7 @@ public class QualityDefectRepairViewModel extends ViewModel {
                 ));
     }
 
-    public MutableLiveData<ApiResponseAddingManufacturingRepairQuality> getAddManufacturingRepairQuality() {
+    public MutableLiveData<ApiResponseAddingManufacturingRepairQualityProduction> getAddManufacturingRepairQuality() {
         return addManufacturingRepairQuality;
     }
 

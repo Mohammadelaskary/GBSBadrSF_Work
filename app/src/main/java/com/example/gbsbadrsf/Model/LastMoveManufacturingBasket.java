@@ -44,6 +44,9 @@ public class LastMoveManufacturingBasket implements Parcelable {
     @Expose
     private Boolean isBulkQty;
 
+    public LastMoveManufacturingBasket() {
+    }
+
     protected LastMoveManufacturingBasket(Parcel in) {
         if (in.readByte() == 0) {
             basketMoveId = null;

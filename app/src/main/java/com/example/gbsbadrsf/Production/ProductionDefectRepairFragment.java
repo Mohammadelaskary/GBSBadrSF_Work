@@ -83,11 +83,17 @@ public class ProductionDefectRepairFragment extends DaggerFragment implements Se
     }
 
     private void observeAddingDefectRepairResponse() {
-        viewModel.getAddManufacturingRepairProduction().observe(getViewLifecycleOwner(),responseStatus-> {
-            String statusMessage = responseStatus.getStatusMessage();
+        viewModel.getAddManufacturingRepairProduction().observe(getViewLifecycleOwner(),apiResponseAddingManufacturingRepairQualityProduction-> {
+            String statusMessage = apiResponseAddingManufacturingRepairQualityProduction.getResponseStatus().getStatusMessage();
             if (statusMessage.equals(SAVED_SUCCESSFULLY)){
-                Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+                for (DefectsManufacturing defectsManufacturing:defectsManufacturingList){
+                    if (defectsManufacturing.getManufacturingDefectsId()==defectsManufacturingDetailsId){
+                        defectsManufacturing.setQtyRepaired(Integer.parseInt(repairedQty));
+                        adapter.notifyDataSetChanged();
+                    }
+                }
             }
+            Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
         });
     }
 

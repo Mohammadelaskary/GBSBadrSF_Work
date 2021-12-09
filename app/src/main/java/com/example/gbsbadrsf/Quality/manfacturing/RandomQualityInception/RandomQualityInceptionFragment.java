@@ -14,17 +14,22 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.gbsbadrsf.Quality.Data.LastMoveManufacturing;
 import com.example.gbsbadrsf.Quality.Data.RandomQualityInceptionViewModel;
 import com.example.gbsbadrsf.R;
+import com.example.gbsbadrsf.SetUpBarCodeReader;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.databinding.FragmentRandomQualityInceptionBinding;
+import com.honeywell.aidc.BarcodeFailureEvent;
+import com.honeywell.aidc.BarcodeReadEvent;
+import com.honeywell.aidc.BarcodeReader;
+import com.honeywell.aidc.TriggerStateChangeEvent;
 
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
 
-public class RandomQualityInceptionFragment extends DaggerFragment implements View.OnClickListener {
+public class RandomQualityInceptionFragment extends DaggerFragment implements View.OnClickListener, BarcodeReader.BarcodeListener, BarcodeReader.TriggerListener {
     private static final String GOT_DATA_SUCCESSFULLY = "Getting data successfully";
     private static final String SAVED_SUCCESSFULLY = "Saved successfully";
     RandomQualityInceptionViewModel viewModel;
@@ -45,15 +50,16 @@ public class RandomQualityInceptionFragment extends DaggerFragment implements Vi
     }
     FragmentRandomQualityInceptionBinding binding;
     String machineDieCode = "Mchn1";
+    SetUpBarCodeReader barCodeReader;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentRandomQualityInceptionBinding.inflate(inflater,container,false);
+        barCodeReader = new SetUpBarCodeReader(this,this);
         attachButtonToListener();
         attachTextWatchers();
         initViewModel();
-        getMachineDieInfo(machineDieCode);
         initProgressDialog();
         observeGettingMachineDieInfo();
         observeSavingRandomQualityInception();
@@ -62,6 +68,22 @@ public class RandomQualityInceptionFragment extends DaggerFragment implements Vi
     }
 
     private void attachTextWatchers() {
+        binding.machineDieCode.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                binding.machineDieCode.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                getMachineDieInfo(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                binding.machineDieCode.setError(null);
+            }
+        });
         binding.sampleQty.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -146,26 +168,37 @@ public class RandomQualityInceptionFragment extends DaggerFragment implements Vi
             String statusMessage = responseStatus.getStatusMessage();
             if (statusMessage.equals(GOT_DATA_SUCCESSFULLY)){
                 lastMoveManufacturing = apiResponseLastMoveManufacturing.getLastMoveManufacturing();
-                fillData();
+                childCode = lastMoveManufacturing.getChildCode();
+                jobOrderName = lastMoveManufacturing.getJobOrderName();
+                if (notes != lastMoveManufacturing.getQualityRandomInpectionNotes())
+                    notes = lastMoveManufacturing.getQualityRandomInpectionNotes().toString();
+                operationName = lastMoveManufacturing.getOperationEnName();
+                loadingQty = lastMoveManufacturing.getLoadingQty();
+                childId = lastMoveManufacturing.getChildId();
+                sampleQty =  lastMoveManufacturing.getQualityRandomInpectionSampleQty();
+                defectedQty = lastMoveManufacturing.getQualityRandomInpectionDefectedQty();
+                jobOrderQty = lastMoveManufacturing.getJobOrderQty();
+                Toast.makeText(getContext(), statusMessage,Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getContext(), statusMessage, Toast.LENGTH_SHORT).show();
+                childCode = "";
+                jobOrderName  ="";
+                notes= "";
+                operationName = "";
+                loadingQty = 0;
+                childId = 0;
+                sampleQty = 0;
+                defectedQty = 0;
+                jobOrderQty = 0;
+                binding.machineDieCode.setError(statusMessage);
             }
+            fillData();
         });
     }
     LastMoveManufacturing lastMoveManufacturing;
     String childCode,jobOrderName,notes,operationName;
     int loadingQty,childId,sampleQty,defectedQty,jobOrderQty;
     private void fillData() {
-        childCode = lastMoveManufacturing.getChildCode();
-        jobOrderName = lastMoveManufacturing.getJobOrderName();
-        if (notes != lastMoveManufacturing.getQualityRandomInpectionNotes())
-            notes = lastMoveManufacturing.getQualityRandomInpectionNotes().toString();
-        operationName = lastMoveManufacturing.getOperationEnName();
-        loadingQty = lastMoveManufacturing.getLoadingQty();
-        childId = lastMoveManufacturing.getChildId();
-            sampleQty =  lastMoveManufacturing.getQualityRandomInpectionSampleQty();
-            defectedQty = lastMoveManufacturing.getQualityRandomInpectionDefectedQty();
-        jobOrderQty = lastMoveManufacturing.getJobOrderQty();
+
         binding.childId.setText(String.valueOf(childId));
         binding.childesc.setText(childCode);
         binding.jobOrderName.setText(jobOrderName);
@@ -176,6 +209,18 @@ public class RandomQualityInceptionFragment extends DaggerFragment implements Vi
             binding.sampleQty.getEditText().setText(String.valueOf(sampleQty));
         else
             binding.sampleQty.getEditText().setText("");
+        if (loadingQty!=0)
+            binding.loadingQty.setText(String.valueOf(loadingQty));
+        else
+            binding.loadingQty.setText("");
+        if (childId!=0)
+            binding.childId.setText(String.valueOf(childId));
+        else
+            binding.childId.setText("");
+        if (jobOrderQty!=0)
+            binding.jobOrderQty.setText(String.valueOf(jobOrderQty));
+        else
+            binding.jobOrderQty.setText("");
         if (defectedQty!=0)
             binding.defectedQty.getEditText().setText(String.valueOf(defectedQty));
         else
@@ -213,5 +258,35 @@ public class RandomQualityInceptionFragment extends DaggerFragment implements Vi
                 }
             } break;
         }
+    }
+
+    @Override
+    public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
+        getActivity().runOnUiThread(()->{
+            String scannedText = barCodeReader.scannedData(barcodeReadEvent);
+            binding.machineDieCode.getEditText().setText(scannedText);
+        });
+    }
+
+    @Override
+    public void onFailureEvent(BarcodeFailureEvent barcodeFailureEvent) {
+
+    }
+
+    @Override
+    public void onTriggerEvent(TriggerStateChangeEvent triggerStateChangeEvent) {
+        barCodeReader.onTrigger(triggerStateChangeEvent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        barCodeReader.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        barCodeReader.onPause();
     }
 }

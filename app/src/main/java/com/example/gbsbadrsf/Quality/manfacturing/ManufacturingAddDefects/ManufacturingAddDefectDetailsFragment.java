@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.gbsbadrsf.Model.LastMoveManufacturingBasket;
 import com.example.gbsbadrsf.Quality.Data.AddManufacturingDefectData;
@@ -61,6 +63,8 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
     DefectsListAdapter adapter;
 
     ProgressDialog progressDialog;
+    NavController navController;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +76,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
                 false
         );
         progressDialog = new ProgressDialog(getContext());
+        navController = NavHostFragment.findNavController(this);
         attachListeners();
         getReceivedData();
         fillData();
@@ -79,7 +84,19 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         getAllDefectsList();
         observeGettingDefectsListStatus();
         setUpDefectsRecyclerView();
+        observeAddingManufacturingDefectsResponse();
+        observeAddingManufacturingDefectsStatus();
         return binding.getRoot();
+    }
+
+    private void observeAddingManufacturingDefectsResponse() {
+        viewModel.getAddManufacturingDefectsResponse().observe(getViewLifecycleOwner(), response -> {
+            String responseMessage = response.getResponseStatus().getStatusMessage();
+//                        if (responseMessage.equals("Added successfully")||responseMessage.equals("Updated successfully")) {
+            navController.popBackStack();
+//                        }
+            Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void observeGettingDefectsListStatus() {
@@ -110,7 +127,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         binding.childesc.setText(childDescription);
         binding.operation.setText(String.valueOf(operationId));
     }
-
+    boolean newSample = false;
     private void getReceivedData() {
         if (getArguments()!=null) {
             basketData = getArguments().getParcelable("basketData");
@@ -120,6 +137,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
             jobOrderId       = basketData.getJobOrderId();
             operationId      = basketData.getOperationId();
             sampleQty        = getArguments().getInt("sampleQty");
+            newSample        = getArguments().getBoolean("newSample");
         }
     }
 
@@ -133,18 +151,29 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
             jobOrderId,
             operationId,
             parentId=3,
-            sampleQty;
+            sampleQty,
+            userId=1;
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
             case R.id.add_defect_button:{
+                String defectedQtyString = binding.defectedQtnEdt.getText().toString().trim();
+                boolean validDefectedQty = false;
+                if (defectedQtyString.isEmpty())
+                    Toast.makeText(getContext(), "Please enter defected quantity!", Toast.LENGTH_SHORT).show();
+                else {
+                    validDefectedQty = Integer.parseInt(defectedQtyString)<=sampleQty;
+                }
+                if (!validDefectedQty)
+                    Toast.makeText(getContext(), "Defected Quantity must be less than or equal sample quantity!", Toast.LENGTH_SHORT).show();
                 if (defectsIds.isEmpty()){
                     Toast.makeText(getContext(), "Please Select the found defects!", Toast.LENGTH_SHORT).show();
-                } else {
-                    AddManufacturingDefectData data = new AddManufacturingDefectData();
+                }
+                AddManufacturingDefectData data = new AddManufacturingDefectData();
+                if (!defectedQtyString.isEmpty()&&validDefectedQty&&!defectsIds.isEmpty()){
                     defectedQty=Integer.parseInt(binding.defectedQtnEdt.getText().toString().trim());
-                    data.setUserId(1);
+                    data.setUserId(userId);
                     data.setDeviceSerialNo(deviceSerialNumber);
                     data.setJobOrderId(jobOrderId);
                     data.setParentID(parentId);
@@ -154,13 +183,8 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
                     data.setNotes(notes);
                     data.setSampleQty(sampleQty);
                     data.setDefectList(defectsIds);
+                    data.setNewSampleQty(newSample);
                     viewModel.addManufacturingDefectResponseViewModel(data);
-                    viewModel.getAddManufacturingDefectsResponse().observe(getViewLifecycleOwner(), response -> {
-                        String responseMessage = response.getResponseStatus().getStatusMessage();
-                        Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "===AddDefect " + responseMessage);
-                    });
-                    observeAddingManufacturingDefects();
                 }
             } break;
             case R.id.defects_list_layout:{
@@ -175,7 +199,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         }
     }
 
-    private void observeAddingManufacturingDefects() {
+    private void observeAddingManufacturingDefectsStatus() {
         viewModel.getAddManufacturingDefectsStatus().observe(getViewLifecycleOwner(),status -> {
             if ((status == Status.LOADING)) {
                 progressDialog.show();

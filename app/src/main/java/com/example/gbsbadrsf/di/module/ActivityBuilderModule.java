@@ -3,10 +3,12 @@ package com.example.gbsbadrsf.di.module;
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffFragment;
 import com.example.gbsbadrsf.Production.ProductionDefectRepairFragment;
 import com.example.gbsbadrsf.Production.ProductionRepairFragment;
+import com.example.gbsbadrsf.ProductionRejectionFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.ManufacturingAddDefectDetailsFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.ManufacturingAddDefectsFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingQualityOperationFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.RandomQualityInception.RandomQualityInceptionFragment;
+import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment;
 import com.example.gbsbadrsf.machineloading.MachineLoadingFragment;
@@ -42,5 +44,9 @@ public abstract class ActivityBuilderModule {
     abstract QualityRepairFragment contributeQualityRepairFragment();
     @ContributesAndroidInjector
     abstract RandomQualityInceptionFragment contributeRandomQualityInceptionFragment();
+    @ContributesAndroidInjector
+    abstract ProductionRejectionFragment contributeProductionRejectionFragment();
+    @ContributesAndroidInjector
+    abstract QualityDecisionFragment contributeQualityDecisionFragment();
 
 }

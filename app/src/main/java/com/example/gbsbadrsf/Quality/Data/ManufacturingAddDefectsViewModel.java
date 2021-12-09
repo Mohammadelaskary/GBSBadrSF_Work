@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 public class ManufacturingAddDefectsViewModel extends ViewModel {
     MutableLiveData<ApiResponseDefectsManufacturing> defectsManufacturingListLiveData;
     MutableLiveData<Status> defectsManufacturingListStatus;
-    MutableLiveData<ResponseStatus> addManufacturingDefectsToNewBasket;
+    MutableLiveData<ApiResponseAddManufacturingDefectedChildToBasket> addManufacturingDefectsToNewBasket;
     MutableLiveData<Status> addManufacturingDefectsToNewBasketStatus;
     @Inject
     ApiInterface apiInterface;
@@ -85,7 +85,7 @@ public class ManufacturingAddDefectsViewModel extends ViewModel {
         return defectsManufacturingListStatus;
     }
 
-    public MutableLiveData<ResponseStatus> getAddManufacturingDefectsToNewBasket() {
+    public MutableLiveData<ApiResponseAddManufacturingDefectedChildToBasket> getAddManufacturingDefectsToNewBasket() {
         return addManufacturingDefectsToNewBasket;
     }
 

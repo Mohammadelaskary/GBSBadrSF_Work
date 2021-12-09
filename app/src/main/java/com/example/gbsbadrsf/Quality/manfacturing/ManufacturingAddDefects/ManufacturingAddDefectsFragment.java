@@ -2,61 +2,108 @@ package com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.gbsbadrsf.Model.LastMoveManufacturingBasket;
 import com.example.gbsbadrsf.Model.QtyDefectsQtyDefected;
 import com.example.gbsbadrsf.Quality.Data.DefectsManufacturing;
 import com.example.gbsbadrsf.Quality.Data.ManufacturingAddDefectsViewModel;
 import com.example.gbsbadrsf.Quality.QualityAddDefectChildsQtyDefectsQtyAdapter;
+import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment;
 import com.example.gbsbadrsf.R;
+import com.example.gbsbadrsf.SetUpBarCodeReader;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.databinding.FragmentManufacturingAddDefectsBinding;
+import com.honeywell.aidc.BarcodeFailureEvent;
+import com.honeywell.aidc.BarcodeReadEvent;
+import com.honeywell.aidc.BarcodeReader;
+import com.honeywell.aidc.TriggerStateChangeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
 
-public class ManufacturingAddDefectsFragment extends DaggerFragment implements SetOnQtyDefectedQtyDefectsItemClicked  {
+public class ManufacturingAddDefectsFragment extends DaggerFragment implements SetOnQtyDefectedQtyDefectsItemClicked , BarcodeReader.BarcodeListener, BarcodeReader.TriggerListener {
     FragmentManufacturingAddDefectsBinding binding;
 
 
 
     LastMoveManufacturingBasket basketData;
-    int childId,jobOrderId,parentId=0;
-    String basketCode,newBasketCode="Bskt2";
+    int childId,jobOrderId,parentId=3,sampleQty;
+    String basketCode,newBasketCode;
+    boolean newSample = false ;
     ManufacturingAddDefectsViewModel viewModel;
     @Inject
     ViewModelProviderFactory provider;
 
     QualityAddDefectChildsQtyDefectsQtyAdapter adapter;
     List<DefectsManufacturing> defectsManufacturingList = new ArrayList<>();
-
+    SetUpBarCodeReader barCodeReader;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
         binding = FragmentManufacturingAddDefectsBinding.inflate(inflater, container, false);
+        barCodeReader = new SetUpBarCodeReader(this,this);
         initViews();
         getReceivedData();
+        addTextWatchers();
         fillData();
         initViewModel();
         getDefectsManufacturingList(basketCode);
         observeGettingDefectsManufacturingList();
         setUpRecyclerView();
+        observeSavingDefectsToNewBasket();
         return binding.getRoot();
 
     }
+
+    private void observeSavingDefectsToNewBasket() {
+        viewModel.getAddManufacturingDefectsToNewBasketStatus().observe(getViewLifecycleOwner(),status -> {
+            if (status == Status.LOADING)
+                progressDialog.show();
+            else
+                progressDialog.dismiss();
+        });
+    }
+
+    private void addTextWatchers() {
+        binding.basketCode.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                binding.basketCode.setError(null);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                binding.basketCode.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                binding.basketCode.setError(null);
+            }
+        });
+    }
+
     ProgressDialog progressDialog;
     private void observeGettingDefectsManufacturingList() {
         progressDialog = new ProgressDialog(getContext());
@@ -73,7 +120,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
     }
 
     private void setUpRecyclerView() {
-        adapter = new QualityAddDefectChildsQtyDefectsQtyAdapter(this,this.getView());
+        adapter = new QualityAddDefectChildsQtyDefectsQtyAdapter(this);
         binding.defectsList.setAdapter(adapter);
 
     }
@@ -142,27 +189,38 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
         if (getArguments()!=null) {
             basketData = getArguments().getParcelable("basketData");
             sampleQty  = getArguments().getInt("sampleQty");
+            newSample  = getArguments().getBoolean("newSample");
             childId = basketData.getChildId();
             jobOrderId = basketData.getJobOrderId();
             basketCode   = basketData.getBasketCode();
-
         }
 
     }
-    int sampleQty;
     private void initViews() {
+        NavController navController = NavHostFragment.findNavController(this);
         binding.plusIcon.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putParcelable("basketData",basketData);
             bundle.putInt("sampleQty",sampleQty);
+            bundle.putBoolean("newSample",newSample);
             Navigation.findNavController(v).navigate(R.id.action_manufacturing_add_defects_to_manufacturing_add_defects_details,bundle);
         });
         binding.saveBtn.setOnClickListener(v -> {
-            viewModel.addManufacturingDefectsToNewBasketViewModel(jobOrderId,parentId,childId,basketCode,newBasketCode);
-            viewModel.getAddManufacturingDefectsToNewBasket().observe(getViewLifecycleOwner(),responseStatus -> {
-                String responseMessage = responseStatus.getStatusMessage();
-
-            });
+            String newBasketCode = binding.basketCode.getEditText().getText().toString().trim();
+            if (newBasketCode.isEmpty())
+                binding.basketCode.setError("Please scan or enter basket code!");
+            else {
+                viewModel.addManufacturingDefectsToNewBasketViewModel(jobOrderId, parentId, childId, basketCode, newBasketCode);
+                viewModel.getAddManufacturingDefectsToNewBasket().observe(getActivity(), apiResponseAddManufacturingDefectedChildToBasket -> {
+                    String responseMessage = apiResponseAddManufacturingDefectedChildToBasket.getResponseStatus().getStatusMessage();
+                    if (responseMessage.equals("Added successfully")) {
+                        Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
+                        navController.popBackStack();
+                    } else {
+                        binding.basketCode.setError(responseMessage);
+                    }
+                });
+            }
         });
 
     }
@@ -170,8 +228,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
 
     @Override
-    public void OnQtyDefectedQtyDefectsItemClicked(int id) {
-        {
+    public void OnQtyDefectedQtyDefectsItemClicked(int id,View view) {
             ArrayList<DefectsManufacturing> customDefectsManufacturingList = new ArrayList<>();
             for (DefectsManufacturing defectsManufacturing : defectsManufacturingList) {
                 if (defectsManufacturing.getManufacturingDefectsId() == id)
@@ -180,7 +237,40 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("defectsManufacturingList", customDefectsManufacturingList);
             bundle.putParcelable("basketData", basketData);
+            bundle.putInt("sampleQty",sampleQty);
             Navigation.findNavController(getView()).navigate(R.id.action_manufacturing_add_defects_fragment_to_display_defect_details_fragment, bundle);
-        }
+
+    }
+
+
+    @Override
+    public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
+        getActivity().runOnUiThread(()->{
+            String scannedText = barCodeReader.scannedData(barcodeReadEvent);
+            binding.basketCode.getEditText().setText(scannedText);
+        });
+    }
+
+    @Override
+    public void onFailureEvent(BarcodeFailureEvent barcodeFailureEvent) {
+
+    }
+
+    @Override
+    public void onTriggerEvent(TriggerStateChangeEvent triggerStateChangeEvent) {
+        barCodeReader.onTrigger(triggerStateChangeEvent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        barCodeReader.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+//        barCodeReader.onPause();
+
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation.xml"
-    app:startDestination="@id/signinFragment">
+    app:startDestination="@id/mainmenuFragment">
 
 
     <fragment
@@ -141,7 +141,7 @@
         android:id="@+id/productionrepairFragment"
         android:name="com.example.gbsbadrsf.Production.ProductionRepairFragment"
         android:label="fragment_productionrepair"
-        tools:layout="@layout/fragment_productionrepair" />
+        tools:layout="@layout/fragment_production_repair" />
     <fragment
         android:id="@+id/manufacturing_add_defects_details_fragment"
         android:name="com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.ManufacturingAddDefectDetailsFragment"
@@ -151,9 +151,9 @@
     </fragment>
     <fragment
         android:id="@+id/productionscrapFragment"
-        android:name="com.example.gbsbadrsf.ProductionscrapFragment"
+        android:name="com.example.gbsbadrsf.ProductionRejectionFragment"
         android:label="fragment_productionscrap"
-        tools:layout="@layout/fragment_productionscrap" />
+        tools:layout="@layout/fragment_production_rejection" />
 
             <fragment
                 android:id="@+id/signinFragment"
@@ -243,9 +243,6 @@
         <action
             android:id="@+id/action_manfacturingqualityFragment_to_qualityrepairFragment"
             app:destination="@id/fragment_quality_repair" />
-        <action
-            android:id="@+id/action_manfacturingqualityFragment_to_addDefectsFragment"
-            app:destination="@id/addDefectsFragment" />
 
         <action
             android:id="@+id/action_manfacturingqualityFragment_to_qualitydesicionFragment"
@@ -380,16 +377,18 @@
         android:id="@+id/qualityrepairFragment"
         android:name="com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment"
         android:label="fragment_qualityrepair"
-        tools:layout="@layout/fragment_qualityrepair" />
+        tools:layout="@layout/fragment_quality_repair" />
 
     <fragment
         android:id="@+id/qualitydesicionFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment"
         android:label="fragment_qualitydesicion"
-        tools:layout="@layout/fragment_qualitydesicion" >
+        tools:layout="@layout/fragment_quality_desicion" >
         <action
             android:id="@+id/action_qualitydesicionFragment_to_scrapFragment"
             app:destination="@id/scrapFragment" />
+        <action android:id="@+id/action_fragment_quality_decision_to_fragment_display_defect_details"
+            app:destination="@id/fragment_display_defect_details"/>
     </fragment>
     <fragment
         android:id="@+id/scrapFragment"

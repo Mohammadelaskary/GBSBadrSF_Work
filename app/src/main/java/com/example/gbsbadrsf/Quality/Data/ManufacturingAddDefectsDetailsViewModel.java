@@ -21,7 +21,7 @@ public class ManufacturingAddDefectsDetailsViewModel extends ViewModel {
     MutableLiveData<ApiResponseDefectsList> defectsListLiveData;
     MutableLiveData<Status> defectsListStatus;
 
-    MutableLiveData<ApiResponseDefectsManufacturing> addManufacturingDefectsResponse;
+    MutableLiveData<ApiResponseAddingManufacturingDefect> addManufacturingDefectsResponse;
     MutableLiveData<Status> addManufacturingDefectsStatus;
 
     @Inject
@@ -55,9 +55,9 @@ public class ManufacturingAddDefectsDetailsViewModel extends ViewModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe( __ -> addManufacturingDefectsStatus.postValue(Status.LOADING))
-                .subscribe(responseStatus -> {
+                .subscribe(apiResponseAddingDefectsManufacturing -> {
                             addManufacturingDefectsStatus.postValue(Status.SUCCESS);
-                            addManufacturingDefectsResponse.postValue(responseStatus);
+                            addManufacturingDefectsResponse.postValue(apiResponseAddingDefectsManufacturing);
                         },
                         throwable ->
                                 addManufacturingDefectsStatus.postValue(Status.ERROR)
@@ -73,7 +73,7 @@ public class ManufacturingAddDefectsDetailsViewModel extends ViewModel {
         return defectsListStatus;
     }
 
-    public MutableLiveData<ApiResponseDefectsManufacturing> getAddManufacturingDefectsResponse() {
+    public MutableLiveData<ApiResponseAddingManufacturingDefect> getAddManufacturingDefectsResponse() {
         return addManufacturingDefectsResponse;
     }
 
