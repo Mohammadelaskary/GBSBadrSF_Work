@@ -226,6 +226,10 @@ public class QualityDecisionFragment extends DaggerFragment implements SetOnQtyD
         childDesc = defectsManufacturing.getChildDescription();
         operation = defectsManufacturing.getOperationEnName();
         defectedQty = calculateDefectedQty(qtyDefectsQtyDefectedList);
+        basketData = new LastMoveManufacturingBasket();
+        basketData.setChildCode(childCode);
+        basketData.setChildDescription(childDesc);
+        basketData.setOperationEnName(operation);
     }
 
     private void fillViews() {

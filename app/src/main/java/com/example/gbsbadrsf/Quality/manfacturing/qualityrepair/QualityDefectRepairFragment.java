@@ -138,9 +138,9 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
     @Override
     public void onRepairItemClicked(DefectsManufacturing defectsManufacturing) {
         int repairedQty = defectsManufacturing.getQtyRepaired();
+        defectsManufacturingDetailsId = defectsManufacturing.getDefectsManufacturingDetailsId();
         if (repairedQty!=0) {
             binding.approvedQty.getEditText().setText(String.valueOf(repairedQty));
-            defectsManufacturingDetailsId = defectsManufacturing.getDefectsManufacturingDetailsId();
             defectStatus = defectsManufacturing.getDefectStatus();
         } else
             binding.approvedQty.getEditText().setText("Defect isn't repaired yet!");
@@ -155,7 +155,7 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
             case R.id.save_btn:{
                 if (defectsManufacturingDetailsId!=-1){
                     approvedQty = binding.approvedQty.getEditText().getText().toString().trim();
-                    if (containsOnlyDigits(approvedQty)){
+                    if (containsOnlyDigits(approvedQty)&&!approvedQty.isEmpty()){
                         viewModel.addManufacturingRepairQuality(
                                 userId,
                                 deviceSerialNumber,
@@ -164,9 +164,11 @@ public class QualityDefectRepairFragment extends DaggerFragment implements SetOn
                                 defectStatus,
                                 Integer.parseInt(approvedQty)
                         );
+                    } else {
+                        binding.approvedQty.setError("Please enter valid approved Quantity");
                     }
                 } else {
-                    Toast.makeText(getContext(), "Please first select defect to repair!", Toast.LENGTH_SHORT).show();
+                    binding.approvedQty.setError("Please first select defect to repair!");
                 }
             } break;
         }

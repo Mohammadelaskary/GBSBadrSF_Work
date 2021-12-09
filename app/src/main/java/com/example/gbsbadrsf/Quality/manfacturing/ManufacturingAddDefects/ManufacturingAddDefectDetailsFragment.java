@@ -63,6 +63,8 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
     DefectsListAdapter adapter;
 
     ProgressDialog progressDialog;
+    NavController navController;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,6 +76,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
                 false
         );
         progressDialog = new ProgressDialog(getContext());
+        navController = NavHostFragment.findNavController(this);
         attachListeners();
         getReceivedData();
         fillData();
@@ -81,8 +84,19 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         getAllDefectsList();
         observeGettingDefectsListStatus();
         setUpDefectsRecyclerView();
-        observeAddingManufacturingDefects();
+        observeAddingManufacturingDefectsResponse();
+        observeAddingManufacturingDefectsStatus();
         return binding.getRoot();
+    }
+
+    private void observeAddingManufacturingDefectsResponse() {
+        viewModel.getAddManufacturingDefectsResponse().observe(getViewLifecycleOwner(), response -> {
+            String responseMessage = response.getResponseStatus().getStatusMessage();
+//                        if (responseMessage.equals("Added successfully")||responseMessage.equals("Updated successfully")) {
+            navController.popBackStack();
+//                        }
+            Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void observeGettingDefectsListStatus() {
@@ -144,7 +158,6 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         int id = v.getId();
         switch (id){
             case R.id.add_defect_button:{
-                NavController navController = NavHostFragment.findNavController(this);
                 String defectedQtyString = binding.defectedQtnEdt.getText().toString().trim();
                 boolean validDefectedQty = false;
                 if (defectedQtyString.isEmpty())
@@ -172,14 +185,6 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
                     data.setDefectList(defectsIds);
                     data.setNewSampleQty(newSample);
                     viewModel.addManufacturingDefectResponseViewModel(data);
-                    viewModel.getAddManufacturingDefectsResponse().observe(getViewLifecycleOwner(), response -> {
-                        String responseMessage = response.getResponseStatus().getStatusMessage();
-                        if (responseMessage.equals("Added successfully")||responseMessage.equals("Updated successfully")) {
-                            navController.popBackStack();
-                        }
-                        Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
-                    });
-
                 }
             } break;
             case R.id.defects_list_layout:{
@@ -194,7 +199,7 @@ public class ManufacturingAddDefectDetailsFragment extends DaggerFragment implem
         }
     }
 
-    private void observeAddingManufacturingDefects() {
+    private void observeAddingManufacturingDefectsStatus() {
         viewModel.getAddManufacturingDefectsStatus().observe(getViewLifecycleOwner(),status -> {
             if ((status == Status.LOADING)) {
                 progressDialog.show();

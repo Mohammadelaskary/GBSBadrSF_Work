@@ -47,7 +47,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
 
     LastMoveManufacturingBasket basketData;
-    int childId,jobOrderId,parentId=0,sampleQty;
+    int childId,jobOrderId,parentId=3,sampleQty;
     String basketCode,newBasketCode;
     boolean newSample = false ;
     ManufacturingAddDefectsViewModel viewModel;
@@ -60,6 +60,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
         binding = FragmentManufacturingAddDefectsBinding.inflate(inflater, container, false);
         barCodeReader = new SetUpBarCodeReader(this,this);
         initViews();
@@ -70,8 +71,18 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
         getDefectsManufacturingList(basketCode);
         observeGettingDefectsManufacturingList();
         setUpRecyclerView();
+        observeSavingDefectsToNewBasket();
         return binding.getRoot();
 
+    }
+
+    private void observeSavingDefectsToNewBasket() {
+        viewModel.getAddManufacturingDefectsToNewBasketStatus().observe(getViewLifecycleOwner(),status -> {
+            if (status == Status.LOADING)
+                progressDialog.show();
+            else
+                progressDialog.dismiss();
+        });
     }
 
     private void addTextWatchers() {
@@ -200,9 +211,9 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
                 binding.basketCode.setError("Please scan or enter basket code!");
             else {
                 viewModel.addManufacturingDefectsToNewBasketViewModel(jobOrderId, parentId, childId, basketCode, newBasketCode);
-                viewModel.getAddManufacturingDefectsToNewBasket().observe(getViewLifecycleOwner(), apiResponseAddManufacturingDefectedChildToBasket -> {
+                viewModel.getAddManufacturingDefectsToNewBasket().observe(getActivity(), apiResponseAddManufacturingDefectedChildToBasket -> {
                     String responseMessage = apiResponseAddManufacturingDefectedChildToBasket.getResponseStatus().getStatusMessage();
-                    if (responseMessage.equals("Saved successfully")) {
+                    if (responseMessage.equals("Added successfully")) {
                         Toast.makeText(getContext(), responseMessage, Toast.LENGTH_SHORT).show();
                         navController.popBackStack();
                     } else {
@@ -231,11 +242,11 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
     }
 
+
     @Override
     public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
         getActivity().runOnUiThread(()->{
             String scannedText = barCodeReader.scannedData(barcodeReadEvent);
-            Log.d("====scannedText",scannedText);
             binding.basketCode.getEditText().setText(scannedText);
         });
     }
@@ -259,6 +270,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
     @Override
     public void onPause() {
         super.onPause();
-        barCodeReader.onPause();
+//        barCodeReader.onPause();
+
     }
 }

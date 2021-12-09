@@ -7,6 +7,7 @@ import com.example.gbsbadrsf.Model.ApiResponseLastMoveManufacturingBasket;
 import com.example.gbsbadrsf.Production.Data.ApiResponseSaveRejectionRequest;
 import com.example.gbsbadrsf.Quality.Data.AddManufacturingDefectData;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddManufacturingDefectedChildToBasket;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingDefect;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
@@ -79,7 +80,7 @@ public interface  ApiInterface {
           @Query("BasketCode") String BasketCode
     );
     @POST("AddManufacturingDefect")
-    Single<ApiResponseDefectsManufacturing> AddManufacturingDefect(
+    Single<ApiResponseAddingManufacturingDefect> AddManufacturingDefect(
             @Body AddManufacturingDefectData data
     );
 

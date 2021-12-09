@@ -16,8 +16,8 @@ import com.example.gbsbadrsf.databinding.FragmentProductionscraplistinqualityBin
 
 public class productionscraplistinqualityFragment extends Fragment implements OnClick {
 
-    FragmentProductionscraplistinqualityBinding fragmentProductionscraplistinqualityBinding;
-    productionscraplistAdapter adapter;
+    FragmentProductionscraplistinqualityBinding binding;
+    ProductionRejectionListAdapter adapter;
 
 
 
@@ -25,17 +25,17 @@ public class productionscraplistinqualityFragment extends Fragment implements On
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        fragmentProductionscraplistinqualityBinding = FragmentProductionscraplistinqualityBinding.inflate(inflater, container, false);
+        binding = FragmentProductionscraplistinqualityBinding.inflate(inflater, container, false);
         initViews();
 
-        return fragmentProductionscraplistinqualityBinding.getRoot();
+        return binding.getRoot();
 
     }
 
     private void initViews() {
-        adapter = new productionscraplistAdapter(this);
-        fragmentProductionscraplistinqualityBinding.productionscrapscrapRv.setAdapter(adapter);
-        fragmentProductionscraplistinqualityBinding.productionscrapscrapRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ProductionRejectionListAdapter(this);
+        binding.productionscrapscrapRv.setAdapter(adapter);
+        binding.productionscrapscrapRv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     @Override

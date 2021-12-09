@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gbsbadrsf.Util.OnClick;
 import com.example.gbsbadrsf.databinding.ProductionscrapLstBinding;
 
-public class productionscraplistAdapter extends RecyclerView.Adapter<productionscraplistAdapter.productionscraplistViewHolder> {
+public class ProductionRejectionListAdapter extends RecyclerView.Adapter<ProductionRejectionListAdapter.productionscraplistViewHolder> {
     ProductionscrapLstBinding productionscrapLstBinding;
     final OnClick onClick;
 
-    public productionscraplistAdapter(OnClick onClick) {
+    public ProductionRejectionListAdapter(OnClick onClick) {
         this.onClick = onClick;
     }
     @NonNull

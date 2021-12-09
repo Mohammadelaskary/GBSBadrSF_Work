@@ -1,5 +1,7 @@
 package com.example.gbsbadrsf;
 
+import android.util.Log;
+
 import com.honeywell.aidc.BarcodeReadEvent;
 import com.honeywell.aidc.BarcodeReader;
 import com.honeywell.aidc.ScannerNotClaimedException;
@@ -82,6 +84,7 @@ public class SetUpBarCodeReader {
                 barcodeReader.claim();
             } catch (ScannerUnavailableException e) {
                 e.printStackTrace();
+                Log.d("barcode reader error",e.getMessage());
             }
         }
     }

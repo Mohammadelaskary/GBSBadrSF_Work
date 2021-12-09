@@ -62,7 +62,7 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+//        super.onCreate(savedInstanceState);
         binding = FragmentManufacturingQualityOperationBinding.inflate(inflater,container,false);
         barCodeReader = new SetUpBarCodeReader(this,this);
         addTextWatcher();
@@ -95,11 +95,9 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
     LastMoveManufacturingBasket basketData;
     private void getBasketData(String basketCode) {
         viewModel.getBasketDataViewModel(basketCode);
-        viewModel.getBasketDataResponse().observe(getViewLifecycleOwner(), apiResponseLastMoveManufacturingBasket -> {
+        viewModel.getBasketDataResponse().observe(getActivity(), apiResponseLastMoveManufacturingBasket -> {
             ResponseStatus responseStatus          = apiResponseLastMoveManufacturingBasket.getResponseStatus();
             String responseMessage = responseStatus.getStatusMessage();
-            Log.d("====responseStatus",responseMessage);
-
             if (responseMessage.equals(EXISTING_BASKET_CODE)){
                 basketData = apiResponseLastMoveManufacturingBasket.getLastMoveManufacturingBasket();
                 fillViews();
@@ -156,11 +154,12 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
             }
         });
     }
-
+    String sampleQty;
+    boolean newSample;
     private void attachListener() {
         binding.addDefectButton.setOnClickListener(v -> {
-            String sampleQty = binding.sampleQtnEdt.getText().toString().trim();
-            boolean newSample = binding.newSample.isChecked();
+            sampleQty = binding.sampleQtnEdt.getText().toString().trim();
+            newSample = binding.newSample.isChecked();
             boolean validSampleQty = false;
             if (basketData!=null) {
                 if (sampleQty.isEmpty())
@@ -169,6 +168,8 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
                     validSampleQty = Integer.parseInt(sampleQty) <= basketData.getSignOffQty();
                     if (!validSampleQty)
                         Toast.makeText(getContext(), "Sample Quantity should be less than or equal sign off Quantity!", Toast.LENGTH_SHORT).show();
+                    if (Integer.parseInt(sampleQty)>0)
+                        Toast.makeText(getContext(), "Sample Quantity should be more than 0!", Toast.LENGTH_SHORT).show();
                 }
                 if (childCode.isEmpty())
                     binding.basketCode.setError("Please enter a valid basket code!");
@@ -179,6 +180,11 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
                     bundle.putInt("sampleQty", Integer.parseInt(sampleQty));
                     bundle.putBoolean("newSample", newSample);
                     Navigation.findNavController(v).navigate(R.id.action_manufacturing_quality_operation_fragment_to_manufacturing_add_defect_fragment, bundle);
+                    basketData = null;
+                    sampleQty ="";
+                    newSample = false;
+                    binding.newSample.setChecked(false);
+                    binding.sampleQtnEdt.setText("");
                 }
             } else {
                 binding.basketCode.setError("Please enter a valid basket code!");
@@ -209,11 +215,19 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
     public void onResume() {
         super.onResume();
         barCodeReader.onResume();
+        if (!binding.basketCode.getEditText().getText().toString().isEmpty())
+            getBasketData(binding.basketCode.getEditText().getText().toString().trim());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        barCodeReader.onPause();
+//        barCodeReader.onPause();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
     }
 }
