@@ -26,6 +26,9 @@ public class ProductionSignoffAdapter extends RecyclerView.Adapter<ProductionSig
         Basketcodelst.addAll(basketcodelst);
         notifyDataSetChanged();
     }
+    public List<Basketcodelst> getproductionsequencelist(){
+        return Basketcodelst;
+    }
 
 
 
@@ -46,7 +49,7 @@ public class ProductionSignoffAdapter extends RecyclerView.Adapter<ProductionSig
 
     @Override
     public int getItemCount() {
-        return 3;
+        return Basketcodelst.size();
     }
 
     class ProductionSignoffViewHolder extends RecyclerView.ViewHolder{

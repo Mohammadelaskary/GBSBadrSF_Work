@@ -2,6 +2,10 @@
 package com.example.gbsbadrsf.di.component;
 
 import androidx.lifecycle.ViewModel;
+import com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoading;
+import com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoadingViewModel;
+import com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoadingViewModel_Factory;
+import com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoading_MembersInjector;
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel;
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel_Factory;
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffFragment;
@@ -40,6 +44,7 @@ import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFra
 import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment_MembersInjector;
 import com.example.gbsbadrsf.Util.MyApplication;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
+import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContinueloadingFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContributeManufacturingAddDefectDetailsFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContributeManufacturingAddDefectsFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContributeProductionDefectRepairFragment;
@@ -50,8 +55,10 @@ import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContributeQualityRe
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ContributeRandomQualityInceptionFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_Contributeproductionsequencefragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_MachineLoadingFragment;
+import com.example.gbsbadrsf.di.module.ActivityBuilderModule_MachineloadingweFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_ProductionSignoffFragment;
 import com.example.gbsbadrsf.di.module.ActivityBuilderModule_SigninFragment;
+import com.example.gbsbadrsf.di.module.ActivityBuilderModule_WeldingsequenceFragment;
 import com.example.gbsbadrsf.di.module.RetrofitModule;
 import com.example.gbsbadrsf.di.module.RetrofitModule_GetRetrofitInstanceFactory;
 import com.example.gbsbadrsf.di.module.RetrofitModule_ProvideGsonFactory;
@@ -77,6 +84,13 @@ import com.example.gbsbadrsf.signin.SignInViewModel;
 import com.example.gbsbadrsf.signin.SignInViewModel_Factory;
 import com.example.gbsbadrsf.signin.SigninFragment;
 import com.example.gbsbadrsf.signin.SigninFragment_MembersInjector;
+import com.example.gbsbadrsf.welding.machineloadingwe.MachineloadingweFragment;
+import com.example.gbsbadrsf.weldingsequence.InfoForSelectedStationViewModel;
+import com.example.gbsbadrsf.weldingsequence.InfoForSelectedStationViewModel_Factory;
+import com.example.gbsbadrsf.weldingsequence.WeldingSequence;
+import com.example.gbsbadrsf.weldingsequence.WeldingSequence_MembersInjector;
+import com.example.gbsbadrsf.weldingsequence.WeldingsequenceViewModel;
+import com.example.gbsbadrsf.weldingsequence.WeldingsequenceViewModel_Factory;
 import com.google.gson.Gson;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication_MembersInjector;
@@ -122,6 +136,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
   private Provider<ActivityBuilderModule_ContributeRandomQualityInceptionFragment.RandomQualityInceptionFragmentSubcomponent.Factory> randomQualityInceptionFragmentSubcomponentFactoryProvider;
 
+  private Provider<ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent.Factory> continueLoadingSubcomponentFactoryProvider;
+
+  private Provider<ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent.Factory> weldingSequenceSubcomponentFactoryProvider;
+
+  private Provider<ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent.Factory> machineloadingweFragmentSubcomponentFactoryProvider;
+
   private Provider<Gson> provideGsonProvider;
 
   private Provider<HttpLoggingInterceptor> provideLoggingInterceptorProvider;
@@ -144,7 +164,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
   private Map<Class<?>, Provider<AndroidInjector.Factory<?>>> getMapOfClassOfAndProviderOfAndroidInjectorFactoryOf(
       ) {
-    return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(12).put(ProductionSequence.class, (Provider) productionSequenceSubcomponentFactoryProvider).put(SigninFragment.class, (Provider) signinFragmentSubcomponentFactoryProvider).put(MachineLoadingFragment.class, (Provider) machineLoadingFragmentSubcomponentFactoryProvider).put(ProductionSignoffFragment.class, (Provider) productionSignoffFragmentSubcomponentFactoryProvider).put(ManufacturingQualityOperationFragment.class, (Provider) manufacturingQualityOperationFragmentSubcomponentFactoryProvider).put(ManufacturingAddDefectsFragment.class, (Provider) manufacturingAddDefectsFragmentSubcomponentFactoryProvider).put(ManufacturingAddDefectDetailsFragment.class, (Provider) manufacturingAddDefectDetailsFragmentSubcomponentFactoryProvider).put(ProductionDefectRepairFragment.class, (Provider) productionDefectRepairFragmentSubcomponentFactoryProvider).put(ProductionRepairFragment.class, (Provider) productionRepairFragmentSubcomponentFactoryProvider).put(QualityDefectRepairFragment.class, (Provider) qualityDefectRepairFragmentSubcomponentFactoryProvider).put(QualityRepairFragment.class, (Provider) qualityRepairFragmentSubcomponentFactoryProvider).put(RandomQualityInceptionFragment.class, (Provider) randomQualityInceptionFragmentSubcomponentFactoryProvider).build();
+    return MapBuilder.<Class<?>, Provider<AndroidInjector.Factory<?>>>newMapBuilder(15).put(ProductionSequence.class, (Provider) productionSequenceSubcomponentFactoryProvider).put(SigninFragment.class, (Provider) signinFragmentSubcomponentFactoryProvider).put(MachineLoadingFragment.class, (Provider) machineLoadingFragmentSubcomponentFactoryProvider).put(ProductionSignoffFragment.class, (Provider) productionSignoffFragmentSubcomponentFactoryProvider).put(ManufacturingQualityOperationFragment.class, (Provider) manufacturingQualityOperationFragmentSubcomponentFactoryProvider).put(ManufacturingAddDefectsFragment.class, (Provider) manufacturingAddDefectsFragmentSubcomponentFactoryProvider).put(ManufacturingAddDefectDetailsFragment.class, (Provider) manufacturingAddDefectDetailsFragmentSubcomponentFactoryProvider).put(ProductionDefectRepairFragment.class, (Provider) productionDefectRepairFragmentSubcomponentFactoryProvider).put(ProductionRepairFragment.class, (Provider) productionRepairFragmentSubcomponentFactoryProvider).put(QualityDefectRepairFragment.class, (Provider) qualityDefectRepairFragmentSubcomponentFactoryProvider).put(QualityRepairFragment.class, (Provider) qualityRepairFragmentSubcomponentFactoryProvider).put(RandomQualityInceptionFragment.class, (Provider) randomQualityInceptionFragmentSubcomponentFactoryProvider).put(ContinueLoading.class, (Provider) continueLoadingSubcomponentFactoryProvider).put(WeldingSequence.class, (Provider) weldingSequenceSubcomponentFactoryProvider).put(MachineloadingweFragment.class, (Provider) machineloadingweFragmentSubcomponentFactoryProvider).build();
   }
 
   private DispatchingAndroidInjector<Object> getDispatchingAndroidInjectorOfObject() {
@@ -237,6 +257,27 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
         return new RandomQualityInceptionFragmentSubcomponentFactory();
       }
     };
+    this.continueLoadingSubcomponentFactoryProvider = new Provider<ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent.Factory>() {
+      @Override
+      public ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent.Factory get(
+          ) {
+        return new ContinueLoadingSubcomponentFactory();
+      }
+    };
+    this.weldingSequenceSubcomponentFactoryProvider = new Provider<ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent.Factory>() {
+      @Override
+      public ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent.Factory get(
+          ) {
+        return new WeldingSequenceSubcomponentFactory();
+      }
+    };
+    this.machineloadingweFragmentSubcomponentFactoryProvider = new Provider<ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent.Factory>() {
+      @Override
+      public ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent.Factory get(
+          ) {
+        return new MachineloadingweFragmentSubcomponentFactory();
+      }
+    };
     this.provideGsonProvider = DoubleCheck.provider(RetrofitModule_ProvideGsonFactory.create(retrofitModuleParam));
     this.provideLoggingInterceptorProvider = DoubleCheck.provider(RetrofitModule_ProvideLoggingInterceptorFactory.create(retrofitModuleParam));
     this.provideOkHttpClientProvider = DoubleCheck.provider(RetrofitModule_ProvideOkHttpClientFactory.create(retrofitModuleParam, provideLoggingInterceptorProvider));
@@ -310,6 +351,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ProductionSequenceSubcomponentImpl(ProductionSequence arg0) {
 
       initialize(arg0);
@@ -317,7 +364,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -332,7 +379,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -341,6 +388,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -396,6 +446,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private SigninFragmentSubcomponentImpl(SigninFragment arg0) {
 
       initialize(arg0);
@@ -403,7 +459,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -418,7 +474,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -427,6 +483,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -481,6 +540,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private MachineLoadingFragmentSubcomponentImpl(MachineLoadingFragment arg0) {
 
       initialize(arg0);
@@ -488,7 +553,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -503,7 +568,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -512,6 +577,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -566,6 +634,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ProductionSignoffFragmentSubcomponentImpl(ProductionSignoffFragment arg0) {
 
       initialize(arg0);
@@ -573,7 +647,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -588,7 +662,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -597,6 +671,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -652,6 +729,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ManufacturingQualityOperationFragmentSubcomponentImpl(
         ManufacturingQualityOperationFragment arg0) {
 
@@ -660,7 +743,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -675,7 +758,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -684,6 +767,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -740,6 +826,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ManufacturingAddDefectsFragmentSubcomponentImpl(ManufacturingAddDefectsFragment arg0) {
 
       initialize(arg0);
@@ -747,7 +839,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -762,7 +854,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -771,6 +863,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -826,6 +921,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ManufacturingAddDefectDetailsFragmentSubcomponentImpl(
         ManufacturingAddDefectDetailsFragment arg0) {
 
@@ -834,7 +935,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -849,7 +950,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -858,6 +959,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -913,6 +1017,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ProductionDefectRepairFragmentSubcomponentImpl(ProductionDefectRepairFragment arg0) {
 
       initialize(arg0);
@@ -920,7 +1030,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -935,7 +1045,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -944,6 +1054,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -999,6 +1112,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private ProductionRepairFragmentSubcomponentImpl(ProductionRepairFragment arg0) {
 
       initialize(arg0);
@@ -1006,7 +1125,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -1021,7 +1140,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -1030,6 +1149,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -1085,6 +1207,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private QualityDefectRepairFragmentSubcomponentImpl(QualityDefectRepairFragment arg0) {
 
       initialize(arg0);
@@ -1092,7 +1220,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -1107,7 +1235,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -1116,6 +1244,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -1171,6 +1302,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private QualityRepairFragmentSubcomponentImpl(QualityRepairFragment arg0) {
 
       initialize(arg0);
@@ -1178,7 +1315,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -1193,7 +1330,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -1202,6 +1339,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -1256,6 +1396,12 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
 
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
     private RandomQualityInceptionFragmentSubcomponentImpl(RandomQualityInceptionFragment arg0) {
 
       initialize(arg0);
@@ -1263,7 +1409,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(13).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).build();
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
     }
 
     private ViewModelProviderFactory getViewModelProviderFactory() {
@@ -1278,7 +1424,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
-      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
       this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
@@ -1287,6 +1433,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
       this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
       this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
     }
 
     @Override
@@ -1298,6 +1447,221 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
         RandomQualityInceptionFragment instance) {
       DaggerFragment_MembersInjector.injectAndroidInjector(instance, DaggerApplicationComponent.this.getDispatchingAndroidInjectorOfObject());
       RandomQualityInceptionFragment_MembersInjector.injectProvider(instance, getViewModelProviderFactory());
+      return instance;
+    }
+  }
+
+  private final class ContinueLoadingSubcomponentFactory implements ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent.Factory {
+    @Override
+    public ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent create(
+        ContinueLoading arg0) {
+      Preconditions.checkNotNull(arg0);
+      return new ContinueLoadingSubcomponentImpl(arg0);
+    }
+  }
+
+  private final class ContinueLoadingSubcomponentImpl implements ActivityBuilderModule_ContinueloadingFragment.ContinueLoadingSubcomponent {
+    private Provider<ProductionsequenceViewModel> productionsequenceViewModelProvider;
+
+    private Provider<Authenticationrepository> authenticationrepositoryProvider;
+
+    private Provider<SignInViewModel> signInViewModelProvider;
+
+    private Provider<Productionsequencerepository> productionsequencerepositoryProvider;
+
+    private Provider<SelectedLoadinsequenceinfoViewModel> selectedLoadinsequenceinfoViewModelProvider;
+
+    private Provider<MachineloadingViewModel> machineloadingViewModelProvider;
+
+    private Provider<MachinesignoffViewModel> machinesignoffViewModelProvider;
+
+    private Provider<ManufacturingQualityOperationViewModel> manufacturingQualityOperationViewModelProvider;
+
+    private Provider<ManufacturingAddDefectsViewModel> manufacturingAddDefectsViewModelProvider;
+
+    private Provider<ManufacturingAddDefectsDetailsViewModel> manufacturingAddDefectsDetailsViewModelProvider;
+
+    private Provider<ProductionRepairViewModel> productionRepairViewModelProvider;
+
+    private Provider<ProductionDefectRepairViewModel> productionDefectRepairViewModelProvider;
+
+    private Provider<QualityRepairViewModel> qualityRepairViewModelProvider;
+
+    private Provider<QualityDefectRepairViewModel> qualityDefectRepairViewModelProvider;
+
+    private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
+
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
+    private ContinueLoadingSubcomponentImpl(ContinueLoading arg0) {
+
+      initialize(arg0);
+    }
+
+    private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
+        ) {
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
+    }
+
+    private ViewModelProviderFactory getViewModelProviderFactory() {
+      return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final ContinueLoading arg0) {
+      this.productionsequenceViewModelProvider = ProductionsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.authenticationrepositoryProvider = Authenticationrepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.signInViewModelProvider = SignInViewModel_Factory.create(authenticationrepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionRepairViewModelProvider = ProductionRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionDefectRepairViewModelProvider = ProductionDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+    }
+
+    @Override
+    public void inject(ContinueLoading arg0) {
+      injectContinueLoading(arg0);
+    }
+
+    private ContinueLoading injectContinueLoading(ContinueLoading instance) {
+      DaggerFragment_MembersInjector.injectAndroidInjector(instance, DaggerApplicationComponent.this.getDispatchingAndroidInjectorOfObject());
+      ContinueLoading_MembersInjector.injectProviderFactory(instance, getViewModelProviderFactory());
+      return instance;
+    }
+  }
+
+  private final class WeldingSequenceSubcomponentFactory implements ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent.Factory {
+    @Override
+    public ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent create(
+        WeldingSequence arg0) {
+      Preconditions.checkNotNull(arg0);
+      return new WeldingSequenceSubcomponentImpl(arg0);
+    }
+  }
+
+  private final class WeldingSequenceSubcomponentImpl implements ActivityBuilderModule_WeldingsequenceFragment.WeldingSequenceSubcomponent {
+    private Provider<ProductionsequenceViewModel> productionsequenceViewModelProvider;
+
+    private Provider<Authenticationrepository> authenticationrepositoryProvider;
+
+    private Provider<SignInViewModel> signInViewModelProvider;
+
+    private Provider<Productionsequencerepository> productionsequencerepositoryProvider;
+
+    private Provider<SelectedLoadinsequenceinfoViewModel> selectedLoadinsequenceinfoViewModelProvider;
+
+    private Provider<MachineloadingViewModel> machineloadingViewModelProvider;
+
+    private Provider<MachinesignoffViewModel> machinesignoffViewModelProvider;
+
+    private Provider<ManufacturingQualityOperationViewModel> manufacturingQualityOperationViewModelProvider;
+
+    private Provider<ManufacturingAddDefectsViewModel> manufacturingAddDefectsViewModelProvider;
+
+    private Provider<ManufacturingAddDefectsDetailsViewModel> manufacturingAddDefectsDetailsViewModelProvider;
+
+    private Provider<ProductionRepairViewModel> productionRepairViewModelProvider;
+
+    private Provider<ProductionDefectRepairViewModel> productionDefectRepairViewModelProvider;
+
+    private Provider<QualityRepairViewModel> qualityRepairViewModelProvider;
+
+    private Provider<QualityDefectRepairViewModel> qualityDefectRepairViewModelProvider;
+
+    private Provider<RandomQualityInceptionViewModel> randomQualityInceptionViewModelProvider;
+
+    private Provider<ContinueLoadingViewModel> continueLoadingViewModelProvider;
+
+    private Provider<WeldingsequenceViewModel> weldingsequenceViewModelProvider;
+
+    private Provider<InfoForSelectedStationViewModel> infoForSelectedStationViewModelProvider;
+
+    private WeldingSequenceSubcomponentImpl(WeldingSequence arg0) {
+
+      initialize(arg0);
+    }
+
+    private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
+        ) {
+      return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(16).put(ProductionsequenceViewModel.class, (Provider) productionsequenceViewModelProvider).put(SignInViewModel.class, (Provider) signInViewModelProvider).put(SelectedLoadinsequenceinfoViewModel.class, (Provider) selectedLoadinsequenceinfoViewModelProvider).put(MachineloadingViewModel.class, (Provider) machineloadingViewModelProvider).put(MachinesignoffViewModel.class, (Provider) machinesignoffViewModelProvider).put(ManufacturingQualityOperationViewModel.class, (Provider) manufacturingQualityOperationViewModelProvider).put(ManufacturingAddDefectsViewModel.class, (Provider) manufacturingAddDefectsViewModelProvider).put(ManufacturingAddDefectsDetailsViewModel.class, (Provider) manufacturingAddDefectsDetailsViewModelProvider).put(ProductionRepairViewModel.class, (Provider) productionRepairViewModelProvider).put(ProductionDefectRepairViewModel.class, (Provider) productionDefectRepairViewModelProvider).put(QualityRepairViewModel.class, (Provider) qualityRepairViewModelProvider).put(QualityDefectRepairViewModel.class, (Provider) qualityDefectRepairViewModelProvider).put(RandomQualityInceptionViewModel.class, (Provider) randomQualityInceptionViewModelProvider).put(ContinueLoadingViewModel.class, (Provider) continueLoadingViewModelProvider).put(WeldingsequenceViewModel.class, (Provider) weldingsequenceViewModelProvider).put(InfoForSelectedStationViewModel.class, (Provider) infoForSelectedStationViewModelProvider).build();
+    }
+
+    private ViewModelProviderFactory getViewModelProviderFactory() {
+      return new ViewModelProviderFactory(getMapOfClassOfAndProviderOfViewModel());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final WeldingSequence arg0) {
+      this.productionsequenceViewModelProvider = ProductionsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.authenticationrepositoryProvider = Authenticationrepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.signInViewModelProvider = SignInViewModel_Factory.create(authenticationrepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionsequencerepositoryProvider = Productionsequencerepository_Factory.create(DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.selectedLoadinsequenceinfoViewModelProvider = SelectedLoadinsequenceinfoViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machineloadingViewModelProvider = MachineloadingViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.machinesignoffViewModelProvider = MachinesignoffViewModel_Factory.create(productionsequencerepositoryProvider, DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.manufacturingQualityOperationViewModelProvider = ManufacturingQualityOperationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.manufacturingAddDefectsViewModelProvider = ManufacturingAddDefectsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.manufacturingAddDefectsDetailsViewModelProvider = ManufacturingAddDefectsDetailsViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionRepairViewModelProvider = ProductionRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.productionDefectRepairViewModelProvider = ProductionDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.qualityRepairViewModelProvider = QualityRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.qualityDefectRepairViewModelProvider = QualityDefectRepairViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.randomQualityInceptionViewModelProvider = RandomQualityInceptionViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.continueLoadingViewModelProvider = ContinueLoadingViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+      this.weldingsequenceViewModelProvider = WeldingsequenceViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider, DaggerApplicationComponent.this.provideGsonProvider);
+      this.infoForSelectedStationViewModelProvider = InfoForSelectedStationViewModel_Factory.create(DaggerApplicationComponent.this.provideGsonProvider, DaggerApplicationComponent.this.providesAPiInterfaceProvider);
+    }
+
+    @Override
+    public void inject(WeldingSequence arg0) {
+      injectWeldingSequence(arg0);
+    }
+
+    private WeldingSequence injectWeldingSequence(WeldingSequence instance) {
+      DaggerFragment_MembersInjector.injectAndroidInjector(instance, DaggerApplicationComponent.this.getDispatchingAndroidInjectorOfObject());
+      WeldingSequence_MembersInjector.injectProvider(instance, getViewModelProviderFactory());
+      WeldingSequence_MembersInjector.injectGson(instance, DaggerApplicationComponent.this.provideGsonProvider.get());
+      return instance;
+    }
+  }
+
+  private final class MachineloadingweFragmentSubcomponentFactory implements ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent.Factory {
+    @Override
+    public ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent create(
+        MachineloadingweFragment arg0) {
+      Preconditions.checkNotNull(arg0);
+      return new MachineloadingweFragmentSubcomponentImpl(arg0);
+    }
+  }
+
+  private final class MachineloadingweFragmentSubcomponentImpl implements ActivityBuilderModule_MachineloadingweFragment.MachineloadingweFragmentSubcomponent {
+    private MachineloadingweFragmentSubcomponentImpl(MachineloadingweFragment arg0) {
+
+    }
+
+    @Override
+    public void inject(MachineloadingweFragment arg0) {
+      injectMachineloadingweFragment(arg0);
+    }
+
+    private MachineloadingweFragment injectMachineloadingweFragment(
+        MachineloadingweFragment instance) {
+      DaggerFragment_MembersInjector.injectAndroidInjector(instance, DaggerApplicationComponent.this.getDispatchingAndroidInjectorOfObject());
       return instance;
     }
   }

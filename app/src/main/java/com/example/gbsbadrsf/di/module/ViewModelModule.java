@@ -3,6 +3,7 @@ package com.example.gbsbadrsf.di.module;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoadingViewModel;
 import com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel;
 import com.example.gbsbadrsf.Production.Data.ProductionDefectRepairViewModel;
 import com.example.gbsbadrsf.Production.Data.ProductionRepairViewModel;
@@ -18,6 +19,8 @@ import com.example.gbsbadrsf.machineloading.MachineloadingViewModel;
 import com.example.gbsbadrsf.productionsequence.ProductionsequenceViewModel;
 import com.example.gbsbadrsf.productionsequence.SelectedLoadinsequenceinfoViewModel;
 import com.example.gbsbadrsf.signin.SignInViewModel;
+import com.example.gbsbadrsf.weldingsequence.InfoForSelectedStationViewModel;
+import com.example.gbsbadrsf.weldingsequence.WeldingsequenceViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -84,5 +87,18 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(RandomQualityInceptionViewModel.class)
     public abstract ViewModel bindRandomQualityInceptionViewModel (RandomQualityInceptionViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(ContinueLoadingViewModel.class)
+    public abstract ViewModel bindcontinueloadingViewmodel (ContinueLoadingViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(WeldingsequenceViewModel.class)
+    public abstract ViewModel bindweldingsequenceViewmodel (WeldingsequenceViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(InfoForSelectedStationViewModel.class)
+    public abstract ViewModel bindinfoforselectedstationviewmodel (InfoForSelectedStationViewModel viewModel);
+
 
 }

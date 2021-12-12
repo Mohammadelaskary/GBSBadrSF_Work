@@ -162,6 +162,28 @@
                 app:layout_constraintTop_toTopOf="@id/operation_txt"
                 app:layout_constraintStart_toEndOf="@id/operation_txt"
                 />
+            <TextView
+                android:id="@+id/totalqtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/styleoftext"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/operation"
+                />
+            <TextView
+                android:id="@+id/basketcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="paint"
+                style="@style/styleoftext"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/totalqtn"
+                />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_btn"
                 android:layout_width="200dp"

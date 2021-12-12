@@ -11,12 +11,21 @@ import com.example.gbsbadrsf.Quality.Data.Defect;
 import com.example.gbsbadrsf.data.response.APIResponse;
 import com.example.gbsbadrsf.data.response.APIResponseLoadingsequenceinfo;
 import com.example.gbsbadrsf.data.response.APIResponseSignin;
+import com.example.gbsbadrsf.data.response.ApiContinueloading;
 import com.example.gbsbadrsf.data.response.ApiMachinesignoff;
+import com.example.gbsbadrsf.data.response.ApiResponseweldingbyjoborder;
 import com.example.gbsbadrsf.data.response.ApiSavefirstloading;
+import com.example.gbsbadrsf.data.response.Apigetbasketcode;
+import com.example.gbsbadrsf.data.response.Apigetinfoforselectedstation;
+import com.example.gbsbadrsf.data.response.Apigetmachinecode;
+import com.example.gbsbadrsf.data.response.LastMoveManufacturingBasketInfo;
 import com.example.gbsbadrsf.data.response.LoadingSequenceInfo;
+import com.example.gbsbadrsf.data.response.MachineLoading;
 import com.example.gbsbadrsf.data.response.MachineSignoffBody;
 import com.example.gbsbadrsf.data.response.Ppr;
+import com.example.gbsbadrsf.data.response.PprWelding;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
+import com.example.gbsbadrsf.data.response.StationLoading;
 import com.example.gbsbadrsf.data.response.UserInfo;
 
 import java.util.List;
@@ -31,6 +40,17 @@ public interface ApiInterface {
 
 @GET("GetManufacturingLoadingSequenceByJobOrder")
    Single<APIResponse<List<Ppr>>> getproductionsequence(@Query("JobOrderName") String jobordername);
+  @GET("GetWeldingLoadingSequenceByJobOrder")
+  Single<ApiResponseweldingbyjoborder<List<PprWelding>>> getweldingsequence(@Query("UserID") String userid,
+                                                                            @Query("DeviceSerialNo") String deviceserialnumber,
+                                                                            @Query("JobOrderName") String jobordername);
+//getinfo for selected station
+@GET("GetInfoForSelectedStation")
+Single<Apigetinfoforselectedstation<StationLoading>> getinfoforselectedstation(@Query("UserID") String userid,@Query("DeviceSerialNo") String deviceserialnumber,@Query("ProductionStationEnName")String ProductionStationEnName);
+
+
+
+
 
     @GET("SignIn")
     Single<APIResponseSignin<UserInfo>> login(@Query("Username") String username,
@@ -49,9 +69,24 @@ public interface ApiInterface {
 
   @POST("MachineSignOff")
     Single<ApiMachinesignoff<ResponseStatus>> machinesignoff(@Body MachineSignoffBody jsonObject);
+  //get machine code in signoff
+  @GET("GetInfoForSelectedMachine")
+  Single<Apigetmachinecode<MachineLoading>> getmachinecodedata(@Query("UserID") String userid,@Query("DeviceSerialNo")String devicenumber,@Query("MachineCode")String machinecode);
+  @GET("GetBasketInfo")
+  Single<Apigetbasketcode<LastMoveManufacturingBasketInfo>> getbasketcodedata(@Query("UserID") String userid, @Query("DeviceSerialNo")String devicenumber, @Query("BasketCode")String basketcode);
+
+@GET("ContinueLoading")
+Single<ApiContinueloading<ResponseStatus>>savecontinueloading(@Query("UserID") String  userid,
+                                                              @Query("DeviceSerialNo") String deviceserialnumber,
+                                                              @Query("BasketCode") String  basketcode,
+                                                              @Query("MachineCode")String machinecode,
+                                                              @Query("DieCode")String DieCode,
+                                                              @Query(" LoadingQtyMobile")String loadinyqtymobile);
 
 
-    @GET("GetBasketInfoForQuality")
+
+
+  @GET("GetBasketInfoForQuality")
     Single<ApiResponseLastMoveManufacturingBasket> getBasketData(@Query("BasketCode") String basketCode);
 
 

@@ -1,5 +1,6 @@
 package com.example.gbsbadrsf.data.response;
 
+import com.example.gbsbadrsf.Manfacturing.machinesignoff.Basketcodelst;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -12,13 +13,13 @@ public class MachineSignoffBody {
     private Boolean isBulkQty;
     @SerializedName("BasketLst")
     @Expose
-    private List<BasketLst> basketLst = null;
+    private List<Basketcodelst> basketLst = null;
     @SerializedName("DeviceSerialNo")
     @Expose
     private String deviceSerialNo;
     @SerializedName("SignOutQty")
     @Expose
-    private Integer signOutQty;
+    private String signOutQty;
     @SerializedName("MachineCode")
     @Expose
     private String machineCode;
@@ -34,11 +35,11 @@ public class MachineSignoffBody {
         this.isBulkQty = isBulkQty;
     }
 
-    public List<BasketLst> getBasketLst() {
+    public List<Basketcodelst> getBasketLst() {
         return basketLst;
     }
 
-    public void setBasketLst(List<BasketLst> basketLst) {
+    public void setBasketLst(List<Basketcodelst> basketLst) {
         this.basketLst = basketLst;
     }
 
@@ -50,11 +51,11 @@ public class MachineSignoffBody {
         this.deviceSerialNo = deviceSerialNo;
     }
 
-    public Integer getSignOutQty() {
+    public String getSignOutQty() {
         return signOutQty;
     }
 
-    public void setSignOutQty(Integer signOutQty) {
+    public void setSignOutQty(String signOutQty) {
         this.signOutQty = signOutQty;
     }
 

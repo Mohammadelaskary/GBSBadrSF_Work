@@ -130,7 +130,15 @@
         tools:layout="@layout/fragment_machine_loading" >
         <action
             android:id="@+id/action_machineLoadingFragment_to_addworkersFragment"
-            app:destination="@id/addworkersFragment" />
+            app:destination="@id/addworkersFragment"
+            />
+        <action
+            android:id="@+id/action_machineLoadingFragment_to_productionsequenceFragment"
+            app:destination="@id/productionSequence"
+            />
+
+
+
     </fragment>
     <fragment
         android:id="@+id/qualityScrapFragment"
@@ -403,7 +411,7 @@
         tools:layout="@layout/fragment_planning_menu" />
     <fragment
         android:id="@+id/machineloadingweFragment"
-        android:name="com.example.gbsbadrsf.welding.MachineloadingweFragment"
+        android:name="com.example.gbsbadrsf.welding.machineloadingwe.MachineloadingweFragment"
         android:label="fragment_machineloadingwe"
         tools:layout="@layout/fragment_machineloadingwe" />
     <fragment
@@ -530,11 +538,20 @@
         tools:layout="@layout/fragment_production_sequence" >
         <action
             android:id="@+id/action_productionSequence_to_machineLoadingFragment"
-            app:destination="@id/machineLoadingFragment" />
+            app:destination="@id/machineLoadingFragment"
+            app:popUpTo="@id/machineLoadingFragment"
+
+            />
+        <action
+            android:id="@+id/action_productionSequence_to_mainmachineLoadingFragment"
+            app:destination="@id/mainmachineloading"
+
+            />
+
     </fragment>
     <fragment
         android:id="@+id/weldingSequence"
-        android:name="com.example.gbsbadrsf.WeldingSequence"
+        android:name="com.example.gbsbadrsf.weldingsequence.WeldingSequence"
         android:label="fragment_welding_sequence"
         tools:layout="@layout/fragment_welding_sequence" >
         <action
@@ -548,10 +565,13 @@
         tools:layout="@layout/fragment_mainmachineloading" >
         <action
             android:id="@+id/action_mainmachineloading_to_productionSequence"
-            app:destination="@id/productionSequence" />
+            app:destination="@id/productionSequence"
+
+            />
         <action
             android:id="@+id/action_mainmachineloading_to_continueLoading"
             app:destination="@id/continueLoading" />
+
     </fragment>
     <fragment
         android:id="@+id/continueLoading"
