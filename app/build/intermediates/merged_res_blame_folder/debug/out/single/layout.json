@@ -48,6 +48,10 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_welding_add_deffects.xml"
     },
     {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_sample.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\activity_sample.xml"
+    },
+    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_planning_menu.xml",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_planning_menu.xml"
     },

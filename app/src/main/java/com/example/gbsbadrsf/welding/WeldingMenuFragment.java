@@ -55,11 +55,11 @@ FragmentWeldingMenuBinding fragmentWeldingMenuBinding;
             Navigation.findNavController(getView()).navigate(R.id.action_weldingMenuFragment_to_signoffweFragment);
 
         });
-        fragmentWeldingMenuBinding.baskettransferBtn.setOnClickListener(__ -> {
-
-            Navigation.findNavController(getView()).navigate(R.id.action_weldingMenuFragment_to_baskettransferweFragment);
-
-        });
+//        fragmentWeldingMenuBinding.baskettransferBtn.setOnClickListener(__ -> {
+//
+//            Navigation.findNavController(getView()).navigate(R.id.action_weldingMenuFragment_to_baskettransferweFragment);
+//
+//        });
         fragmentWeldingMenuBinding.scraprequestBtn.setOnClickListener(__ -> {
 
             Navigation.findNavController(getView()).navigate(R.id.action_weldingMenuFragment_to_scraprequestFragment);

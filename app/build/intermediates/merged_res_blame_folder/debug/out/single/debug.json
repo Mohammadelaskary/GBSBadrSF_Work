@@ -24,20 +24,24 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\font\\cambay.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_qcdesicionwe.xml.flat",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qcdesicionwe.xml"
-    },
-    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_repair_defect_item.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\repair_defect_item.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_barcodel.png.flat",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\drawable-xxxhdpi\\barcodel.png"
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_qcdesicionwe.xml.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qcdesicionwe.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_baseline_arrow_back_24.png"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_paintquality.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_paintquality.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_barcodel.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\drawable-xxxhdpi\\barcodel.png"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_productionscrapinquality_lst.xml.flat",
@@ -52,16 +56,16 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qualityscraprequest.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_scraprequest.xml.flat",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_scraprequest.xml"
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_add_defects_details_button.xml.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\add_defects_details_button.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_welding_add_defects_details.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_welding_add_defects_details.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_add_defects_details_button.xml.flat",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\add_defects_details_button.xml"
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_scraprequest.xml.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_scraprequest.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_manfacturingmenu.xml.flat",
@@ -74,6 +78,10 @@
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_productionrepstatus.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_productionrepstatus.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_baseline_arrow_back_24.png"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_dropdown_arrow.png.flat",
@@ -144,6 +152,10 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qualityscraprequestwe.xml"
     },
     {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_baseline_arrow_back_24.png"
+    },
+    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v21_ic_down_arrow.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi-v21\\ic_down_arrow.xml"
     },
@@ -184,6 +196,10 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\signoffcustomdialog.xml"
     },
     {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_baseline_arrow_back_24.png"
+    },
+    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_background.png.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\background.png"
     },
@@ -194,6 +210,10 @@
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_dropdown_arrow.png.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\drawable-xxhdpi\\ic_dropdown_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_baseline_arrow_back_24.png"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_barcodel.png.flat",
@@ -230,6 +250,10 @@
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_mainmenu.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_mainmenu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_baseline_arrow_back_24.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_baseline_arrow_back_24.png"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sarafelhawya.png.flat",
@@ -488,6 +512,10 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_reopen_defect.xml"
     },
     {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable_undo.png.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\drawable\\undo.png"
+    },
+    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_productionsetqtn.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_productionsetqtn.xml"
     },
@@ -530,6 +558,10 @@
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_qualityscrapwe_lst.xml.flat",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\qualityscrapwe_lst.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_baseline_arrow_back_24.xml.flat",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_baseline_arrow_back_24.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_paint_menu.xml.flat",

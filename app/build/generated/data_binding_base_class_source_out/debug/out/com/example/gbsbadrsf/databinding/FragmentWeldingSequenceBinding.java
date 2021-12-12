@@ -4,7 +4,9 @@ package com.example.gbsbadrsf.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,12 @@ import java.lang.String;
 public final class FragmentWeldingSequenceBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final EditText barcodeEdt;
+
+  @NonNull
+  public final ImageView barcodeImg;
 
   @NonNull
   public final ConstraintLayout constraint;
@@ -52,12 +60,15 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
   public final TextView weldingseqTxt;
 
   private FragmentWeldingSequenceBinding(@NonNull ConstraintLayout rootView,
+      @NonNull EditText barcodeEdt, @NonNull ImageView barcodeImg,
       @NonNull ConstraintLayout constraint, @NonNull TextView defectnameTxt,
       @NonNull RecyclerView defectqtnRv, @NonNull HorizontalScrollView hsv,
       @NonNull TextView productionnotesTxt, @NonNull TextView productionrepairTxt,
       @NonNull TextView qcnotesTxt, @NonNull MaterialButton qtnokBtn, @NonNull View view,
       @NonNull TextView weldingseqTxt) {
     this.rootView = rootView;
+    this.barcodeEdt = barcodeEdt;
+    this.barcodeImg = barcodeImg;
     this.constraint = constraint;
     this.defectnameTxt = defectnameTxt;
     this.defectqtnRv = defectqtnRv;
@@ -97,6 +108,18 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.barcode_edt;
+      EditText barcodeEdt = rootView.findViewById(id);
+      if (barcodeEdt == null) {
+        break missingId;
+      }
+
+      id = R.id.barcode_img;
+      ImageView barcodeImg = rootView.findViewById(id);
+      if (barcodeImg == null) {
+        break missingId;
+      }
+
       id = R.id.constraint;
       ConstraintLayout constraint = rootView.findViewById(id);
       if (constraint == null) {
@@ -157,9 +180,9 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentWeldingSequenceBinding((ConstraintLayout) rootView, constraint,
-          defectnameTxt, defectqtnRv, hsv, productionnotesTxt, productionrepairTxt, qcnotesTxt,
-          qtnokBtn, view, weldingseqTxt);
+      return new FragmentWeldingSequenceBinding((ConstraintLayout) rootView, barcodeEdt, barcodeImg,
+          constraint, defectnameTxt, defectqtnRv, hsv, productionnotesTxt, productionrepairTxt,
+          qcnotesTxt, qtnokBtn, view, weldingseqTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

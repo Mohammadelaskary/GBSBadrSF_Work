@@ -5,5 +5,9 @@ public enum Machinsignoffcases {
     machinefree,
     wrongmachine,
     fake,
-    servererror
+    servererror,
+    datagettingsuccesfully,
+    wrongmachinecode,
+    noloadingquantityonthemachine
+
 }

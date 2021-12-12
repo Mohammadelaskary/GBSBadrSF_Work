@@ -20,9 +20,6 @@ public final class FragmentManfacturingmenuBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton baskettransferBtn;
-
-  @NonNull
   public final MaterialButton machineloadingBtn;
 
   @NonNull
@@ -47,13 +44,11 @@ public final class FragmentManfacturingmenuBinding implements ViewBinding {
   public final MaterialButton scraprmanagmentBtn;
 
   private FragmentManfacturingmenuBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton baskettransferBtn, @NonNull MaterialButton machineloadingBtn,
-      @NonNull MaterialButton machinesignoffBtn, @NonNull MaterialButton machinewipBtn,
-      @NonNull TextView manfacturingTxt, @NonNull MaterialButton plansequenceholdBtn,
-      @NonNull MaterialButton productionrepairBtn, @NonNull MaterialButton qualityscraprequest,
-      @NonNull MaterialButton scraprmanagmentBtn) {
+      @NonNull MaterialButton machineloadingBtn, @NonNull MaterialButton machinesignoffBtn,
+      @NonNull MaterialButton machinewipBtn, @NonNull TextView manfacturingTxt,
+      @NonNull MaterialButton plansequenceholdBtn, @NonNull MaterialButton productionrepairBtn,
+      @NonNull MaterialButton qualityscraprequest, @NonNull MaterialButton scraprmanagmentBtn) {
     this.rootView = rootView;
-    this.baskettransferBtn = baskettransferBtn;
     this.machineloadingBtn = machineloadingBtn;
     this.machinesignoffBtn = machinesignoffBtn;
     this.machinewipBtn = machinewipBtn;
@@ -91,12 +86,6 @@ public final class FragmentManfacturingmenuBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.baskettransfer_btn;
-      MaterialButton baskettransferBtn = rootView.findViewById(id);
-      if (baskettransferBtn == null) {
-        break missingId;
-      }
-
       id = R.id.machineloading_btn;
       MaterialButton machineloadingBtn = rootView.findViewById(id);
       if (machineloadingBtn == null) {
@@ -145,8 +134,8 @@ public final class FragmentManfacturingmenuBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentManfacturingmenuBinding((ConstraintLayout) rootView, baskettransferBtn,
-          machineloadingBtn, machinesignoffBtn, machinewipBtn, manfacturingTxt, plansequenceholdBtn,
+      return new FragmentManfacturingmenuBinding((ConstraintLayout) rootView, machineloadingBtn,
+          machinesignoffBtn, machinewipBtn, manfacturingTxt, plansequenceholdBtn,
           productionrepairBtn, qualityscraprequest, scraprmanagmentBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);

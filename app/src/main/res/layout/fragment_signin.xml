@@ -69,7 +69,7 @@
                     android:inputType="textPassword"
                     android:background="@drawable/edt_bg"
                     android:hint="please enter password"
-                    android:textColorHint="#808080	"
+                    android:textColorHint="#808080"
                     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
 
 

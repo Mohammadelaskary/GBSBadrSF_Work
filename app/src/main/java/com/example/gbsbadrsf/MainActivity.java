@@ -11,7 +11,9 @@ import com.honeywell.aidc.BarcodeReader;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding activityMainBinding;
     private static BarcodeReader barcodeReader;
-    private AidcManager manager;
+    private static BarcodeReader barcodeReaderSequence;
+   private AidcManager manager;
+
 
 
 
@@ -22,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
         AidcManager.create(this, new AidcManager.CreatedCallback() {
-
+//
             @Override
             public void onCreated(AidcManager aidcManager) {
                 manager = aidcManager;
                 barcodeReader = manager.createBarcodeReader();
+                barcodeReaderSequence = manager.createBarcodeReader();
             }
         });
 
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public static BarcodeReader getBarcodeObject() {
         return barcodeReader;
+    }
+    public static BarcodeReader getBarcodeObjectsequence() {
+        return barcodeReaderSequence;
     }
 
 
@@ -49,11 +55,17 @@ public class MainActivity extends AppCompatActivity {
             barcodeReader.close();
             barcodeReader = null;
         }
+        if (barcodeReaderSequence != null) {
+            // close BarcodeReader to clean up resources.
+            barcodeReaderSequence.close();
+            barcodeReaderSequence = null;
+        }
+
 
         if (manager != null) {
-            // close AidcManager to disconnect from the scanner service.
+//            // close AidcManager to disconnect from the scanner service.
             // once closed, the object can no longer be used.
             manager.close();
         }
-    }
+  }
 }

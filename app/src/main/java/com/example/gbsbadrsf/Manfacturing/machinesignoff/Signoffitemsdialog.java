@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.data.response.Ppr;
 import com.example.gbsbadrsf.productionsequence.productionsequenceadapter;
+import com.google.gson.Gson;
 import com.honeywell.aidc.BarcodeFailureEvent;
 import com.honeywell.aidc.BarcodeReadEvent;
 import com.honeywell.aidc.BarcodeReader;
@@ -32,6 +34,7 @@ import com.honeywell.aidc.TriggerStateChangeEvent;
 import com.honeywell.aidc.UnsupportedPropertyException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +47,9 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
 
     public interface OnInputSelected{
         void sendInput(String input);
+        void sendlist(List<Basketcodelst> input);
+
+
     }
     public OnInputSelected mOnInputSelected;
 
@@ -70,19 +76,22 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
         basketcode=view.findViewById(R.id.basketcode_edt);
 
         clickinginsave();
-//simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//    @Override
-//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//        if (isChecked) {
-//            // do something when check is selected
-//        } else {
-//            //do something when unchecked
-//            recyclerView.setVisibility(View.GONE);
-//
-//        }
-//
-//    }
-//})      ;
+        //open and close switch
+simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            // do something when check is selected
+            recyclerView.setVisibility(View.VISIBLE);
+
+        } else {
+            //do something when unchecked
+            recyclerView.setVisibility(View.GONE);
+
+        }
+
+    }
+})      ;
 
 
 //        productionSignoffadapter =new ProductionSignoffAdapter(basketcodelstList);
@@ -152,10 +161,11 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
             public void run() {
                 // update the ui from here
                 editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
-                // if (!basketcodelstList.contains(String.valueOf(barcodeReadEvent.getBarcodeData()))){ TODO
-                basketcodelstList.add(new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData())));
+                Basketcodelst nwItem =new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()));
+                 if (!productionSignoffadapter.getproductionsequencelist().contains(nwItem)){
+                basketcodelstList.add(nwItem);
                 productionSignoffadapter.notifyDataSetChanged();
-                // }
+                 }
 
             }
         });
@@ -225,14 +235,16 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
 
 
                 String input = totalqtn.getText().toString();
-                String basketcodeinput=basketcodelstList.toString();
+                String basketcodeinput=new Gson().toJson(basketcodelstList);
+                //list
+
                 if(!input.equals("")){
 
                     mOnInputSelected.sendInput(input);
                 }
-                else if (!basketcodeinput.equals("")){
-                    mOnInputSelected.sendInput(basketcodeinput);
-                }
+                //for list
+                    mOnInputSelected.sendlist(basketcodelstList);
+
 
 
                 getDialog().dismiss();

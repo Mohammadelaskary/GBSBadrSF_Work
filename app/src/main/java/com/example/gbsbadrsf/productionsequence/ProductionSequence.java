@@ -1,43 +1,27 @@
 package com.example.gbsbadrsf.productionsequence;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.SyncStateContract;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.gbsbadrsf.MainActivity;
 import com.example.gbsbadrsf.R;
-import com.example.gbsbadrsf.Util.Constant;
-import com.example.gbsbadrsf.Util.OnClick;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.data.response.Ppr;
 import com.example.gbsbadrsf.databinding.FragmentProductionSequenceBinding;
-import com.example.gbsbadrsf.databinding.FragmentProductionrepstatusBinding;
-import com.example.gbsbadrsf.machineloading.MachineLoadingFragment;
-import com.example.gbsbadrsf.productionrepairstaus.ProductionrepstatusAdapter;
-import com.example.gbsbadrsf.signin.SignInViewModel;
-import com.example.gbsbadrsf.signin.Usertype;
 import com.google.gson.Gson;
 import com.honeywell.aidc.BarcodeFailureEvent;
 import com.honeywell.aidc.BarcodeReadEvent;
@@ -87,7 +71,6 @@ public class ProductionSequence extends DaggerFragment implements BarcodeReader.
         selectedLoadinsequenceinfoViewModel=ViewModelProviders.of(this,provider).get(SelectedLoadinsequenceinfoViewModel.class);
 
 
-        barcodeReader = MainActivity.getBarcodeObject();
         fragmentProductionSequenceBinding.barcodeEdt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -119,6 +102,8 @@ public class ProductionSequence extends DaggerFragment implements BarcodeReader.
 
         recyclerView = fragmentProductionSequenceBinding.defectqtnRv;
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+        barcodeReader = MainActivity.getBarcodeObjectsequence();
+
         if (barcodeReader != null) {
 
             // register bar code event listener
@@ -282,6 +267,22 @@ public class ProductionSequence extends DaggerFragment implements BarcodeReader.
                 e.printStackTrace();
             }
         }
+
+//        getView().setFocusableInTouchMode(true);
+//        getView().requestFocus();
+//        getView().setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+//                    // handle back button's click listener
+//                    //Navigation.findNavController(getView()).popBackStack(R.id.mainmachineloading,true);
+//                   // Navigation.findNavController(getView()).navigate(R.id.action_productionSequence_to_mainmachineLoadingFragment);
+//
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
     }
 
     @Override

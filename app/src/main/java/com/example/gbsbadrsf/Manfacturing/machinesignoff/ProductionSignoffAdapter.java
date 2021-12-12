@@ -26,6 +26,9 @@ public class ProductionSignoffAdapter extends RecyclerView.Adapter<ProductionSig
         Basketcodelst.addAll(basketcodelst);
         notifyDataSetChanged();
     }
+    public List<Basketcodelst> getproductionsequencelist(){
+        return Basketcodelst;
+    }
 
 
 

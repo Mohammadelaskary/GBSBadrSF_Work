@@ -1702,6 +1702,7 @@ drawable edt_bg
 drawable enterscence
 drawable gabourlogo
 drawable ic_add
+drawable ic_baseline_arrow_back_24
 drawable ic_clock_black_24dp
 drawable ic_down_arrow
 drawable ic_dropdown_arrow
@@ -1752,6 +1753,7 @@ drawable spinner_drop
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable undo
 font caesar_dressing
 font cambay
 id ALT
@@ -1824,6 +1826,7 @@ id action_fragment_manufacturing_quality_to_fragment_random_quality_inception
 id action_fragment_production_repair_to_fragment_production_defect_repair
 id action_image
 id action_machineLoadingFragment_to_addworkersFragment
+id action_machineLoadingFragment_to_productionsequenceFragment
 id action_mainScrapmanagment_to_productionscrapFragment
 id action_mainScrapmanagment_to_scraprequestlist
 id action_mainmachineloading_to_continueLoading
@@ -1864,6 +1867,7 @@ id action_productionMenuFragment_to_manfacturingmenuFragment
 id action_productionMenuFragment_to_paintMenuFragment
 id action_productionMenuFragment_to_weldingMenuFragment
 id action_productionSequence_to_machineLoadingFragment
+id action_productionSequence_to_mainmachineLoadingFragment
 id action_productionscraplistinqualityFragment_to_productionscraprequestqcFragment
 id action_productionscraplistwe_to_productionScraprequestwe
 id action_quality_welding_fragment_to_welding_quality_operation
@@ -1960,7 +1964,6 @@ id basketto_edt
 id basketto_img
 id basketto_txt
 id baskettransferFragment
-id baskettransfer_btn
 id baskettransfer_txt
 id baskettransferweFragment
 id beginOnFirstDraw
