@@ -52,6 +52,10 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\signoffcustomdialog.xml"
     },
     {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_production_rejection_requests_list_quality.xml.flat",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_production_rejection_requests_list_quality.xml"
+    },
+    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\drawable_sarafelhawya.png.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\drawable\\sarafelhawya.png"
     },
@@ -314,6 +318,10 @@
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_addworkers.xml.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_addworkers.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_quality_rejection_requests_list.xml.flat",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_quality_rejection_requests_list.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -592,10 +600,6 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\drawable-xhdpi\\ic_dropdown_arrow.png"
     },
     {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_qualityscraplist.xml.flat",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_qualityscraplist.xml"
-    },
-    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_mainschedulelst.xml.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\mainschedulelst.xml"
     },
@@ -618,10 +622,6 @@
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_barcodel.png.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\drawable-ldpi\\barcodel.png"
-    },
-    {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_productionscraplistinquality.xml.flat",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_productionscraplistinquality.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_mainmachinesignoff.xml.flat",

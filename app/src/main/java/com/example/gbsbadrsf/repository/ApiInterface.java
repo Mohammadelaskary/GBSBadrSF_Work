@@ -11,6 +11,7 @@ import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingDefect;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRejectionRequestList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGettingFinalQualityDecision;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSavingOperationSignOffDecision;
@@ -175,6 +176,7 @@ public interface  ApiInterface {
           @Query("DT") String date,
           @Query("FinalQualityDecisionId") int FinalQualityDecisionId
   );
-
+  @GET("GetRejectionRequestsList")
+  Single<ApiResponseGetRejectionRequestList> getRejectionRequestsList();
 
 }

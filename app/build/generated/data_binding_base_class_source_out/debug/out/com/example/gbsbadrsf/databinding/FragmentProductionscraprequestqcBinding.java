@@ -4,7 +4,6 @@ package com.example.gbsbadrsf.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +12,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.gbsbadrsf.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -46,13 +46,13 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
   public final TextView jobordernameTxt;
 
   @NonNull
-  public final EditText notesEdt;
-
-  @NonNull
-  public final TextView notesTxt;
+  public final TextInputLayout notes;
 
   @NonNull
   public final TextView qualityscrapTxt;
+
+  @NonNull
+  public final TextView rejectedQuantityTxt;
 
   @NonNull
   public final TextView responsibledepTxt;
@@ -63,17 +63,14 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
   @NonNull
   public final TextView scrapquantity;
 
-  @NonNull
-  public final TextView scrapquantityTxt;
-
   private FragmentProductionscraprequestqcBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton acceptBtn, @NonNull TextView childTxt, @NonNull TextView childcode,
       @NonNull TextView childesc, @NonNull MaterialButton declineBtn,
       @NonNull MaterialButton displaydeffectBtn, @NonNull TextView jobordername,
-      @NonNull TextView jobordernameTxt, @NonNull EditText notesEdt, @NonNull TextView notesTxt,
-      @NonNull TextView qualityscrapTxt, @NonNull TextView responsibledepTxt,
-      @NonNull TextView responspiledep, @NonNull TextView scrapquantity,
-      @NonNull TextView scrapquantityTxt) {
+      @NonNull TextView jobordernameTxt, @NonNull TextInputLayout notes,
+      @NonNull TextView qualityscrapTxt, @NonNull TextView rejectedQuantityTxt,
+      @NonNull TextView responsibledepTxt, @NonNull TextView responspiledep,
+      @NonNull TextView scrapquantity) {
     this.rootView = rootView;
     this.acceptBtn = acceptBtn;
     this.childTxt = childTxt;
@@ -83,13 +80,12 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
     this.displaydeffectBtn = displaydeffectBtn;
     this.jobordername = jobordername;
     this.jobordernameTxt = jobordernameTxt;
-    this.notesEdt = notesEdt;
-    this.notesTxt = notesTxt;
+    this.notes = notes;
     this.qualityscrapTxt = qualityscrapTxt;
+    this.rejectedQuantityTxt = rejectedQuantityTxt;
     this.responsibledepTxt = responsibledepTxt;
     this.responspiledep = responspiledep;
     this.scrapquantity = scrapquantity;
-    this.scrapquantityTxt = scrapquantityTxt;
   }
 
   @Override
@@ -167,21 +163,21 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
         break missingId;
       }
 
-      id = R.id.notes_edt;
-      EditText notesEdt = ViewBindings.findChildViewById(rootView, id);
-      if (notesEdt == null) {
-        break missingId;
-      }
-
-      id = R.id.notes_txt;
-      TextView notesTxt = ViewBindings.findChildViewById(rootView, id);
-      if (notesTxt == null) {
+      id = R.id.notes;
+      TextInputLayout notes = ViewBindings.findChildViewById(rootView, id);
+      if (notes == null) {
         break missingId;
       }
 
       id = R.id.qualityscrap_txt;
       TextView qualityscrapTxt = ViewBindings.findChildViewById(rootView, id);
       if (qualityscrapTxt == null) {
+        break missingId;
+      }
+
+      id = R.id.rejected_quantity_txt;
+      TextView rejectedQuantityTxt = ViewBindings.findChildViewById(rootView, id);
+      if (rejectedQuantityTxt == null) {
         break missingId;
       }
 
@@ -203,16 +199,10 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
         break missingId;
       }
 
-      id = R.id.scrapquantity_txt;
-      TextView scrapquantityTxt = ViewBindings.findChildViewById(rootView, id);
-      if (scrapquantityTxt == null) {
-        break missingId;
-      }
-
       return new FragmentProductionscraprequestqcBinding((ConstraintLayout) rootView, acceptBtn,
           childTxt, childcode, childesc, declineBtn, displaydeffectBtn, jobordername,
-          jobordernameTxt, notesEdt, notesTxt, qualityscrapTxt, responsibledepTxt, responspiledep,
-          scrapquantity, scrapquantityTxt);
+          jobordernameTxt, notes, qualityscrapTxt, rejectedQuantityTxt, responsibledepTxt,
+          responspiledep, scrapquantity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

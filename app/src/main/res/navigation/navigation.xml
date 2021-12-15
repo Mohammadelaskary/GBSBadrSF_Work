@@ -203,7 +203,7 @@
         android:id="@+id/qualityscraplistFragment"
         android:name="com.example.gbsbadrsf.qualityscrap.qualityscraplistFragment"
         android:label="fragment_qualityscraplist"
-        tools:layout="@layout/fragment_qualityscraplist" >
+        tools:layout="@layout/fragment_quality_rejection_requests_list" >
         <action
             android:id="@+id/action_qualityscraplistFragment_to_qualityScrapFragment"
             app:destination="@id/qualityScrapFragment" />
@@ -441,16 +441,16 @@
         tools:layout="@layout/fragment_qualityscraprequestwe" />
     <fragment
         android:id="@+id/productionscraplistinqualityFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.productionscraprequest.productionscraplistinqualityFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestsListQualityFragment"
         android:label="fragment_productionscraplistinquality"
-        tools:layout="@layout/fragment_productionscraplistinquality" >
+        tools:layout="@layout/fragment_production_rejection_requests_list_quality" >
         <action
             android:id="@+id/action_productionscraplistinqualityFragment_to_productionscraprequestqcFragment"
             app:destination="@id/productionscraprequestqcFragment" />
     </fragment>
     <fragment
         android:id="@+id/productionscraprequestqcFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.productionscraprequest.ProductionscraprequestqcFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionscraprequestqcFragment"
         android:label="fragment_productionscraprequestqc"
         tools:layout="@layout/fragment_productionscraprequestqc" />
     <fragment

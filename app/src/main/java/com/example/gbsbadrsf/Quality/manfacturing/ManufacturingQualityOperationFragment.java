@@ -171,9 +171,6 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
                     if (Integer.parseInt(sampleQty)>0)
                         Toast.makeText(getContext(), "Sample Quantity should be more than 0!", Toast.LENGTH_SHORT).show();
                 }
-                if (childCode.isEmpty())
-                    binding.basketCode.setError("Please enter a valid basket code!");
-
                 if (!sampleQty.isEmpty() && validSampleQty && !childCode.isEmpty()) {
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("basketData", basketData);

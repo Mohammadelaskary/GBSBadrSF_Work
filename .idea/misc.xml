@@ -6,12 +6,17 @@
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_add_defects.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_rejection.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_rejection_requests_list_quality.xml" value="0.16188524590163936" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_repair.xml" value="0.16939890710382513" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_productionscraplist.xml" value="0.16188524590163936" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_productionscraplistinquality.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_productionscraprequestqc.xml" value="0.16188524590163936" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_defect_repair.xml" value="0.16939890710382513" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_desicion.xml" value="0.13046448087431695" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_quality_repair.xml" value="0.176" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_qualityscraplist.xml" value="0.16188524590163936" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_random_quality_inception.xml" value="0.16939890710382513" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/productionscrap_lst.xml" value="0.16188524590163936" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/drawable-hdpi/ic_down_arrow.xml" value="0.1" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/add_defects_details_button.xml" value="0.1361111111111111" />
         <entry key="..\:/waleed/GBSGhabbour/app/src/main/res/layout/basketcode_lst.xml" value="0.1361111111111111" />

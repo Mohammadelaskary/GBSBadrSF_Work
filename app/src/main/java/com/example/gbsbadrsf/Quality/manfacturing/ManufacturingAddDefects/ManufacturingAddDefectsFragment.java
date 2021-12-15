@@ -48,7 +48,7 @@ public class ManufacturingAddDefectsFragment extends DaggerFragment implements S
 
     LastMoveManufacturingBasket basketData;
     int childId,jobOrderId,parentId=3,sampleQty;
-    String basketCode,newBasketCode;
+    String basketCode;
     boolean newSample = false ;
     ManufacturingAddDefectsViewModel viewModel;
     @Inject

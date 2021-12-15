@@ -1,10 +1,6 @@
 package com.example.gbsbadrsf.Util;
 
-import android.content.res.Configuration;
-
-import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
-
 
 import com.example.gbsbadrsf.di.component.DaggerApplicationComponent;
 

@@ -21,14 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
-        AidcManager.create(this, new AidcManager.CreatedCallback() {
 
-            @Override
-            public void onCreated(AidcManager aidcManager) {
-                manager = aidcManager;
-                barcodeReader = manager.createBarcodeReader();
-            }
-        });
 
 
 

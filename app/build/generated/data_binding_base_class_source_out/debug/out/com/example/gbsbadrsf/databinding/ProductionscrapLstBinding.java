@@ -29,7 +29,7 @@ public final class ProductionscrapLstBinding implements ViewBinding {
   public final TextView department;
 
   @NonNull
-  public final TextView jobordername;
+  public final TextView jobOrderName;
 
   @NonNull
   public final TextView jobordernumTxt;
@@ -41,25 +41,25 @@ public final class ProductionscrapLstBinding implements ViewBinding {
   public final TextView operationTxt;
 
   @NonNull
-  public final TextView scrapqtn;
+  public final TextView rejectedQtyTxt;
 
   @NonNull
-  public final TextView scrapqtnTxt;
+  public final TextView scrapqtn;
 
   private ProductionscrapLstBinding(@NonNull CardView rootView, @NonNull CardView clientdetinCard,
-      @NonNull TextView depTxt, @NonNull TextView department, @NonNull TextView jobordername,
+      @NonNull TextView depTxt, @NonNull TextView department, @NonNull TextView jobOrderName,
       @NonNull TextView jobordernumTxt, @NonNull TextView operation, @NonNull TextView operationTxt,
-      @NonNull TextView scrapqtn, @NonNull TextView scrapqtnTxt) {
+      @NonNull TextView rejectedQtyTxt, @NonNull TextView scrapqtn) {
     this.rootView = rootView;
     this.clientdetinCard = clientdetinCard;
     this.depTxt = depTxt;
     this.department = department;
-    this.jobordername = jobordername;
+    this.jobOrderName = jobOrderName;
     this.jobordernumTxt = jobordernumTxt;
     this.operation = operation;
     this.operationTxt = operationTxt;
+    this.rejectedQtyTxt = rejectedQtyTxt;
     this.scrapqtn = scrapqtn;
-    this.scrapqtnTxt = scrapqtnTxt;
   }
 
   @Override
@@ -103,9 +103,9 @@ public final class ProductionscrapLstBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.jobordername;
-      TextView jobordername = ViewBindings.findChildViewById(rootView, id);
-      if (jobordername == null) {
+      id = R.id.job_order_name;
+      TextView jobOrderName = ViewBindings.findChildViewById(rootView, id);
+      if (jobOrderName == null) {
         break missingId;
       }
 
@@ -127,20 +127,20 @@ public final class ProductionscrapLstBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.rejected_qty_txt;
+      TextView rejectedQtyTxt = ViewBindings.findChildViewById(rootView, id);
+      if (rejectedQtyTxt == null) {
+        break missingId;
+      }
+
       id = R.id.scrapqtn;
       TextView scrapqtn = ViewBindings.findChildViewById(rootView, id);
       if (scrapqtn == null) {
         break missingId;
       }
 
-      id = R.id.scrapqtn_txt;
-      TextView scrapqtnTxt = ViewBindings.findChildViewById(rootView, id);
-      if (scrapqtnTxt == null) {
-        break missingId;
-      }
-
       return new ProductionscrapLstBinding((CardView) rootView, clientdetinCard, depTxt, department,
-          jobordername, jobordernumTxt, operation, operationTxt, scrapqtn, scrapqtnTxt);
+          jobOrderName, jobordernumTxt, operation, operationTxt, rejectedQtyTxt, scrapqtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
