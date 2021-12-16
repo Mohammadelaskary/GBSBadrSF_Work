@@ -35,31 +35,23 @@ public final class ProductionscrapLstBinding implements ViewBinding {
   public final TextView jobordernumTxt;
 
   @NonNull
-  public final TextView operation;
-
-  @NonNull
-  public final TextView operationTxt;
+  public final TextView rejectedQtn;
 
   @NonNull
   public final TextView rejectedQtyTxt;
 
-  @NonNull
-  public final TextView scrapqtn;
-
   private ProductionscrapLstBinding(@NonNull CardView rootView, @NonNull CardView clientdetinCard,
       @NonNull TextView depTxt, @NonNull TextView department, @NonNull TextView jobOrderName,
-      @NonNull TextView jobordernumTxt, @NonNull TextView operation, @NonNull TextView operationTxt,
-      @NonNull TextView rejectedQtyTxt, @NonNull TextView scrapqtn) {
+      @NonNull TextView jobordernumTxt, @NonNull TextView rejectedQtn,
+      @NonNull TextView rejectedQtyTxt) {
     this.rootView = rootView;
     this.clientdetinCard = clientdetinCard;
     this.depTxt = depTxt;
     this.department = department;
     this.jobOrderName = jobOrderName;
     this.jobordernumTxt = jobordernumTxt;
-    this.operation = operation;
-    this.operationTxt = operationTxt;
+    this.rejectedQtn = rejectedQtn;
     this.rejectedQtyTxt = rejectedQtyTxt;
-    this.scrapqtn = scrapqtn;
   }
 
   @Override
@@ -115,15 +107,9 @@ public final class ProductionscrapLstBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.operation;
-      TextView operation = ViewBindings.findChildViewById(rootView, id);
-      if (operation == null) {
-        break missingId;
-      }
-
-      id = R.id.operation_txt;
-      TextView operationTxt = ViewBindings.findChildViewById(rootView, id);
-      if (operationTxt == null) {
+      id = R.id.rejected_qtn;
+      TextView rejectedQtn = ViewBindings.findChildViewById(rootView, id);
+      if (rejectedQtn == null) {
         break missingId;
       }
 
@@ -133,14 +119,8 @@ public final class ProductionscrapLstBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.scrapqtn;
-      TextView scrapqtn = ViewBindings.findChildViewById(rootView, id);
-      if (scrapqtn == null) {
-        break missingId;
-      }
-
       return new ProductionscrapLstBinding((CardView) rootView, clientdetinCard, depTxt, department,
-          jobOrderName, jobordernumTxt, operation, operationTxt, rejectedQtyTxt, scrapqtn);
+          jobOrderName, jobordernumTxt, rejectedQtn, rejectedQtyTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

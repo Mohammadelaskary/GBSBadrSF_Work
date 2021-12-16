@@ -14,10 +14,10 @@ import android.view.ViewGroup;
 
 import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.Util.OnClick;
-import com.example.gbsbadrsf.databinding.FragmentQualityscraplistBinding;
+import com.example.gbsbadrsf.databinding.FragmentProductionRejectionRequestsListQualityBinding;
 
 public class qualityscraplistFragment extends Fragment implements OnClick {
-    FragmentQualityscraplistBinding fragmentQualityscraplistBinding;
+    FragmentProductionRejectionRequestsListQualityBinding fragmentQualityscraplistBinding;
     qualityscraplistadapter adapter;
 
 
@@ -28,7 +28,7 @@ public class qualityscraplistFragment extends Fragment implements OnClick {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        fragmentQualityscraplistBinding = FragmentQualityscraplistBinding.inflate(inflater, container, false);
+        fragmentQualityscraplistBinding = FragmentProductionRejectionRequestsListQualityBinding.inflate(inflater, container, false);
         initViews();
 
         return fragmentQualityscraplistBinding.getRoot();
@@ -37,8 +37,8 @@ public class qualityscraplistFragment extends Fragment implements OnClick {
     private void initViews() {
 
         adapter = new qualityscraplistadapter(this);
-        fragmentQualityscraplistBinding.qualityscrapRv.setAdapter(adapter);
-        fragmentQualityscraplistBinding.qualityscrapRv.setLayoutManager(new LinearLayoutManager(getContext()));
+//        fragmentQualityscraplistBinding.qualityscrapRv.setAdapter(adapter);
+//        fragmentQualityscraplistBinding.qualityscrapRv.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
     @Override

@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 
 import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.Util.OnClick;
-import com.example.gbsbadrsf.databinding.FragmentQualityscraplistBinding;
+import com.example.gbsbadrsf.databinding.FragmentQualityRejectionRequestsListBinding;
 import com.example.gbsbadrsf.databinding.FragmentQualityscraplistweBinding;
 import com.example.gbsbadrsf.qualityscrap.qualityscraplistadapter;
 
 
 public class qualityscraplistweFragment extends Fragment implements OnClick {
 
-    FragmentQualityscraplistweBinding fragmentQualityscraplistweBinding;
+    FragmentQualityRejectionRequestsListBinding fragmentQualityscraplistweBinding;
     qualityscrapwelistAdapter adapter;
 
     @Override
@@ -27,7 +27,7 @@ public class qualityscraplistweFragment extends Fragment implements OnClick {
                              Bundle savedInstanceState) {
 
 
-        fragmentQualityscraplistweBinding = FragmentQualityscraplistweBinding.inflate(inflater, container, false);
+        fragmentQualityscraplistweBinding = FragmentQualityRejectionRequestsListBinding.inflate(inflater, container, false);
         initViews();
 
         return fragmentQualityscraplistweBinding.getRoot();

@@ -8,6 +8,7 @@ MERGED from [DataCollection.aar] C:\Users\Dell\.gradle\caches\transforms-3\dc3be
 MERGED from [androidx.databinding:databinding-adapters:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\1a303874603442d31f6ee8fe7dcb18c7\transformed\databinding-adapters-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:databinding-runtime:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\cef682f51860c44c113467fb22ceb6ff\transformed\databinding-runtime-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\813345eb504f680a3545dd04c623c665\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\Dell\.gradle\caches\transforms-3\843e6b6a95f93bb24dcc2e86911f100a\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Dell\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\Dell\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
@@ -18,7 +19,6 @@ MERGED from [androidx.navigation:navigation-fragment:2.3.5] C:\Users\Dell\.gradl
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Dell\.gradle\caches\transforms-3\445c09cdf5fa87da4b9a67398e44b1a8\transformed\jetified-rxandroid-2.1.1\AndroidManifest.xml:15:1-20:12
 MERGED from [com.google.dagger:dagger-android:2.35.1] C:\Users\Dell\.gradle\caches\transforms-3\bdf9072f506a63d0ce6aee3343f8fde4\transformed\jetified-dagger-android-2.35.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Dell\.gradle\caches\transforms-3\ed3ed0eeac3581fb03b0b120486ba4e5\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Dell\.gradle\caches\transforms-3\3504aa656f9d00f9e2cadffb281d01d0\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\Dell\.gradle\caches\transforms-3\3fa0452599eafa04f96460f5edb0e212\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-runtime:2.3.5] C:\Users\Dell\.gradle\caches\transforms-3\055c9bdd2d0a640e1395ab1ba8579255\transformed\navigation-runtime-2.3.5\AndroidManifest.xml:17:1-24:12
@@ -173,6 +173,8 @@ MERGED from [androidx.databinding:databinding-runtime:7.0.4] C:\Users\Dell\.grad
 MERGED from [androidx.databinding:databinding-runtime:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\cef682f51860c44c113467fb22ceb6ff\transformed\databinding-runtime-7.0.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\813345eb504f680a3545dd04c623c665\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\Dell\.gradle\caches\transforms-3\813345eb504f680a3545dd04c623c665\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\Dell\.gradle\caches\transforms-3\843e6b6a95f93bb24dcc2e86911f100a\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\Dell\.gradle\caches\transforms-3\843e6b6a95f93bb24dcc2e86911f100a\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Dell\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
@@ -193,8 +195,6 @@ MERGED from [com.google.dagger:dagger-android:2.35.1] C:\Users\Dell\.gradle\cach
 MERGED from [com.google.dagger:dagger-android:2.35.1] C:\Users\Dell\.gradle\caches\transforms-3\bdf9072f506a63d0ce6aee3343f8fde4\transformed\jetified-dagger-android-2.35.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Dell\.gradle\caches\transforms-3\ed3ed0eeac3581fb03b0b120486ba4e5\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\Dell\.gradle\caches\transforms-3\ed3ed0eeac3581fb03b0b120486ba4e5\transformed\lifecycle-extensions-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
-MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Dell\.gradle\caches\transforms-3\cd87afee890738c1ef70e7d2a27461c6\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Dell\.gradle\caches\transforms-3\3504aa656f9d00f9e2cadffb281d01d0\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Dell\.gradle\caches\transforms-3\3504aa656f9d00f9e2cadffb281d01d0\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\Dell\.gradle\caches\transforms-3\3fa0452599eafa04f96460f5edb0e212\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41

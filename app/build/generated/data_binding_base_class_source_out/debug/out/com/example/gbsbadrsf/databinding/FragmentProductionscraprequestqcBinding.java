@@ -52,25 +52,25 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
   public final TextView qualityscrapTxt;
 
   @NonNull
+  public final TextView rejectedQty;
+
+  @NonNull
   public final TextView rejectedQuantityTxt;
 
   @NonNull
   public final TextView responsibledepTxt;
 
   @NonNull
-  public final TextView responspiledep;
-
-  @NonNull
-  public final TextView scrapquantity;
+  public final TextView responspileDep;
 
   private FragmentProductionscraprequestqcBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton acceptBtn, @NonNull TextView childTxt, @NonNull TextView childcode,
       @NonNull TextView childesc, @NonNull MaterialButton declineBtn,
       @NonNull MaterialButton displaydeffectBtn, @NonNull TextView jobordername,
       @NonNull TextView jobordernameTxt, @NonNull TextInputLayout notes,
-      @NonNull TextView qualityscrapTxt, @NonNull TextView rejectedQuantityTxt,
-      @NonNull TextView responsibledepTxt, @NonNull TextView responspiledep,
-      @NonNull TextView scrapquantity) {
+      @NonNull TextView qualityscrapTxt, @NonNull TextView rejectedQty,
+      @NonNull TextView rejectedQuantityTxt, @NonNull TextView responsibledepTxt,
+      @NonNull TextView responspileDep) {
     this.rootView = rootView;
     this.acceptBtn = acceptBtn;
     this.childTxt = childTxt;
@@ -82,10 +82,10 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
     this.jobordernameTxt = jobordernameTxt;
     this.notes = notes;
     this.qualityscrapTxt = qualityscrapTxt;
+    this.rejectedQty = rejectedQty;
     this.rejectedQuantityTxt = rejectedQuantityTxt;
     this.responsibledepTxt = responsibledepTxt;
-    this.responspiledep = responspiledep;
-    this.scrapquantity = scrapquantity;
+    this.responspileDep = responspileDep;
   }
 
   @Override
@@ -175,6 +175,12 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
         break missingId;
       }
 
+      id = R.id.rejected_qty;
+      TextView rejectedQty = ViewBindings.findChildViewById(rootView, id);
+      if (rejectedQty == null) {
+        break missingId;
+      }
+
       id = R.id.rejected_quantity_txt;
       TextView rejectedQuantityTxt = ViewBindings.findChildViewById(rootView, id);
       if (rejectedQuantityTxt == null) {
@@ -187,22 +193,16 @@ public final class FragmentProductionscraprequestqcBinding implements ViewBindin
         break missingId;
       }
 
-      id = R.id.responspiledep;
-      TextView responspiledep = ViewBindings.findChildViewById(rootView, id);
-      if (responspiledep == null) {
-        break missingId;
-      }
-
-      id = R.id.scrapquantity;
-      TextView scrapquantity = ViewBindings.findChildViewById(rootView, id);
-      if (scrapquantity == null) {
+      id = R.id.responspile_dep;
+      TextView responspileDep = ViewBindings.findChildViewById(rootView, id);
+      if (responspileDep == null) {
         break missingId;
       }
 
       return new FragmentProductionscraprequestqcBinding((ConstraintLayout) rootView, acceptBtn,
           childTxt, childcode, childesc, declineBtn, displaydeffectBtn, jobordername,
-          jobordernameTxt, notes, qualityscrapTxt, rejectedQuantityTxt, responsibledepTxt,
-          responspiledep, scrapquantity);
+          jobordernameTxt, notes, qualityscrapTxt, rejectedQty, rejectedQuantityTxt,
+          responsibledepTxt, responspileDep);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -37,8 +37,10 @@ public class ProductionRejectionListAdapter extends RecyclerView.Adapter<Product
         RejectionRequest rejectionRequest = rejectionRequests.get(position);
         String responsibleDepartment = rejectionRequest.getDepartmentEnName();
         int rejectedQty = rejectionRequest.getRejectionQty();
-        holder.binding.rejectedQtyTxt.setText(String.valueOf(rejectedQty));
+        String jobOrderName = rejectionRequest.getJobOrderName();
+        holder.binding.rejectedQtn.setText(String.valueOf(rejectedQty));
         holder.binding.department.setText(responsibleDepartment);
+        holder.binding.jobOrderName.setText(jobOrderName);
         holder.itemView.setOnClickListener(view -> {
             Bundle bundle = new Bundle();
             bundle.putParcelable("rejectionRequest",rejectionRequest);

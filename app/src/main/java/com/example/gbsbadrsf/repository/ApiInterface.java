@@ -13,6 +13,7 @@ import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRejectionRequestList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGettingFinalQualityDecision;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseRejectionRequestTakeAction;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSavingOperationSignOffDecision;
 import com.example.gbsbadrsf.Quality.Data.Defect;
@@ -178,5 +179,13 @@ public interface  ApiInterface {
   );
   @GET("GetRejectionRequestsList")
   Single<ApiResponseGetRejectionRequestList> getRejectionRequestsList();
+
+  @GET("RejectionRequestTakeAction")
+  Single<ApiResponseRejectionRequestTakeAction> RejectionRequestTakeAction(
+          @Query("UserID") int UserID,
+          @Query("RejectionRequestId") int RejectionRequestId,
+          @Query("IsApproved") boolean IsApproved
+
+  );
 
 }

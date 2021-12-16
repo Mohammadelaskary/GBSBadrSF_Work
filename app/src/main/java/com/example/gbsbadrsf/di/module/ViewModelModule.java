@@ -14,6 +14,7 @@ import com.example.gbsbadrsf.Quality.Data.QualityDecisionViewModel;
 import com.example.gbsbadrsf.Quality.Data.QualityDefectRepairViewModel;
 import com.example.gbsbadrsf.Quality.Data.RandomQualityInceptionViewModel;
 import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.QualityRepairViewModel;
+import com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestViewModel;
 import com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestsListQualityViewModel;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.di.ViewModelKey;
@@ -91,13 +92,19 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProductionRejectionViewModel.class)
     public abstract ViewModel bindProductionRejectionViewModel (ProductionRejectionViewModel viewModel);
-    @Binds
-    @IntoMap
-    @ViewModelKey(QualityDecisionViewModel.class)
-    public abstract ViewModel bindQualityDecisionViewModel (QualityDecisionViewModel viewModel);
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(QualityDecisionViewModel.class)
+//    public abstract ViewModel bindQualityDecisionViewModel (QualityDecisionViewModel viewModel);
     @Binds
     @IntoMap
     @ViewModelKey(ProductionRejectionRequestsListQualityViewModel.class)
     public abstract ViewModel bindQualityDecisionViewModel (ProductionRejectionRequestsListQualityViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProductionRejectionRequestViewModel.class)
+    public abstract ViewModel bindProductionRejectionRequestViewModel (ProductionRejectionRequestViewModel viewModel);
+
 
 }

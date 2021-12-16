@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="143dp"
+    android:layout_height="wrap_content"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:cardCornerRadius="15dp"
@@ -16,71 +16,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:padding="15dp">
+
         <TextView
             android:id="@+id/jobordernum_txt"
+            style="@style/styleoftextbold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:text="@string/job_order_name_txt"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            style="@style/styleoftextbold"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/job_order_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/jobordernum_txt"
-            app:layout_constraintStart_toStartOf="@id/jobordernum_txt"
-            app:layout_constraintEnd_toEndOf="@id/jobordernum_txt"
-            android:layout_marginTop="5dp"
-            android:text="151516"
             style="@style/styleoftext"
-            />
-        <TextView
-            android:id="@+id/operation_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/operation"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="35dp"
-            style="@style/styleoftextbold"
-            />
-        <TextView
-            android:id="@+id/operation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/operation_txt"
-            app:layout_constraintStart_toStartOf="@id/operation_txt"
-            app:layout_constraintEnd_toEndOf="@id/operation_txt"
-            android:layout_marginTop="5dp"
-            android:text="shasah"
-            style="@style/styleoftext"
-            />
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/jobordernum_txt"
+            app:layout_constraintStart_toEndOf="@+id/jobordernum_txt"
+            app:layout_constraintTop_toTopOf="@+id/jobordernum_txt" />
+
         <TextView
             android:id="@+id/rejected_qty_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/job_order_name"
-            app:layout_constraintStart_toStartOf="@id/jobordernum_txt"
-            android:text="Rejected Qty"
-            android:layout_marginTop="15dp"
             style="@style/styleoftextbold"
-            />
-        <TextView
-            android:id="@+id/scrapqtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/rejected_qty_txt"
-            app:layout_constraintStart_toEndOf="@id/rejected_qty_txt"
-            android:text="15"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="15dp"
+            android:text="Rejected Qty :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_order_name" />
+
+        <TextView
+            android:id="@+id/rejected_qtn"
             style="@style/styleoftext"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/rejected_qty_txt"
+            app:layout_constraintStart_toStartOf="@+id/job_order_name"
+            app:layout_constraintTop_toTopOf="@id/rejected_qty_txt" />
 
 
         <TextView
@@ -88,21 +63,19 @@
             style="@style/styleoftextbold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="79dp"
             android:text="@string/dep"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/job_order_name" />
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rejected_qty_txt" />
+
         <TextView
             android:id="@+id/department"
+            style="@style/styleoftext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/dep_txt"
-            app:layout_constraintStart_toEndOf="@id/dep_txt"
-            android:text="paint"
-            android:layout_marginTop="2dp"
-            style="@style/styleoftext"
-            />
+            app:layout_constraintBottom_toBottomOf="@+id/dep_txt"
+            app:layout_constraintStart_toStartOf="@+id/rejected_qtn"
+            app:layout_constraintTop_toTopOf="@id/dep_txt" />
 
 
 
