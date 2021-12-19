@@ -78,6 +78,12 @@ public class ManfacturingmenuFragment extends Fragment {
             Navigation.findNavController(getView()).navigate(R.id.action_manfacturingmenuFragment_to_mainScrapmanagment);
 
         });
+        fragmentManfacturingmenuBinding.machinewipBtn.setOnClickListener(__ -> {
+
+            Navigation.findNavController(getView()).navigate(R.id.action_manfacturingmenuFragment_to_machinewip);
+
+        });
+
 
 
 

@@ -11,9 +11,11 @@ import com.example.gbsbadrsf.Quality.manfacturing.RandomQualityInception.RandomQ
 import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment;
 import com.example.gbsbadrsf.machineloading.MachineLoadingFragment;
+import com.example.gbsbadrsf.machinewip.MachineWip;
 import com.example.gbsbadrsf.productionsequence.ProductionSequence;
 import com.example.gbsbadrsf.signin.SigninFragment;
 import com.example.gbsbadrsf.welding.machineloadingwe.MachineloadingweFragment;
+import com.example.gbsbadrsf.welding.weldingsignoff.SignoffweFragment;
 import com.example.gbsbadrsf.weldingsequence.WeldingSequence;
 
 import dagger.Module;
@@ -51,6 +53,10 @@ public abstract class ActivityBuilderModule {
     abstract WeldingSequence weldingsequenceFragment();
     @ContributesAndroidInjector
     abstract MachineloadingweFragment machineloadingweFragment();
+    @ContributesAndroidInjector
+    abstract MachineWip machinewipFragment();
+    @ContributesAndroidInjector
+    abstract SignoffweFragment signoffweFragment();
 
 
 

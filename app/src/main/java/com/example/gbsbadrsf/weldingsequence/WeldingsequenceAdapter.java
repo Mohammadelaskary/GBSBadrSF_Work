@@ -5,12 +5,15 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gbsbadrsf.data.response.Baskets;
 import com.example.gbsbadrsf.data.response.PprWelding;
 import com.example.gbsbadrsf.databinding.ProductionsequenceRvBinding;
+import com.example.gbsbadrsf.databinding.WeldingsequenceRvBinding;
 
 import java.util.List;
 
@@ -35,8 +38,8 @@ public class WeldingsequenceAdapter extends RecyclerView.Adapter<Weldingsequence
     @NonNull
     @Override
     public WeldingsequenceAdapter.WeldingsequenceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ProductionsequenceRvBinding productionsequenceRvBinding = ProductionsequenceRvBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new WeldingsequenceAdapter.WeldingsequenceViewHolder(productionsequenceRvBinding);
+        WeldingsequenceRvBinding weldingsequenceRvBinding = WeldingsequenceRvBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        return new WeldingsequenceAdapter.WeldingsequenceViewHolder(weldingsequenceRvBinding);
     }
 
     @Override
@@ -54,12 +57,20 @@ public class WeldingsequenceAdapter extends RecyclerView.Adapter<Weldingsequence
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 CheckBox checked_rb = (CheckBox) buttonView;
-                if (lastCheckedRB != null) {
-                    lastCheckedRB.setChecked(false);
+                int selectedposition = 0;
+                if (selectedposition == position) {
+//                    if (lastCheckedRB != null) {
+//                        lastCheckedRB.setChecked(false);
+//                    }
+                  checked_rb.setChecked(true);
+                    onClick.onCheckedChanged(holder.getAdapterPosition(), isChecked, weldingsequenceresponse.get(position));
+
                 }
-                lastCheckedRB = checked_rb;
-                onClick.onCheckedChanged(holder.getAdapterPosition(),isChecked, weldingsequenceresponse.get(position));
+                else {
+                    checked_rb.setChecked(false);
+                }
             }
         });
 
@@ -76,7 +87,7 @@ public class WeldingsequenceAdapter extends RecyclerView.Adapter<Weldingsequence
 
         TextView childdesc,loadingqty,jobordername,joborderquantity,status;
 
-        public WeldingsequenceViewHolder(@NonNull ProductionsequenceRvBinding itemView) {
+        public WeldingsequenceViewHolder(@NonNull WeldingsequenceRvBinding itemView) {
             super(itemView.getRoot());
             sequencenumbercheckbox=itemView.sequencenumCheckBox;
             childdesc=itemView.childdesc;

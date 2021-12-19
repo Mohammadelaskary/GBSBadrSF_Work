@@ -1837,6 +1837,7 @@ id action_mainmenuFragment_to_planningMenuFragment
 id action_mainmenuFragment_to_productionMenuFragment
 id action_mainmenuFragment_to_qualitymainmenuFragment
 id action_manfacturingmenuFragment_to_machineLoadingFragment
+id action_manfacturingmenuFragment_to_machinewip
 id action_manfacturingmenuFragment_to_mainScrapmanagment
 id action_manfacturingmenuFragment_to_mainmachineloading
 id action_manfacturingmenuFragment_to_mainmachinesignoff
@@ -1938,6 +1939,7 @@ id barcode_edt
 id barcode_img
 id barrier
 id baseline
+id basketQnt
 id basket_barcode_img
 id basket_code_edt
 id basket_code_txt
@@ -1996,6 +1998,7 @@ id childcard_txt
 id childcode
 id childcode_txt
 id childdesc
+id childdesc_txt
 id childesc
 id childintable_txt
 id childname
@@ -2183,6 +2186,7 @@ id jobordername_txt
 id jobordernum
 id jobordernum_txt
 id joborderqtn_txt
+id joborderqty
 id joborderquantity
 id jobordreqtn
 id jobordreqtn_txt
@@ -2212,8 +2216,12 @@ id loadingqty
 id loadingqty_txt
 id loadingquantity_txt
 id loadingsequenceid
+id loadingtime
+id loadingtime_txt
 id login_btn
 id machineLoadingFragment
+id machineWip
+id machinecode_checkBox
 id machinecode_edt
 id machinecode_txt
 id machinecodebarcode_img
@@ -2224,6 +2232,7 @@ id machineloading_txt
 id machineloadingweFragment
 id machinesignoff_btn
 id machinewip_btn
+id machinewip_txt
 id mainScrapmanagment
 id mainimportcard
 id mainmachineloading
@@ -2321,6 +2330,10 @@ id onAttachStateChangeListener
 id onDateChanged
 id operation
 id operation_txt
+id operationname
+id operationname_txt
+id operationntime
+id operationtime_txt
 id outline
 id outward
 id packed
@@ -2443,6 +2456,8 @@ id random_quality_inspection_txt
 id ratio
 id rectangles
 id rejection_request_btn
+id remainingtime
+id remainingtime_txt
 id reopen_defect_btn
 id reopendef_appbar
 id reopendefect_btn
@@ -2525,6 +2540,8 @@ id signoff_qtn_edt
 id signoff_qtn_txt
 id signoffitems_btn
 id signoffqtn_txt
+id signoffqty
+id signoffqty_txt
 id signoffweFragment
 id simpleSwitch
 id sin
@@ -2743,6 +2760,7 @@ layout fragment_continue_loading
 layout fragment_display_defect_details
 layout fragment_engineering_scrapapproval
 layout fragment_machine_loading
+layout fragment_machine_wip
 layout fragment_machinehold
 layout fragment_machineloadingwe
 layout fragment_main_scrapmanagment
@@ -2805,6 +2823,7 @@ layout fragment_welding_add_deffects
 layout fragment_welding_menu
 layout fragment_welding_quality_operation
 layout fragment_welding_sequence
+layout machinewip_lst
 layout mainschedulelst
 layout material_chip_input_combo
 layout material_clock_display
@@ -2895,6 +2914,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout weldingsequence_rv
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation navigation
@@ -3011,6 +3031,7 @@ string machine_hold
 string machine_loading
 string machine_sign_off
 string machine_wip
+string machine_wip_txt
 string main_menu
 string main_schedule_list
 string manfacturing

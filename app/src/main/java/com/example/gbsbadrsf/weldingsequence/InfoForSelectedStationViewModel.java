@@ -4,8 +4,12 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.gbsbadrsf.data.response.APIResponseLoadingsequenceinfo;
+import com.example.gbsbadrsf.data.response.ApiGetweldingloadingstartloading;
 import com.example.gbsbadrsf.data.response.Apigetinfoforselectedstation;
+import com.example.gbsbadrsf.data.response.Baskets;
 import com.example.gbsbadrsf.data.response.LoadingSequenceInfo;
+import com.example.gbsbadrsf.data.response.MachineLoading;
+import com.example.gbsbadrsf.data.response.Pprcontainbaskets;
 import com.example.gbsbadrsf.data.response.StationLoading;
 import com.example.gbsbadrsf.data.response.Status;
 import com.example.gbsbadrsf.productionsequence.Loadingstatus;
@@ -24,8 +28,11 @@ public class InfoForSelectedStationViewModel extends ViewModel {
     Gson gson;
     @Inject
     ApiInterface apiinterface;
-    private MutableLiveData<StationLoading> responseLiveData ;
+    private MutableLiveData<Pprcontainbaskets> responseLiveData ;
+    private MutableLiveData<Baskets> baskets;
+
     private MutableLiveData<Status> status;
+
     private MutableLiveData<Staustype> statustype;
 
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -35,20 +42,26 @@ public class InfoForSelectedStationViewModel extends ViewModel {
         this.gson = gson;
         responseLiveData = new MutableLiveData<>();
         status = new MutableLiveData<>(Status.IDLE);
+        baskets= new MutableLiveData<>();
         statustype = new MutableLiveData<>(Staustype.global);
 
+
     }
-    void getselectedweldingsequence(String UserID,String DeviceSerialNo,String ProductionStationEnName){
-        disposable.add(apiinterface.getinfoforselectedstation(UserID,DeviceSerialNo,ProductionStationEnName).doOnSubscribe(__ -> status.postValue(Status.LOADING)).subscribe(new BiConsumer<Apigetinfoforselectedstation<StationLoading>, Throwable>() {
+    void getselectedweldingsequence(String UserID,String DeviceSerialNo,String loadingsequenceid){
+        disposable.add(apiinterface.getweldingloadingsequence(UserID,DeviceSerialNo,loadingsequenceid).doOnSubscribe(__ -> status.postValue(Status.LOADING)).subscribe(new BiConsumer<ApiGetweldingloadingstartloading<Pprcontainbaskets>, Throwable>() {
             @Override
-            public void accept(Apigetinfoforselectedstation<StationLoading>getinfoforselectedstationloading, Throwable throwable) throws Exception {
-                if (getinfoforselectedstationloading.getResponseStatus().getStatusMessage().equals("Getting data successfully"))
+            public void accept(ApiGetweldingloadingstartloading<Pprcontainbaskets>getinfoforselectedstationloading, Throwable throwable) throws Exception {
+                if (getinfoforselectedstationloading.getResponseStatus().getStatusMessage().equals("Data sent successfully")&&getinfoforselectedstationloading.getBaskets().getBasketCode()!=null)
                 {
                     statustype.postValue(Staustype.gettingdatasuccesfully);
+                   //baskets.postValue(getBaskets().getValue());
+
+
+
 
 
                 }
-                else if (getinfoforselectedstationloading.getResponseStatus().getStatusMessage().equals("There is no loading quantity on the machine!")){
+                else if (getinfoforselectedstationloading.getResponseStatus().getStatusMessage().equals("Wrong Loading sequence ID!")){
                     statustype.postValue(Staustype.noloadingquantityformachine);
 
                 }
@@ -60,9 +73,10 @@ public class InfoForSelectedStationViewModel extends ViewModel {
 
 
     }
-    public MutableLiveData<StationLoading> getResponseLiveData() {
+    public MutableLiveData<Pprcontainbaskets> getResponseLiveData() {
         return responseLiveData;
     }
+
 
     public MutableLiveData<Status> getStatus() {
         return status;
@@ -70,7 +84,9 @@ public class InfoForSelectedStationViewModel extends ViewModel {
     public MutableLiveData<Staustype> getstaustype() {
         return statustype;
     }
-
+    public MutableLiveData<Baskets> getBaskets() {
+        return baskets;
+    }
 
 
 }

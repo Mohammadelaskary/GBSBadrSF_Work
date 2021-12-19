@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gbsbadrsf.R;
+import com.example.gbsbadrsf.Util.Constant;
 import com.example.gbsbadrsf.data.response.Ppr;
 import com.example.gbsbadrsf.productionsequence.productionsequenceadapter;
 import com.google.gson.Gson;
@@ -46,20 +48,22 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
     private static final String TAG = "MyCustomDialog";
 
     public interface OnInputSelected{
-        void sendInput(String input);
+       // void sendInput(String input);
         void sendlist(List<Basketcodelst> input);
 
 
     }
     public OnInputSelected mOnInputSelected;
 
-
+    Constant constant = new Constant();
     private RecyclerView recyclerView;
     private ProductionSignoffAdapter productionSignoffadapter;
     private com.honeywell.aidc.BarcodeReader barcodeReader;
     EditText editText,totalqtn,basketcode;
     Button save;
+    TextView childdesc;
     List<Basketcodelst> basketcodelstList;
+    public Integer totalQty = 0;
 
     @Nullable
     @Override
@@ -74,6 +78,12 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
         save=view.findViewById(R.id.save_btn);
         totalqtn=view.findViewById(R.id.totalqtn_edt);
         basketcode=view.findViewById(R.id.basketcode_edt);
+        childdesc=view.findViewById(R.id.childdesc);
+
+       // Bundle mArgs = getArguments();
+        //childdesc.setText( mArgs.getString("childdesc"));
+
+
 
         clickinginsave();
         //open and close switch
@@ -160,13 +170,17 @@ simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListen
             @Override
             public void run() {
                 // update the ui from here
-                editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
-                Basketcodelst nwItem =new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()));
-                 if (!productionSignoffadapter.getproductionsequencelist().contains(nwItem)){
-                basketcodelstList.add(nwItem);
-                productionSignoffadapter.notifyDataSetChanged();
-                 }
+                if (totalqtn.getText().toString().trim().isEmpty()){
+                    Toast.makeText(getContext(), "please enter quantity ", Toast.LENGTH_SHORT).show();
+                }else {
+                    editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
 
+                    Basketcodelst nwItem = new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()), Integer.valueOf(totalqtn.getText().toString()));
+                    if (!productionSignoffadapter.getproductionsequencelist().contains(nwItem)) {
+                        basketcodelstList.add(nwItem);
+                        productionSignoffadapter.notifyDataSetChanged();
+                    }
+                }
             }
         });
 
@@ -232,20 +246,19 @@ simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListen
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                //totalQty+=Integer.valueOf(basketcodelstList.get(0).getQty());
+                constant.incrementTotalQty(totalQty);
+               // Log.d("****"+TAG, "TotalQty: "+constant.getTotalQtyVar());
                 String input = totalqtn.getText().toString();
                 String basketcodeinput=new Gson().toJson(basketcodelstList);
                 //list
 
-                if(!input.equals("")){
-
-                    mOnInputSelected.sendInput(input);
-                }
+//                    if(!input.equals("")){
+//
+//                   // mOnInputSelected.sendInput(input);
+//                }
                 //for list
                     mOnInputSelected.sendlist(basketcodelstList);
-
-
 
                 getDialog().dismiss();
 

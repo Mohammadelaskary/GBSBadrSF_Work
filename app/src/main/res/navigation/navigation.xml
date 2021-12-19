@@ -56,6 +56,10 @@
             android:id="@+id/action_manfacturingmenuFragment_to_mainScrapmanagment"
             app:destination="@id/mainScrapmanagment" />
         <action
+            android:id="@+id/action_manfacturingmenuFragment_to_machinewip"
+            app:destination="@id/machineWip" />
+
+        <action
             android:id="@+id/action_manufacturing_menu_fragment_to_production_repair_fragment"
             app:destination="@id/fragment_production_repair"/>
 
@@ -416,7 +420,7 @@
         tools:layout="@layout/fragment_machineloadingwe" />
     <fragment
         android:id="@+id/signoffweFragment"
-        android:name="com.example.gbsbadrsf.welding.SignoffweFragment"
+        android:name="com.example.gbsbadrsf.welding.weldingsignoff.SignoffweFragment"
         android:label="fragment_signoffwe"
         tools:layout="@layout/fragment_signoffwe" />
     <fragment
@@ -608,6 +612,11 @@
             app:destination="@id/qualityscraplistFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/machineWip"
+        android:name="com.example.gbsbadrsf.machinewip.MachineWip"
+        android:label="fragment_machine_wip"
+        tools:layout="@layout/fragment_machine_wip" />
 </navigation>
 
 

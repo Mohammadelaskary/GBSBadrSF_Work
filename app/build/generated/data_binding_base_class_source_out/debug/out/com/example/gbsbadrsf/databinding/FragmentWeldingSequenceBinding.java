@@ -30,10 +30,10 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
   public final ImageView barcodeImg;
 
   @NonNull
-  public final ConstraintLayout constraint;
+  public final TextView childTxt;
 
   @NonNull
-  public final TextView defectnameTxt;
+  public final ConstraintLayout constraint;
 
   @NonNull
   public final RecyclerView defectqtnRv;
@@ -42,16 +42,22 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
   public final HorizontalScrollView hsv;
 
   @NonNull
-  public final TextView productionnotesTxt;
+  public final TextView jobordernameTxt;
 
   @NonNull
-  public final TextView productionrepairTxt;
+  public final TextView joborderqtnTxt;
 
   @NonNull
-  public final TextView qcnotesTxt;
+  public final TextView loadingqtyTxt;
 
   @NonNull
   public final MaterialButton qtnokBtn;
+
+  @NonNull
+  public final TextView sequencenumTxt;
+
+  @NonNull
+  public final TextView statusTxt;
 
   @NonNull
   public final View view;
@@ -60,23 +66,25 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
   public final TextView weldingseqTxt;
 
   private FragmentWeldingSequenceBinding(@NonNull ConstraintLayout rootView,
-      @NonNull EditText barcodeEdt, @NonNull ImageView barcodeImg,
-      @NonNull ConstraintLayout constraint, @NonNull TextView defectnameTxt,
-      @NonNull RecyclerView defectqtnRv, @NonNull HorizontalScrollView hsv,
-      @NonNull TextView productionnotesTxt, @NonNull TextView productionrepairTxt,
-      @NonNull TextView qcnotesTxt, @NonNull MaterialButton qtnokBtn, @NonNull View view,
-      @NonNull TextView weldingseqTxt) {
+      @NonNull EditText barcodeEdt, @NonNull ImageView barcodeImg, @NonNull TextView childTxt,
+      @NonNull ConstraintLayout constraint, @NonNull RecyclerView defectqtnRv,
+      @NonNull HorizontalScrollView hsv, @NonNull TextView jobordernameTxt,
+      @NonNull TextView joborderqtnTxt, @NonNull TextView loadingqtyTxt,
+      @NonNull MaterialButton qtnokBtn, @NonNull TextView sequencenumTxt,
+      @NonNull TextView statusTxt, @NonNull View view, @NonNull TextView weldingseqTxt) {
     this.rootView = rootView;
     this.barcodeEdt = barcodeEdt;
     this.barcodeImg = barcodeImg;
+    this.childTxt = childTxt;
     this.constraint = constraint;
-    this.defectnameTxt = defectnameTxt;
     this.defectqtnRv = defectqtnRv;
     this.hsv = hsv;
-    this.productionnotesTxt = productionnotesTxt;
-    this.productionrepairTxt = productionrepairTxt;
-    this.qcnotesTxt = qcnotesTxt;
+    this.jobordernameTxt = jobordernameTxt;
+    this.joborderqtnTxt = joborderqtnTxt;
+    this.loadingqtyTxt = loadingqtyTxt;
     this.qtnokBtn = qtnokBtn;
+    this.sequencenumTxt = sequencenumTxt;
+    this.statusTxt = statusTxt;
     this.view = view;
     this.weldingseqTxt = weldingseqTxt;
   }
@@ -120,15 +128,15 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.constraint;
-      ConstraintLayout constraint = rootView.findViewById(id);
-      if (constraint == null) {
+      id = R.id.child_txt;
+      TextView childTxt = rootView.findViewById(id);
+      if (childTxt == null) {
         break missingId;
       }
 
-      id = R.id.defectname_txt;
-      TextView defectnameTxt = rootView.findViewById(id);
-      if (defectnameTxt == null) {
+      id = R.id.constraint;
+      ConstraintLayout constraint = rootView.findViewById(id);
+      if (constraint == null) {
         break missingId;
       }
 
@@ -144,27 +152,39 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.productionnotes_txt;
-      TextView productionnotesTxt = rootView.findViewById(id);
-      if (productionnotesTxt == null) {
+      id = R.id.jobordername_txt;
+      TextView jobordernameTxt = rootView.findViewById(id);
+      if (jobordernameTxt == null) {
         break missingId;
       }
 
-      id = R.id.productionrepair_txt;
-      TextView productionrepairTxt = rootView.findViewById(id);
-      if (productionrepairTxt == null) {
+      id = R.id.joborderqtn_txt;
+      TextView joborderqtnTxt = rootView.findViewById(id);
+      if (joborderqtnTxt == null) {
         break missingId;
       }
 
-      id = R.id.qcnotes_txt;
-      TextView qcnotesTxt = rootView.findViewById(id);
-      if (qcnotesTxt == null) {
+      id = R.id.loadingqty_txt;
+      TextView loadingqtyTxt = rootView.findViewById(id);
+      if (loadingqtyTxt == null) {
         break missingId;
       }
 
       id = R.id.qtnok_btn;
       MaterialButton qtnokBtn = rootView.findViewById(id);
       if (qtnokBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.sequencenum_txt;
+      TextView sequencenumTxt = rootView.findViewById(id);
+      if (sequencenumTxt == null) {
+        break missingId;
+      }
+
+      id = R.id.status_txt;
+      TextView statusTxt = rootView.findViewById(id);
+      if (statusTxt == null) {
         break missingId;
       }
 
@@ -181,8 +201,8 @@ public final class FragmentWeldingSequenceBinding implements ViewBinding {
       }
 
       return new FragmentWeldingSequenceBinding((ConstraintLayout) rootView, barcodeEdt, barcodeImg,
-          constraint, defectnameTxt, defectqtnRv, hsv, productionnotesTxt, productionrepairTxt,
-          qcnotesTxt, qtnokBtn, view, weldingseqTxt);
+          childTxt, constraint, defectqtnRv, hsv, jobordernameTxt, joborderqtnTxt, loadingqtyTxt,
+          qtnokBtn, sequencenumTxt, statusTxt, view, weldingseqTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

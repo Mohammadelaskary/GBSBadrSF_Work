@@ -210,7 +210,24 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_machineLoadingFragment_to_productionsequenceFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="machineWip">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-100" />
+                            <option name="y" value="1550" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -690,6 +707,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_productionSequence_to_machineLoadingFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_productionSequence_to_mainmachineLoadingFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

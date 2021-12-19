@@ -16,9 +16,12 @@ import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.Qualit
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
 import com.example.gbsbadrsf.di.ViewModelKey;
 import com.example.gbsbadrsf.machineloading.MachineloadingViewModel;
+import com.example.gbsbadrsf.machinewip.MachinewipViewModel;
 import com.example.gbsbadrsf.productionsequence.ProductionsequenceViewModel;
 import com.example.gbsbadrsf.productionsequence.SelectedLoadinsequenceinfoViewModel;
 import com.example.gbsbadrsf.signin.SignInViewModel;
+import com.example.gbsbadrsf.welding.machineloadingwe.SaveweldingViewModel;
+import com.example.gbsbadrsf.welding.weldingsignoff.SignoffweViewModel;
 import com.example.gbsbadrsf.weldingsequence.InfoForSelectedStationViewModel;
 import com.example.gbsbadrsf.weldingsequence.WeldingsequenceViewModel;
 
@@ -99,6 +102,18 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(InfoForSelectedStationViewModel.class)
     public abstract ViewModel bindinfoforselectedstationviewmodel (InfoForSelectedStationViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(SaveweldingViewModel.class)
+    public abstract ViewModel bindsaveweldingviewmodel (SaveweldingViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(MachinewipViewModel.class)
+    public abstract ViewModel bindmachinewipviewmodel (MachinewipViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignoffweViewModel.class)
+    public abstract ViewModel bindsignoffviewmodel (SignoffweViewModel viewModel);
 
 
 }
