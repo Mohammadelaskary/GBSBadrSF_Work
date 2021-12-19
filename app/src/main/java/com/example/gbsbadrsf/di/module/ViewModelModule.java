@@ -22,6 +22,7 @@ import com.example.gbsbadrsf.productionsequence.SelectedLoadinsequenceinfoViewMo
 import com.example.gbsbadrsf.signin.SignInViewModel;
 import com.example.gbsbadrsf.welding.machineloadingwe.SaveweldingViewModel;
 import com.example.gbsbadrsf.welding.weldingsignoff.SignoffweViewModel;
+import com.example.gbsbadrsf.welding.weldingwip.WeldingvieModel;
 import com.example.gbsbadrsf.weldingsequence.InfoForSelectedStationViewModel;
 import com.example.gbsbadrsf.weldingsequence.WeldingsequenceViewModel;
 
@@ -114,6 +115,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SignoffweViewModel.class)
     public abstract ViewModel bindsignoffviewmodel (SignoffweViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(WeldingvieModel.class)
+    public abstract ViewModel bindweldingwipviewmodel (WeldingvieModel viewModel);
+
 
 
 }

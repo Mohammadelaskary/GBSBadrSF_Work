@@ -380,6 +380,10 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_random_quality_inception.xml"
     },
     {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_weldingwip.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_weldingwip.xml"
+    },
+    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\adddefectdialog.xml",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\adddefectdialog.xml"
     },

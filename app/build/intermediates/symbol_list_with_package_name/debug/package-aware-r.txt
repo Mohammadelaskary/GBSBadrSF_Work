@@ -1900,6 +1900,7 @@ id action_weldingMenuFragment_to_qualityscraplistweFragment
 id action_weldingMenuFragment_to_scraprequestFragment
 id action_weldingMenuFragment_to_signoffweFragment
 id action_weldingMenuFragment_to_weldingSequence
+id action_weldingMenuFragment_to_weldingwip
 id action_weldingSequence_to_machineloadingweFragment
 id action_welding_quality_operation_fragment_to_welding_add_defect_fragment
 id actions
@@ -2652,6 +2653,8 @@ id weldingqc_txt
 id weldingquality_txt
 id weldingseq_btn
 id weldingseq_txt
+id weldingwip
+id weldingwip_btn
 id wipadd_btn
 id withText
 id withinBounds
@@ -2823,6 +2826,7 @@ layout fragment_welding_add_deffects
 layout fragment_welding_menu
 layout fragment_welding_quality_operation
 layout fragment_welding_sequence
+layout fragment_weldingwip
 layout machinewip_lst
 layout mainschedulelst
 layout material_chip_input_combo
@@ -3176,6 +3180,7 @@ string total_defected_qty
 string uservalidationerror
 string welding
 string welding_menu
+string welding_wip
 string without_defect
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

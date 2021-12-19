@@ -149,5 +149,6 @@
     <string name="rejected_qty">Rejected Qty</string>
     <string name="create_rejection_request">Create Rejection Request</string>
     <string name="machine_wip_txt">Machine Wip</string>
+    <string name="welding_wip">Welding Wip</string>
 
 </resources>

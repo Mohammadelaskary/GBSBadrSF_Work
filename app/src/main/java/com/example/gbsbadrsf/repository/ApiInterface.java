@@ -15,6 +15,7 @@ import com.example.gbsbadrsf.data.response.ApiContinueloading;
 import com.example.gbsbadrsf.data.response.ApiGetweldingloadingstartloading;
 import com.example.gbsbadrsf.data.response.ApiMachinesignoff;
 import com.example.gbsbadrsf.data.response.ApiResponseMachinewip;
+import com.example.gbsbadrsf.data.response.ApiResponseStationwip;
 import com.example.gbsbadrsf.data.response.ApiResponseweldingbyjoborder;
 import com.example.gbsbadrsf.data.response.ApiSavefirstloading;
 import com.example.gbsbadrsf.data.response.Apigetbasketcode;
@@ -32,6 +33,7 @@ import com.example.gbsbadrsf.data.response.Pprcontainbaskets;
 import com.example.gbsbadrsf.data.response.ResponseStatus;
 import com.example.gbsbadrsf.data.response.StationLoading;
 import com.example.gbsbadrsf.data.response.Stationcodeloading;
+import com.example.gbsbadrsf.data.response.StationsWIP;
 import com.example.gbsbadrsf.data.response.UserInfo;
 
 import java.util.List;
@@ -71,6 +73,11 @@ Single<ApiGetweldingloadingstartloading<Pprcontainbaskets>> getweldingloadingseq
   @GET("GetMachinesWIP")
   Single<ApiResponseMachinewip<List<MachinesWIP>>> getmachinewip(@Query("UserID") String userid,
                                                                       @Query("DeviceSerialNo") String deviceserialnumber);
+  //Getweldingwip
+  @GET("GetStationsWIP")
+  Single<ApiResponseStationwip<List<StationsWIP>>> getstationwip(@Query("UserID") String userid,
+                                                                 @Query("DeviceSerialNo") String deviceserialnumber);
+
 
 
 //Get info for stationcode

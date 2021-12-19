@@ -16,6 +16,7 @@ import com.example.gbsbadrsf.productionsequence.ProductionSequence;
 import com.example.gbsbadrsf.signin.SigninFragment;
 import com.example.gbsbadrsf.welding.machineloadingwe.MachineloadingweFragment;
 import com.example.gbsbadrsf.welding.weldingsignoff.SignoffweFragment;
+import com.example.gbsbadrsf.welding.weldingwip.Weldingwip;
 import com.example.gbsbadrsf.weldingsequence.WeldingSequence;
 
 import dagger.Module;
@@ -57,6 +58,8 @@ public abstract class ActivityBuilderModule {
     abstract MachineWip machinewipFragment();
     @ContributesAndroidInjector
     abstract SignoffweFragment signoffweFragment();
+    @ContributesAndroidInjector
+    abstract Weldingwip weldingwip();
 
 
 

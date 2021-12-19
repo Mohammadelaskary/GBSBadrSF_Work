@@ -112,14 +112,15 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
                 }catch (Exception e){
                     c.setTotalQty(0);
                 }*/
+                Bundle args = new Bundle();
+                args.putString("childdesc", fragmentProductionSignoffBinding.childesc.getText().toString());
+                args.putString("loadingqty", fragmentProductionSignoffBinding.loadingqtn.getText().toString());
+
                 Signoffitemsdialog dialog = new Signoffitemsdialog();
+                dialog.setArguments(args);
                 dialog.setTargetFragment(ProductionSignoffFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                Bundle args = new Bundle();
-                args.putString("childdesc", fragmentProductionSignoffBinding.childesc.toString());
-                DialogFragment newFragment = new Signoffitemsdialog();
-                newFragment.setArguments(args);
-             //   newFragment.show(getSupportFragmentManager(), "TAG");
+
 
             }
         });

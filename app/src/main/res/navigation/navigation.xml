@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_weldingMenuFragment_to_weldingSequence"
             app:destination="@id/weldingSequence" />
+        <action
+            android:id="@+id/action_weldingMenuFragment_to_weldingwip"
+            app:destination="@id/weldingwip" />
     </fragment>
     <fragment
         android:id="@+id/paintMenuFragment"
@@ -617,6 +620,11 @@
         android:name="com.example.gbsbadrsf.machinewip.MachineWip"
         android:label="fragment_machine_wip"
         tools:layout="@layout/fragment_machine_wip" />
+    <fragment
+        android:id="@+id/weldingwip"
+        android:name="com.example.gbsbadrsf.welding.weldingwip.Weldingwip"
+        android:label="fragment_weldingwip"
+        tools:layout="@layout/fragment_weldingwip" />
 </navigation>
 
 
