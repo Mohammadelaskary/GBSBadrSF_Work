@@ -61,7 +61,7 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
     private com.honeywell.aidc.BarcodeReader barcodeReader;
     EditText editText,totalqtn,basketcode;
     Button save;
-    TextView childdesc;
+    TextView childdesc,signoffqty;
     List<Basketcodelst> basketcodelstList;
     public Integer totalQty = 0;
 
@@ -79,9 +79,12 @@ public class Signoffitemsdialog extends DialogFragment implements BarcodeReader.
         totalqtn=view.findViewById(R.id.totalqtn_edt);
         basketcode=view.findViewById(R.id.basketcode_edt);
         childdesc=view.findViewById(R.id.childdesc);
+        signoffqty=view.findViewById(R.id.signoffqty);
 
-       // Bundle mArgs = getArguments();
-        //childdesc.setText( mArgs.getString("childdesc"));
+        Bundle mArgs = getArguments();
+        childdesc.setText( mArgs.getString("childdesc"));
+        signoffqty.setText( mArgs.getString("loadingqty"));
+
 
 
 
@@ -175,7 +178,8 @@ simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListen
                 }else {
                     editText.setText(String.valueOf(barcodeReadEvent.getBarcodeData()));
 
-                    Basketcodelst nwItem = new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()), Integer.valueOf(totalqtn.getText().toString()));
+                   // Basketcodelst nwItem = new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()), Integer.valueOf(signoffqty.getText().toString()));
+                    Basketcodelst nwItem = new Basketcodelst(String.valueOf(barcodeReadEvent.getBarcodeData()), (constant.getTotalQtyVar()));
                     if (!productionSignoffadapter.getproductionsequencelist().contains(nwItem)) {
                         basketcodelstList.add(nwItem);
                         productionSignoffadapter.notifyDataSetChanged();
@@ -246,9 +250,9 @@ simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListen
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //totalQty+=Integer.valueOf(basketcodelstList.get(0).getQty());
+                totalQty = basketcodelstList.get(0).getQty();
                 constant.incrementTotalQty(totalQty);
-               // Log.d("****"+TAG, "TotalQty: "+constant.getTotalQtyVar());
+                //Log.d("****"+TAG, "TotalQty: "+constant.getTotalQtyVar());
                 String input = totalqtn.getText().toString();
                 String basketcodeinput=new Gson().toJson(basketcodelstList);
                 //list

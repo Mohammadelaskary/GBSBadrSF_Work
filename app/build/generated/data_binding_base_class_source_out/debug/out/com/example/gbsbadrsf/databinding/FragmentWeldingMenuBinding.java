@@ -26,9 +26,6 @@ public final class FragmentWeldingMenuBinding implements ViewBinding {
   public final MaterialButton machinesignoffBtn;
 
   @NonNull
-  public final MaterialButton productionrepairBtn;
-
-  @NonNull
   public final MaterialButton qualityscraprequestBtn;
 
   @NonNull
@@ -37,17 +34,20 @@ public final class FragmentWeldingMenuBinding implements ViewBinding {
   @NonNull
   public final TextView weldingmenu;
 
+  @NonNull
+  public final MaterialButton weldingwipBtn;
+
   private FragmentWeldingMenuBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton machineloadingBtn, @NonNull MaterialButton machinesignoffBtn,
-      @NonNull MaterialButton productionrepairBtn, @NonNull MaterialButton qualityscraprequestBtn,
-      @NonNull MaterialButton scraprequestBtn, @NonNull TextView weldingmenu) {
+      @NonNull MaterialButton qualityscraprequestBtn, @NonNull MaterialButton scraprequestBtn,
+      @NonNull TextView weldingmenu, @NonNull MaterialButton weldingwipBtn) {
     this.rootView = rootView;
     this.machineloadingBtn = machineloadingBtn;
     this.machinesignoffBtn = machinesignoffBtn;
-    this.productionrepairBtn = productionrepairBtn;
     this.qualityscraprequestBtn = qualityscraprequestBtn;
     this.scraprequestBtn = scraprequestBtn;
     this.weldingmenu = weldingmenu;
+    this.weldingwipBtn = weldingwipBtn;
   }
 
   @Override
@@ -89,12 +89,6 @@ public final class FragmentWeldingMenuBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.productionrepair_btn;
-      MaterialButton productionrepairBtn = rootView.findViewById(id);
-      if (productionrepairBtn == null) {
-        break missingId;
-      }
-
       id = R.id.qualityscraprequest_btn;
       MaterialButton qualityscraprequestBtn = rootView.findViewById(id);
       if (qualityscraprequestBtn == null) {
@@ -113,9 +107,14 @@ public final class FragmentWeldingMenuBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.weldingwip_btn;
+      MaterialButton weldingwipBtn = rootView.findViewById(id);
+      if (weldingwipBtn == null) {
+        break missingId;
+      }
+
       return new FragmentWeldingMenuBinding((ConstraintLayout) rootView, machineloadingBtn,
-          machinesignoffBtn, productionrepairBtn, qualityscraprequestBtn, scraprequestBtn,
-          weldingmenu);
+          machinesignoffBtn, qualityscraprequestBtn, scraprequestBtn, weldingmenu, weldingwipBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
