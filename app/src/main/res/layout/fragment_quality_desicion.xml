@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Quality.manfacturing.qualitydesicion.QualityDecisionFragment"
+    tools:context=".Quality.manfacturing.QualityDecision.QualityDecisionFragment"
     android:background="@drawable/background">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -197,6 +197,19 @@
 
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/check_list_btn"
+                style="@style/styleoftextinbtn"
+                android:layout_width="170dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/appbarcolor"
+                android:text="Check list"
+                android:textColor="@color/white"
+                app:cornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/qfinaldesicion_spin" />
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_btn"
                 style="@style/styleoftextinbtn"
                 android:layout_width="170dp"
@@ -208,7 +221,7 @@
                 app:cornerRadius="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/qfinaldesicion_spin" />
+                app:layout_constraintTop_toBottomOf="@id/check_list_btn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -57,6 +57,9 @@ public class MainmenuFragment extends Fragment {
             Navigation.findNavController(getView()).navigate(R.id.action_mainmenuFragment_to_planningMenuFragment);
 
         });
+        fragmentMainmenuBinding.changeIp.setOnClickListener(__ -> {
+            Navigation.findNavController(getView()).navigate(R.id.action_fragment_main_menu_to_fragment_change_base_url);
+        });
 
 
 

@@ -150,6 +150,7 @@
     <string name="create_rejection_request">Create Rejection Request</string>
     <string name="new_sample">New Sample</string>
     <string name="approved_quantity">Approved Quantity</string>
+    <string name="check_list">Check List</string>
 
 
 </resources>

@@ -34,6 +34,12 @@ public class DefectsManufacturing implements Parcelable {
     @SerializedName("deffectedQty")
     @Expose
     private Integer deffectedQty;
+    @SerializedName("pprLoadingId")
+    @Expose
+    private Integer pprLoadingId;
+    @SerializedName("lastMoveId")
+    @Expose
+    private Integer lastMoveId;
     @SerializedName("jobOrderId")
     @Expose
     private Integer jobOrderId;
@@ -89,6 +95,7 @@ public class DefectsManufacturing implements Parcelable {
     @Expose
     private Integer defectStatusReject;
 
+
     protected DefectsManufacturing(Parcel in) {
         if (in.readByte() == 0) {
             manufacturingDefectsId = null;
@@ -118,6 +125,16 @@ public class DefectsManufacturing implements Parcelable {
             deffectedQty = null;
         } else {
             deffectedQty = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            pprLoadingId = null;
+        } else {
+            pprLoadingId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            lastMoveId = null;
+        } else {
+            lastMoveId = in.readInt();
         }
         if (in.readByte() == 0) {
             jobOrderId = null;
@@ -411,6 +428,22 @@ public class DefectsManufacturing implements Parcelable {
         this.defectStatusReject = defectStatusReject;
     }
 
+    public Integer getPprLoadingId() {
+        return pprLoadingId;
+    }
+
+    public void setPprLoadingId(Integer pprLoadingId) {
+        this.pprLoadingId = pprLoadingId;
+    }
+
+    public Integer getLastMoveId() {
+        return lastMoveId;
+    }
+
+    public void setLastMoveId(Integer lastMoveId) {
+        this.lastMoveId = lastMoveId;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -451,6 +484,18 @@ public class DefectsManufacturing implements Parcelable {
         } else {
             dest.writeByte((byte) 1);
             dest.writeInt(deffectedQty);
+        }
+        if (pprLoadingId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(pprLoadingId);
+        }
+        if (lastMoveId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(lastMoveId);
         }
         if (jobOrderId == null) {
             dest.writeByte((byte) 0);

@@ -25,6 +25,12 @@ public class QualityDecisionViewModel extends ViewModel {
     MutableLiveData<Status> apiResponseGettingFinalQualityDecisionStatus;
     MutableLiveData<ApiResponseSavingOperationSignOffDecision> saveQualityOperationSignOffLiveData;
     MutableLiveData<Status> saveQualityOperationSignOffStatus;
+    MutableLiveData<ApiResponseGetCheckList> apiResponseGetCheckListLiveData;
+    MutableLiveData<Status> apiResponseGetCheckListStatus;
+    MutableLiveData<ApiResponseGetSavedCheckList> apiResponseGetSavedCheckListLiveData;
+    MutableLiveData<Status> apiResponseGetSavedCheckListStatus;
+    MutableLiveData<ApiResponseSaveCheckList> apiResponseSaveCheckListLiveData;
+    MutableLiveData<Status> apiResponseSaveCheckListStatus;
 
     @Inject
     ApiInterface apiInterface;
@@ -43,6 +49,13 @@ public class QualityDecisionViewModel extends ViewModel {
         apiResponseGettingFinalQualityDecisionStatus = new MutableLiveData<>();
         saveQualityOperationSignOffLiveData = new MutableLiveData<>();
         saveQualityOperationSignOffStatus = new MutableLiveData<>();
+        apiResponseGetCheckListLiveData = new MutableLiveData<>();
+        apiResponseGetCheckListStatus = new MutableLiveData<>();
+        apiResponseGetSavedCheckListLiveData = new MutableLiveData<>();
+        apiResponseGetSavedCheckListStatus = new MutableLiveData<>();
+        apiResponseSaveCheckListLiveData = new MutableLiveData<>();
+        apiResponseSaveCheckListStatus = new MutableLiveData<>();
+
     }
 
     public void getQualityOperationByBasketCode(int userId,String deviceSerialNumber,String basketCode){
@@ -71,7 +84,45 @@ public class QualityDecisionViewModel extends ViewModel {
                         }
                 ));
     }
-
+    public void getCheckList(int userId,int operationId){
+        disposable.add(apiInterface.getCheckList(userId,operationId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe( __ -> apiResponseGetCheckListStatus.postValue(Status.LOADING))
+                .subscribe(
+                        response -> {apiResponseGetCheckListLiveData.postValue(response);
+                            apiResponseGetCheckListStatus.postValue(Status.SUCCESS); },
+                        throwable -> {
+                            apiResponseGetCheckListStatus.postValue(Status.ERROR);
+                        }
+                ));
+    }
+    public void getSavedCheckList(int userId,String deviceSerialNo,int childId,int jobOrderId,int operationId){
+        disposable.add(apiInterface.getSavedCheckList(userId,deviceSerialNo,childId,jobOrderId,operationId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe( __ -> apiResponseGetSavedCheckListStatus.postValue(Status.LOADING))
+                .subscribe(
+                        response -> {apiResponseGetSavedCheckListLiveData.postValue(response);
+                            apiResponseGetSavedCheckListStatus.postValue(Status.SUCCESS); },
+                        throwable -> {
+                            apiResponseGetSavedCheckListStatus.postValue(Status.ERROR);
+                        }
+                ));
+    }
+    public void saveCheckList(int userId,String deviceSerialNo,int lastMoveId,int childId,String childCode, int jobOrderId,String jobOrderName,int pprLoadingId,int operationId,int checkListElementId){
+        disposable.add(apiInterface.saveCheckList(userId,deviceSerialNo,lastMoveId,childId,childCode,jobOrderId,jobOrderName,pprLoadingId,operationId,checkListElementId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe( __ -> apiResponseSaveCheckListStatus.postValue(Status.LOADING))
+                .subscribe(
+                        response -> {apiResponseSaveCheckListLiveData.postValue(response);
+                            apiResponseSaveCheckListStatus.postValue(Status.SUCCESS); },
+                        throwable -> {
+                            apiResponseSaveCheckListStatus.postValue(Status.ERROR);
+                        }
+                ));
+    }
     public void saveQualityOperationSignOff(int userId,String deviceSerialNumber,String date,int finalQualityDecisionId){
         disposable.add(apiInterface.saveQualityOperationSignOff(userId,deviceSerialNumber,date,finalQualityDecisionId)
                 .subscribeOn(Schedulers.io())
@@ -108,5 +159,29 @@ public class QualityDecisionViewModel extends ViewModel {
 
     public MutableLiveData<Status> getSaveQualityOperationSignOffStatus() {
         return saveQualityOperationSignOffStatus;
+    }
+
+    public MutableLiveData<ApiResponseGetCheckList> getApiResponseGetCheckListLiveData() {
+        return apiResponseGetCheckListLiveData;
+    }
+
+    public MutableLiveData<Status> getApiResponseGetCheckListStatus() {
+        return apiResponseGetCheckListStatus;
+    }
+
+    public MutableLiveData<ApiResponseGetSavedCheckList> getApiResponseGetSavedCheckListLiveData() {
+        return apiResponseGetSavedCheckListLiveData;
+    }
+
+    public MutableLiveData<Status> getApiResponseGetSavedCheckListStatus() {
+        return apiResponseGetSavedCheckListStatus;
+    }
+
+    public MutableLiveData<ApiResponseSaveCheckList> getApiResponseSaveCheckListLiveData() {
+        return apiResponseSaveCheckListLiveData;
+    }
+
+    public MutableLiveData<Status> getApiResponseSaveCheckListStatus() {
+        return apiResponseSaveCheckListStatus;
     }
 }

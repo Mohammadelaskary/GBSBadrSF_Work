@@ -10,9 +10,9 @@ import com.example.gbsbadrsf.Quality.manfacturing.ManufacturingQualityOperationF
 import com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestsListQualityFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestFragment;
 import com.example.gbsbadrsf.Quality.manfacturing.RandomQualityInception.RandomQualityInceptionFragment;
-import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment;
-import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment;
-import com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment;
+import com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.QualityDecisionFragment;
+import com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityDefectRepairFragment;
+import com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairFragment;
 import com.example.gbsbadrsf.machineloading.MachineLoadingFragment;
 import com.example.gbsbadrsf.productionsequence.ProductionSequence;
 import com.example.gbsbadrsf.signin.SigninFragment;
@@ -54,5 +54,6 @@ public abstract class ActivityBuilderModule {
     abstract ProductionRejectionRequestsListQualityFragment contributeProductionRejectionRequestsListQualityFragment();
     @ContributesAndroidInjector
     abstract ProductionRejectionRequestFragment contributeProductionscraprequestqcFragment();
+
 
 }

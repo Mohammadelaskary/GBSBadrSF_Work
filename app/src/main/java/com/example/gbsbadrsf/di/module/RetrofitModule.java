@@ -48,6 +48,7 @@ public class RetrofitModule {
     }
 
 
+
     @Singleton
     @Provides
     public static Retrofit getRetrofitInstance(Gson gson, OkHttpClient okHttpClient) {

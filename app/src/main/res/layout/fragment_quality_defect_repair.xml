@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment">
+    tools:context="com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityDefectRepairFragment">
 
     <TextView
         android:id="@+id/quality_repair_txt"
@@ -197,6 +197,7 @@
         android:paddingStart="50dp"
         android:paddingEnd="50dp"
         android:text="Reopen Defect"
+        android:visibility="gone"
         android:textColor="@color/white"
         app:cornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"

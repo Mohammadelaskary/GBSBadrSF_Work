@@ -177,11 +177,6 @@ public class ManufacturingQualityOperationFragment extends DaggerFragment implem
                     bundle.putInt("sampleQty", Integer.parseInt(sampleQty));
                     bundle.putBoolean("newSample", newSample);
                     Navigation.findNavController(v).navigate(R.id.action_manufacturing_quality_operation_fragment_to_manufacturing_add_defect_fragment, bundle);
-                    basketData = null;
-                    sampleQty ="";
-                    newSample = false;
-                    binding.newSample.setChecked(false);
-                    binding.sampleQtnEdt.setText("");
                 }
             } else {
                 binding.basketCode.setError("Please enter a valid basket code!");

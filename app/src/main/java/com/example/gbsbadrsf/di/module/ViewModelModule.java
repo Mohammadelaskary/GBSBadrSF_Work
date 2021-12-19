@@ -99,12 +99,13 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(ProductionRejectionRequestsListQualityViewModel.class)
-    public abstract ViewModel bindQualityDecisionViewModel (ProductionRejectionRequestsListQualityViewModel viewModel);
+    public abstract ViewModel bindProductionRejectionRequestsListQualityViewModel (ProductionRejectionRequestsListQualityViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(ProductionRejectionRequestViewModel.class)
-    public abstract ViewModel bindProductionRejectionRequestViewModel (ProductionRejectionRequestViewModel viewModel);
+    @ViewModelKey(QualityDecisionViewModel.class)
+    public abstract ViewModel bindQualityDecisionViewModel (QualityDecisionViewModel viewModel);
+
 
 
 }

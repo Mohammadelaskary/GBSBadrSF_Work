@@ -7,9 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionAdapter;
 import com.example.gbsbadrsf.databinding.DefectinproductionrepstatusLstBinding;
-import com.example.gbsbadrsf.databinding.DefectqtnsLstBinding;
 
 public class ProductionrepstatusAdapter extends RecyclerView.Adapter<ProductionrepstatusAdapter.ProductionrepstatusViewHolder> {
 DefectinproductionrepstatusLstBinding defectinproductionrepstatusLstBinding;

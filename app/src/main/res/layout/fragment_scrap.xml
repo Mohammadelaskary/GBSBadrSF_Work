@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Quality.manfacturing.qualitydesicion.ScrapFragment">
+    tools:context=".Quality.manfacturing.QualityDecision.ScrapFragment">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/scrap_appbar"
         android:layout_width="match_parent"

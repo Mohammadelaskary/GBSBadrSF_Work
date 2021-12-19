@@ -10,10 +10,13 @@ import com.example.gbsbadrsf.Quality.Data.ApiResponseAddManufacturingDefectedChi
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingDefect;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseGetCheckList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGetRejectionRequestList;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseGetSavedCheckList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseGettingFinalQualityDecision;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseRejectionRequestTakeAction;
+import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveCheckList;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSaveRandomQualityInception;
 import com.example.gbsbadrsf.Quality.Data.ApiResponseSavingOperationSignOffDecision;
 import com.example.gbsbadrsf.Quality.Data.Defect;
@@ -187,5 +190,30 @@ public interface  ApiInterface {
           @Query("IsApproved") boolean IsApproved
 
   );
-
+  @GET("GetCheckList")
+  Single<ApiResponseGetCheckList> getCheckList(
+          @Query("UserID") int UserID,
+          @Query("OperationID") int OperationID
+  );
+  @GET("SaveCheckList")
+  Single<ApiResponseSaveCheckList> saveCheckList(
+          @Query("UserID") int UserID,
+          @Query("DeviceSerialNo") String DeviceSerialNo,
+          @Query("LastMoveId") int LastMoveId,
+          @Query("ChildId") int ChildId,
+          @Query("ChildCode") String ChildCode,
+          @Query("JobOrderId") int JobOrderId,
+          @Query("JobOrderName") String JobOrderName,
+          @Query("PprLoadingId") int PprLoadingId,
+          @Query("OperationId") int OperationId,
+          @Query("CheckListElementId") int CheckListElementId
+  );
+  @GET("GetSavedCheckList")
+  Single<ApiResponseGetSavedCheckList> getSavedCheckList(
+          @Query("UserID") int UserID,
+          @Query("DeviceSerialNo") String DeviceSerialNo,
+          @Query("ChildId") int ChildId,
+          @Query("JobOrderId") int JobOrderId,
+          @Query("OperationID") int OperationID
+  );
 }

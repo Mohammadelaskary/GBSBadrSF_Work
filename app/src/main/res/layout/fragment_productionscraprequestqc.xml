@@ -191,7 +191,7 @@
                 app:cornerRadius="25dp"
                 android:text="@string/display_defects"
                 style="@style/styleoftextinbtn"
-
+                android:visibility="gone"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

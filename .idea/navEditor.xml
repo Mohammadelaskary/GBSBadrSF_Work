@@ -80,6 +80,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="changeIpFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="colorverificationFragment">
                     <value>
                       <LayoutPositions>
@@ -328,6 +340,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_fragment_main_menu_to_fragment_change_base_url">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_mainmenuFragment_to_planningMenuFragment">
                               <value>
                                 <LayoutPositions />
@@ -401,11 +418,6 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_fragment_manufacturing_quality_to_fragment_random_quality_inception">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_manfacturingqualityFragment_to_addDefectsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -849,7 +861,7 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="qualitydesicionFragment">
+                  <entry key="quality_desicion_fragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -860,6 +872,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_fragment_quality_decision_to_fragment_display_defect_details">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_qualitydesicionFragment_to_scrapFragment">
                               <value>
                                 <LayoutPositions />

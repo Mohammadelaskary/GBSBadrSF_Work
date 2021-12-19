@@ -29,14 +29,9 @@ com/example/gbsbadrsf/data/response/APIResponseSignin.java
  com.example.gbsbadrsf.data.response.APIResponseSignin
 com/example/gbsbadrsf/Quality/Data/QualityDefectRepairViewModel.java
  com.example.gbsbadrsf.Quality.Data.QualityDefectRepairViewModel
-com/example/gbsbadrsf/Quality/manfacturing/qualityrepair/QualityDefectRepairFragment.java
- com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment
 com/example/gbsbadrsf/Quality/paint/Adddefectpaint/AdddefectpaintAdapter.java
  com.example.gbsbadrsf.Quality.paint.Adddefectpaint.AdddefectpaintAdapter
  com.example.gbsbadrsf.Quality.paint.Adddefectpaint.AdddefectpaintAdapter$AdddefectpaintViewHolder
-com/example/gbsbadrsf/Quality/manfacturing/qualityrepair/QualityRepairChildsQtyDefectsQtyAdapter.java
- com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairChildsQtyDefectsQtyAdapter
- com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairChildsQtyDefectsQtyAdapter$QualityRepairChildsQtyDefectsQtyViewHolder
 com/example/gbsbadrsf/Quality/welding/adddefectwe/adddefectweAdapter.java
  com.example.gbsbadrsf.Quality.welding.adddefectwe.adddefectweAdapter
  com.example.gbsbadrsf.Quality.welding.adddefectwe.adddefectweAdapter$adddefectweViewHolder
@@ -69,8 +64,6 @@ com/example/gbsbadrsf/ProductionsetqtnFragment.java
  com.example.gbsbadrsf.ProductionsetqtnFragment
 com/example/gbsbadrsf/Quality/paint/qualityrepairpaint/qualityrepairpaintFragment.java
  com.example.gbsbadrsf.Quality.paint.qualityrepairpaint.qualityrepairpaintFragment
-com/example/gbsbadrsf/Quality/manfacturing/qualitydesicion/ScrapFragment.java
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.ScrapFragment
 com/example/gbsbadrsf/Quality/manfacturing/ProductionRejectionRequest/ProductionRejectionRequestsListQualityFragment.java
  com.example.gbsbadrsf.Quality.manfacturing.ProductionRejectionRequest.ProductionRejectionRequestsListQualityFragment
 com/example/gbsbadrsf/Quality/paint/qualityrepairpaint/qualityrepairpaintAdapter.java
@@ -81,8 +74,12 @@ com/example/gbsbadrsf/Quality/paint/Adddefectpaint/Adddefectpaint.java
  com.example.gbsbadrsf.Quality.paint.Adddefectpaint.Adddefectpaint$1
 com/example/gbsbadrsf/welding/WeldingMenuFragment.java
  com.example.gbsbadrsf.welding.WeldingMenuFragment
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/ScrapFragment.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.ScrapFragment
 com/example/gbsbadrsf/databinding/DefectqtnsLstBinding.java
  com.example.gbsbadrsf.databinding.DefectqtnsLstBinding
+com/example/gbsbadrsf/ChangeBaseUrlFragment.java
+ com.example.gbsbadrsf.ChangeBaseUrlFragment
 com/example/gbsbadrsf/Reopendefects/ReopenDefectFragment.java
  com.example.gbsbadrsf.Reopendefects.ReopenDefectFragment
 com/example/gbsbadrsf/Manfacturing/machinesignoff/ProductionSignoffAdapter.java
@@ -118,6 +115,8 @@ com/example/gbsbadrsf/di/component/ApplicationComponent.java
  com.example.gbsbadrsf.di.component.ApplicationComponent$Builder
 com/example/gbsbadrsf/databinding/FragmentProductionscraprequestqcBinding.java
  com.example.gbsbadrsf.databinding.FragmentProductionscraprequestqcBinding
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/SetOnCheckItemChecked.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.SetOnCheckItemChecked
 com/example/gbsbadrsf/Production/ProductionRepairFragment.java
  com.example.gbsbadrsf.Production.ProductionRepairFragment
  com.example.gbsbadrsf.Production.ProductionRepairFragment$1
@@ -129,12 +128,11 @@ com/example/gbsbadrsf/databinding/DefectinproductionrepstatusLstBinding.java
  com.example.gbsbadrsf.databinding.DefectinproductionrepstatusLstBinding
 com/example/gbsbadrsf/databinding/FragmentDisplayDefectDetailsBinding.java
  com.example.gbsbadrsf.databinding.FragmentDisplayDefectDetailsBinding
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/CheckListAdapter.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.CheckListAdapter
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.CheckListAdapter$CheckListViewHolder
 com/example/gbsbadrsf/ProductionMenuFragment.java
  com.example.gbsbadrsf.ProductionMenuFragment
-com/example/gbsbadrsf/Quality/manfacturing/qualitydesicion/QualityDecisionFragment.java
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment$1
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment$2
 com/example/gbsbadrsf/productionsequence/ProductionSequence.java
  com.example.gbsbadrsf.productionsequence.ProductionSequence
  com.example.gbsbadrsf.productionsequence.ProductionSequence$1
@@ -255,8 +253,13 @@ com/example/gbsbadrsf/Quality/Data/ApiResponseDefectsList.java
  com.example.gbsbadrsf.Quality.Data.ApiResponseDefectsList
 com/example/gbsbadrsf/databinding/MainschedulelstBinding.java
  com.example.gbsbadrsf.databinding.MainschedulelstBinding
+com/example/gbsbadrsf/databinding/FragmentChangeBaseUrlBinding.java
+ com.example.gbsbadrsf.databinding.FragmentChangeBaseUrlBinding
 com/example/gbsbadrsf/Quality/Data/QualityDecisionViewModel.java
  com.example.gbsbadrsf.Quality.Data.QualityDecisionViewModel
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/qualitydesicionAdapter.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.qualitydesicionAdapter
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.qualitydesicionAdapter$qualitydesicionViewHolder
 com/example/gbsbadrsf/Production/RepairProductionQualityAdapter.java
  com.example.gbsbadrsf.Production.RepairProductionQualityAdapter
  com.example.gbsbadrsf.Production.RepairProductionQualityAdapter$RepairProductionQualityViewHolder
@@ -266,6 +269,8 @@ com/example/gbsbadrsf/RepairordersFragment.java
  com.example.gbsbadrsf.RepairordersFragment
 com/example/gbsbadrsf/databinding/BasketcodeLstBinding.java
  com.example.gbsbadrsf.databinding.BasketcodeLstBinding
+com/example/gbsbadrsf/Quality/Data/ApiResponseGetCheckList.java
+ com.example.gbsbadrsf.Quality.Data.ApiResponseGetCheckList
 com/example/gbsbadrsf/Quality/manfacturing/ManufacturingAddDefects/DisplayDefectDetailsFragment.java
  com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.DisplayDefectDetailsFragment
 com/example/gbsbadrsf/databinding/FragmentScrapBinding.java
@@ -369,6 +374,9 @@ com/example/gbsbadrsf/Model/ApiResponseDepartmentsList.java
 com/example/gbsbadrsf/Model/LastMoveManufacturingBasket.java
  com.example.gbsbadrsf.Model.LastMoveManufacturingBasket
  com.example.gbsbadrsf.Model.LastMoveManufacturingBasket$1
+com/example/gbsbadrsf/Quality/manfacturing/QualityRepair/QualityRepairChildsQtyDefectsQtyAdapter.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairChildsQtyDefectsQtyAdapter
+ com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairChildsQtyDefectsQtyAdapter$QualityRepairChildsQtyDefectsQtyViewHolder
 com/example/gbsbadrsf/Quality/Data/ApiResponseGetRejectionRequestList.java
  com.example.gbsbadrsf.Quality.Data.ApiResponseGetRejectionRequestList
 com/example/gbsbadrsf/databinding/FragmentQualityrepairpaintBinding.java
@@ -377,6 +385,9 @@ com/example/gbsbadrsf/repository/Productionsequencerepository.java
  com.example.gbsbadrsf.repository.Productionsequencerepository
 com/example/gbsbadrsf/databinding/FragmentMainScrapmanagmentBinding.java
  com.example.gbsbadrsf.databinding.FragmentMainScrapmanagmentBinding
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/QualityDecisionFragment.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.QualityDecisionFragment
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.QualityDecisionFragment$1
 com/example/gbsbadrsf/databinding/FragmentQualityBinding.java
  com.example.gbsbadrsf.databinding.FragmentQualityBinding
 com/example/gbsbadrsf/qualityFragment.java
@@ -387,6 +398,8 @@ com/example/gbsbadrsf/databinding/FragmentProductionRepairBinding.java
  com.example.gbsbadrsf.databinding.FragmentProductionRepairBinding
 com/example/gbsbadrsf/di/module/ApplicationModule.java
  com.example.gbsbadrsf.di.module.ApplicationModule
+com/example/gbsbadrsf/Quality/Data/SaveCheckListResponse.java
+ com.example.gbsbadrsf.Quality.Data.SaveCheckListResponse
 com/example/gbsbadrsf/Quality/welding/qcdesicionwe/qcdesicionweAdapter.java
  com.example.gbsbadrsf.Quality.welding.qcdesicionwe.qcdesicionweAdapter
  com.example.gbsbadrsf.Quality.welding.qcdesicionwe.qcdesicionweAdapter$qcdesicionweViewHolder
@@ -411,6 +424,9 @@ com/example/gbsbadrsf/databinding/FragmentQualityRejectionRequestsListBinding.ja
  com.example.gbsbadrsf.databinding.FragmentQualityRejectionRequestsListBinding
 com/example/gbsbadrsf/Quality/Data/ApiResponseRejectionRequestTakeAction.java
  com.example.gbsbadrsf.Quality.Data.ApiResponseRejectionRequestTakeAction
+com/example/gbsbadrsf/Quality/Data/GetCheck.java
+ com.example.gbsbadrsf.Quality.Data.GetCheck
+ com.example.gbsbadrsf.Quality.Data.GetCheck$1
 com/example/gbsbadrsf/Manfacturing/machinesignoff/ProductionSignoffFragment.java
  com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffFragment
  com.example.gbsbadrsf.Manfacturing.machinesignoff.ProductionSignoffFragment$1
@@ -458,9 +474,6 @@ com/example/gbsbadrsf/ProductionRejectionFragment.java
  com.example.gbsbadrsf.ProductionRejectionFragment$3
 com/example/gbsbadrsf/databinding/FragmentQcrepairweBinding.java
  com.example.gbsbadrsf.databinding.FragmentQcrepairweBinding
-com/example/gbsbadrsf/Quality/manfacturing/qualityrepair/QualityRepairFragment.java
- com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment
- com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment$1
 com/example/gbsbadrsf/productionrepairstaus/ProductionrepstatusFragment.java
  com.example.gbsbadrsf.productionrepairstaus.ProductionrepstatusFragment
 com/example/gbsbadrsf/Quality/Data/RepairCycle.java
@@ -470,6 +483,8 @@ com/example/gbsbadrsf/QualityScrapFragment.java
 com/example/gbsbadrsf/Productionrepairpaintcustomdialog.java
  com.example.gbsbadrsf.Productionrepairpaintcustomdialog
  com.example.gbsbadrsf.Productionrepairpaintcustomdialog$1
+com/example/gbsbadrsf/Quality/manfacturing/QualityRepair/QualityDefectRepairFragment.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityDefectRepairFragment
 com/example/gbsbadrsf/Quality/manfacturing/ManufacturingAddDefects/SetOnManufacturingAddDefectDetailsButtonClicked.java
  com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.SetOnManufacturingAddDefectDetailsButtonClicked
 com/example/gbsbadrsf/Model/ApiResponseGetBasketInfo.java
@@ -490,14 +505,20 @@ com/example/gbsbadrsf/Quality/Data/ApiResponseAddingManufacturingRepairQualityPr
  com.example.gbsbadrsf.Quality.Data.ApiResponseAddingManufacturingRepairQualityProduction
 com/example/gbsbadrsf/databinding/FragmentPlanningMenuBinding.java
  com.example.gbsbadrsf.databinding.FragmentPlanningMenuBinding
+com/example/gbsbadrsf/Quality/Data/ApiResponseGetSavedCheckList.java
+ com.example.gbsbadrsf.Quality.Data.ApiResponseGetSavedCheckList
 com/example/gbsbadrsf/databinding/DefectlistinqualityrepairBinding.java
  com.example.gbsbadrsf.databinding.DefectlistinqualityrepairBinding
 com/example/gbsbadrsf/databinding/DefectItemBinding.java
  com.example.gbsbadrsf.databinding.DefectItemBinding
 com/example/gbsbadrsf/databinding/FragmentMainschedulellistBinding.java
  com.example.gbsbadrsf.databinding.FragmentMainschedulellistBinding
+com/example/gbsbadrsf/databinding/CheckListItemBinding.java
+ com.example.gbsbadrsf.databinding.CheckListItemBinding
 com/example/gbsbadrsf/Quality/welding/WeldingQualityOperationFragment.java
  com.example.gbsbadrsf.Quality.welding.WeldingQualityOperationFragment
+com/example/gbsbadrsf/databinding/FragmentChecklistBinding.java
+ com.example.gbsbadrsf.databinding.FragmentChecklistBinding
 com/example/gbsbadrsf/databinding/FragmentWeldingQualityOperationBinding.java
  com.example.gbsbadrsf.databinding.FragmentWeldingQualityOperationBinding
 com/example/gbsbadrsf/databinding/FragmentRandomQualityInceptionBinding.java
@@ -533,9 +554,6 @@ com/example/gbsbadrsf/productionsequence/productionsequenceadapter.java
 com/example/gbsbadrsf/Quality/welding/qcrepairwe/QcrepairweAdapter.java
  com.example.gbsbadrsf.Quality.welding.qcrepairwe.QcrepairweAdapter
  com.example.gbsbadrsf.Quality.welding.qcrepairwe.QcrepairweAdapter$QcrepairweViewHolder
-com/example/gbsbadrsf/Quality/manfacturing/qualitydesicion/qualitydesicionAdapter.java
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionAdapter
- com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionAdapter$qualitydesicionViewHolder
 com/example/gbsbadrsf/DataBindingTriggerClass.java
  com.example.gbsbadrsf.DataBindingTriggerClass
 com/example/gbsbadrsf/databinding/FragmentWeldingAddDefectsDetailsBinding.java
@@ -553,6 +571,9 @@ com/example/gbsbadrsf/Manfacturing/machineloading/ContinueLoading.java
  com.example.gbsbadrsf.Manfacturing.machineloading.ContinueLoading
 com/example/gbsbadrsf/Manfacturing/scrapmanagment/MainScrapmanagment.java
  com.example.gbsbadrsf.Manfacturing.scrapmanagment.MainScrapmanagment
+com/example/gbsbadrsf/Quality/manfacturing/QualityRepair/QualityRepairFragment.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairFragment
+ com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairFragment$1
 com/example/gbsbadrsf/Manfacturing/machineloading/Mainmachineloading.java
  com.example.gbsbadrsf.Manfacturing.machineloading.Mainmachineloading
 com/example/gbsbadrsf/databinding/ProductionrepairwedialogBinding.java
@@ -578,6 +599,8 @@ com/example/gbsbadrsf/Production/ProductionRepairChildsQtyDefectsQtyAdapter.java
 com/example/gbsbadrsf/Manfacturing/machinesignoff/MachinesignoffViewModel.java
  com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel
  com.example.gbsbadrsf.Manfacturing.machinesignoff.MachinesignoffViewModel$1
+com/example/gbsbadrsf/Quality/manfacturing/QualityDecision/CheckListDialog.java
+ com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.CheckListDialog
 com/example/gbsbadrsf/databinding/FragmentProductionrepairweBinding.java
  com.example.gbsbadrsf.databinding.FragmentProductionrepairweBinding
 com/example/gbsbadrsf/Production/Data/ProductionRepairViewModel.java
@@ -617,6 +640,8 @@ com/example/gbsbadrsf/data/response/BasketLst.java
  com.example.gbsbadrsf.data.response.BasketLst
 com/example/gbsbadrsf/welding/ScraprequestFragment.java
  com.example.gbsbadrsf.welding.ScraprequestFragment
+com/example/gbsbadrsf/Quality/Data/ApiResponseSaveCheckList.java
+ com.example.gbsbadrsf.Quality.Data.ApiResponseSaveCheckList
 com/example/gbsbadrsf/di/module/RetrofitModule.java
  com.example.gbsbadrsf.di.module.RetrofitModule
 com/example/gbsbadrsf/Quality/Data/ApiResponseSaveRandomQualityInception.java

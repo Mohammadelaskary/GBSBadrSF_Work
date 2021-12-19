@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.qualitydesicionAdapter;
-import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.databinding.FragmentProductionrepstatusBinding;
 
 

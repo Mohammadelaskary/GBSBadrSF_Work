@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/check_list_item.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_change_base_url.xml" value="0.16006944444444443" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_checklist.xml" value="0.152" />
+        <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_mainmenu.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_add_defects.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_manufacturing_quality_operation.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Dell/Ghabbour shop floor project/app/src/main/res/layout/fragment_production_rejection.xml" value="0.16944444444444445" />

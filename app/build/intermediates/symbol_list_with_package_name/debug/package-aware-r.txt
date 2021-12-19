@@ -1966,6 +1966,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_fragment_main_menu_to_fragment_change_base_url
 id action_fragment_manufacturing_quality_to_fragment_random_quality_inception
 id action_fragment_production_repair_to_fragment_production_defect_repair
 id action_fragment_quality_decision_to_fragment_display_defect_details
@@ -2132,6 +2133,11 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id changeIpFragment
+id change_ip
+id check_description
+id check_list
+id check_list_btn
 id checkbox
 id checked
 id child
@@ -2477,6 +2483,7 @@ id never
 id neverCompleteToEnd
 id neverCompleteToStart
 id new_basket_code
+id new_ip
 id new_sample
 id newdef_btn
 id newrequest_btn
@@ -2594,11 +2601,11 @@ id qtnok_btn
 id qualityScrapFragment
 id quality_appbar
 id quality_approved_qty
+id quality_desicion_fragment
 id quality_img
 id quality_operation_btn
 id quality_repair_txt
 id quality_txt
-id qualitydesicionFragment
 id qualitydesicion_btn
 id qualitydesicion_txt
 id qualitydesicionpaintFragment
@@ -2662,6 +2669,7 @@ id sampleqtn_txt
 id sampleqty
 id sampleqty_txt
 id samplesize_txt
+id save
 id save_btn
 id save_non_transition_alpha
 id save_overlay_view
@@ -2790,6 +2798,7 @@ id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2800,6 +2809,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id title_txt
 id toggle
 id top
 id topPanel
@@ -2925,6 +2935,7 @@ layout adddefectdialog
 layout adddefectpaintcustomdialog
 layout adddefectwecustomdialog
 layout basketcode_lst
+layout check_list_item
 layout custom_dialog
 layout defect_item
 layout defectinproductionrepstatus_lst
@@ -2953,6 +2964,8 @@ layout fragment_adddefectwe
 layout fragment_addworkers
 layout fragment_baskettransfer
 layout fragment_baskettransferwe
+layout fragment_change_base_url
+layout fragment_checklist
 layout fragment_colorverification
 layout fragment_continue_loading
 layout fragment_display_defect_details
@@ -3172,6 +3185,7 @@ string bottomsheet_action_expand_halfway
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
+string check_list
 string child
 string child_card
 string child_code

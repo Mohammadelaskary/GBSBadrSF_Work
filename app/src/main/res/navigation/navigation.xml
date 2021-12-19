@@ -20,7 +20,13 @@
         <action
             android:id="@+id/action_mainmenuFragment_to_planningMenuFragment"
             app:destination="@id/planningMenuFragment" />
+        <action android:id="@+id/action_fragment_main_menu_to_fragment_change_base_url"
+            app:destination="@id/changeIpFragment"/>
     </fragment>
+    <fragment android:id="@+id/changeIpFragment"
+        tools:layout="@layout/fragment_change_base_url"
+        android:label="fragment_change_base_url"
+        android:name="com.example.gbsbadrsf.ChangeBaseUrlFragment"/>
     <fragment
         android:id="@+id/productionMenuFragment"
         android:name="com.example.gbsbadrsf.ProductionMenuFragment"
@@ -154,8 +160,7 @@
         android:name="com.example.gbsbadrsf.ProductionRejectionFragment"
         android:label="fragment_productionscrap"
         tools:layout="@layout/fragment_production_rejection" />
-
-            <fragment
+    <fragment
                 android:id="@+id/signinFragment"
                 android:name="com.example.gbsbadrsf.signin.SigninFragment"
                 android:label="fragment_signin"
@@ -246,7 +251,7 @@
 
         <action
             android:id="@+id/action_manfacturingqualityFragment_to_qualitydesicionFragment"
-            app:destination="@id/qualitydesicionFragment" />
+            app:destination="@id/quality_desicion_fragment" />
         <action
             android:id="@+id/action_manfacturingqualityFragment_to_productionscraplistinqualityFragment"
             app:destination="@id/productionscraplistinqualityFragment" />
@@ -260,7 +265,7 @@
     </fragment>
     <fragment android:id="@+id/fragment_quality_repair"
         android:label="fragment_quality_repair"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairFragment"
         tools:layout="@layout/fragment_quality_repair">
         <action android:id="@+id/fragment_quality_repair_to_fragment_quality_defect_repair"
             app:destination="@id/fragment_quality_defect_repair"/>
@@ -268,7 +273,7 @@
     <fragment android:id="@+id/fragment_quality_defect_repair"
         tools:layout="@layout/fragment_quality_defect_repair"
         android:label="fragment_quality_defect_repair"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityDefectRepairFragment"/>
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityDefectRepairFragment"/>
     <fragment android:id="@+id/manufacturing_quality_operation_fragment"
         android:name="com.example.gbsbadrsf.Quality.manfacturing.ManufacturingQualityOperationFragment"
         android:label="manufacturing_quality_operation"
@@ -282,8 +287,7 @@
 
 
     </fragment>
-    <fragment
-        android:id="@+id/manufacturing_add_defects_fragment"
+    <fragment android:id="@+id/manufacturing_add_defects_fragment"
         android:name="com.example.gbsbadrsf.Quality.manfacturing.ManufacturingAddDefects.ManufacturingAddDefectsFragment"
         android:label="fragment_add_defects"
         tools:layout="@layout/fragment_manufacturing_add_defects" >
@@ -375,13 +379,13 @@
         tools:layout="@layout/fragment_add_defects" />
     <fragment
         android:id="@+id/qualityrepairFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualityrepair.QualityRepairFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.QualityRepair.QualityRepairFragment"
         android:label="fragment_qualityrepair"
         tools:layout="@layout/fragment_quality_repair" />
 
     <fragment
-        android:id="@+id/qualitydesicionFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment"
+        android:id="@+id/quality_desicion_fragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.QualityDecisionFragment"
         android:label="fragment_qualitydesicion"
         tools:layout="@layout/fragment_quality_desicion" >
         <action
@@ -389,10 +393,12 @@
             app:destination="@id/scrapFragment" />
         <action android:id="@+id/action_fragment_quality_decision_to_fragment_display_defect_details"
             app:destination="@id/fragment_display_defect_details"/>
+
     </fragment>
+
     <fragment
         android:id="@+id/scrapFragment"
-        android:name="com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.ScrapFragment"
+        android:name="com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.ScrapFragment"
         android:label="fragment_scrap"
         tools:layout="@layout/fragment_scrap" />
     <fragment

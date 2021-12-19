@@ -1,6 +1,6 @@
 package com.example.gbsbadrsf.di.module;
 
-import com.example.gbsbadrsf.Quality.manfacturing.qualitydesicion.QualityDecisionFragment;
+import com.example.gbsbadrsf.Quality.manfacturing.QualityDecision.QualityDecisionFragment;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Subcomponent;

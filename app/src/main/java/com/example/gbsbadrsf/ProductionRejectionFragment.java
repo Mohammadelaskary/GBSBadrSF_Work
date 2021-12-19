@@ -65,6 +65,7 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
                              Bundle savedInstanceState) {
         binding = FragmentProductionRejectionBinding.inflate(inflater,container,false);
         barCodeReader = new SetUpBarCodeReader(this,this);
+        binding.oldBasketCode.getEditText().requestFocus();
         initViewModel();
         setUpProgressDialog();
         getDepartmentsList();
@@ -72,8 +73,18 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
         observeGettingDepartments();
         attachButtonsToListener();
         addTextWatchers();
+        checkFocus();
         observeSavingRejectionRequest();
         return binding.getRoot();
+    }
+    boolean oldBasketCodeFocused,newBasketCodeFocused;
+    private void checkFocus() {
+        binding.oldBasketCode.getEditText().setOnFocusChangeListener((v, hasFocus) -> {
+            oldBasketCodeFocused = hasFocus;
+        });
+        binding.newBasketCode.getEditText().setOnFocusChangeListener((v, hasFocus) -> {
+            newBasketCodeFocused = hasFocus;
+        });
     }
 
     private void observeSavingRejectionRequest() {
@@ -268,9 +279,9 @@ public class ProductionRejectionFragment extends DaggerFragment implements View.
     public void onBarcodeEvent(BarcodeReadEvent barcodeReadEvent) {
         getActivity().runOnUiThread(()->{
             String scannedText = barCodeReader.scannedData(barcodeReadEvent);
-            if (childCode.isEmpty()){
+            if (oldBasketCodeFocused){
                 binding.oldBasketCode.getEditText().setText(scannedText);
-            } else {
+            } else if (newBasketCodeFocused){
                 binding.newBasketCode.getEditText().setText(scannedText);
             }
         });

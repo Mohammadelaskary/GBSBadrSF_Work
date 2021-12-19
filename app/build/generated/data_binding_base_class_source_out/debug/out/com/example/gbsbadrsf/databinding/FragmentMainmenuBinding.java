@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.gbsbadrsf.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -19,6 +20,9 @@ import java.lang.String;
 public final class FragmentMainmenuBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final MaterialButton changeIp;
 
   @NonNull
   public final ImageView engineeringImg;
@@ -48,11 +52,13 @@ public final class FragmentMainmenuBinding implements ViewBinding {
   public final TextView qualityTxt;
 
   private FragmentMainmenuBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView engineeringImg, @NonNull TextView engineeringTxt,
-      @NonNull TextView mainmenuTxt, @NonNull ImageView planningImg, @NonNull TextView planningTxt,
+      @NonNull MaterialButton changeIp, @NonNull ImageView engineeringImg,
+      @NonNull TextView engineeringTxt, @NonNull TextView mainmenuTxt,
+      @NonNull ImageView planningImg, @NonNull TextView planningTxt,
       @NonNull ImageView productionImg, @NonNull TextView productionTxt,
       @NonNull ImageView qualityImg, @NonNull TextView qualityTxt) {
     this.rootView = rootView;
+    this.changeIp = changeIp;
     this.engineeringImg = engineeringImg;
     this.engineeringTxt = engineeringTxt;
     this.mainmenuTxt = mainmenuTxt;
@@ -91,6 +97,12 @@ public final class FragmentMainmenuBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.change_ip;
+      MaterialButton changeIp = ViewBindings.findChildViewById(rootView, id);
+      if (changeIp == null) {
+        break missingId;
+      }
+
       id = R.id.engineering_img;
       ImageView engineeringImg = ViewBindings.findChildViewById(rootView, id);
       if (engineeringImg == null) {
@@ -145,7 +157,7 @@ public final class FragmentMainmenuBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMainmenuBinding((ConstraintLayout) rootView, engineeringImg,
+      return new FragmentMainmenuBinding((ConstraintLayout) rootView, changeIp, engineeringImg,
           engineeringTxt, mainmenuTxt, planningImg, planningTxt, productionImg, productionTxt,
           qualityImg, qualityTxt);
     }

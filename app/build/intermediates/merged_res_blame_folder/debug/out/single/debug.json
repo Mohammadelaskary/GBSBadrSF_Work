@@ -164,6 +164,10 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_production_repair.xml"
     },
     {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_change_base_url.xml.flat",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_change_base_url.xml"
+    },
+    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_basketcode_lst.xml.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\basketcode_lst.xml"
     },
@@ -186,6 +190,10 @@
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_random_quality_inception.xml.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_random_quality_inception.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_checklist.xml.flat",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_checklist.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_background.png.flat",
@@ -490,6 +498,10 @@
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_continue_loading.xml.flat",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_continue_loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\layout_check_list_item.xml.flat",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\check_list_item.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",

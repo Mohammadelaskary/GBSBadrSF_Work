@@ -35,6 +35,9 @@ public final class FragmentQualityDesicionBinding implements ViewBinding {
   public final ImageView basketbarcodeImg;
 
   @NonNull
+  public final MaterialButton checkListBtn;
+
+  @NonNull
   public final TextView childTxt;
 
   @NonNull
@@ -78,17 +81,18 @@ public final class FragmentQualityDesicionBinding implements ViewBinding {
 
   private FragmentQualityDesicionBinding(@NonNull ScrollView rootView,
       @NonNull TextView DefectqtnTxt, @NonNull TextInputLayout basketCode,
-      @NonNull ImageView basketbarcodeImg, @NonNull TextView childTxt, @NonNull TextView childcode,
-      @NonNull TextView childesc, @NonNull LinearLayout constraint,
-      @NonNull RecyclerView defectedQtnDefectsQtyRecycler, @NonNull TextView defectnameTxt,
-      @NonNull TextView defectqtn, @NonNull TextView operation, @NonNull TextView operationTxt,
-      @NonNull TextView qcdecisionXt, @NonNull AppCompatSpinner qfinaldesicionSpin,
-      @NonNull TextView qualitydesicionTxt, @NonNull TextView sampleqtyTxt,
-      @NonNull MaterialButton saveBtn) {
+      @NonNull ImageView basketbarcodeImg, @NonNull MaterialButton checkListBtn,
+      @NonNull TextView childTxt, @NonNull TextView childcode, @NonNull TextView childesc,
+      @NonNull LinearLayout constraint, @NonNull RecyclerView defectedQtnDefectsQtyRecycler,
+      @NonNull TextView defectnameTxt, @NonNull TextView defectqtn, @NonNull TextView operation,
+      @NonNull TextView operationTxt, @NonNull TextView qcdecisionXt,
+      @NonNull AppCompatSpinner qfinaldesicionSpin, @NonNull TextView qualitydesicionTxt,
+      @NonNull TextView sampleqtyTxt, @NonNull MaterialButton saveBtn) {
     this.rootView = rootView;
     this.DefectqtnTxt = DefectqtnTxt;
     this.basketCode = basketCode;
     this.basketbarcodeImg = basketbarcodeImg;
+    this.checkListBtn = checkListBtn;
     this.childTxt = childTxt;
     this.childcode = childcode;
     this.childesc = childesc;
@@ -147,6 +151,12 @@ public final class FragmentQualityDesicionBinding implements ViewBinding {
       id = R.id.basketbarcode_img;
       ImageView basketbarcodeImg = ViewBindings.findChildViewById(rootView, id);
       if (basketbarcodeImg == null) {
+        break missingId;
+      }
+
+      id = R.id.check_list_btn;
+      MaterialButton checkListBtn = ViewBindings.findChildViewById(rootView, id);
+      if (checkListBtn == null) {
         break missingId;
       }
 
@@ -235,7 +245,7 @@ public final class FragmentQualityDesicionBinding implements ViewBinding {
       }
 
       return new FragmentQualityDesicionBinding((ScrollView) rootView, DefectqtnTxt, basketCode,
-          basketbarcodeImg, childTxt, childcode, childesc, constraint,
+          basketbarcodeImg, checkListBtn, childTxt, childcode, childesc, constraint,
           defectedQtnDefectsQtyRecycler, defectnameTxt, defectqtn, operation, operationTxt,
           qcdecisionXt, qfinaldesicionSpin, qualitydesicionTxt, sampleqtyTxt, saveBtn);
     }

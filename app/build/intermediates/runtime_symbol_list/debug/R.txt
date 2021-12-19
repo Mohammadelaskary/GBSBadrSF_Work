@@ -1965,6 +1965,7 @@ int id action_bar_title 0x7f0a0041
 int id action_container 0x7f0a0042
 int id action_context_bar 0x7f0a0043
 int id action_divider 0x7f0a0044
+int id action_fragment_main_menu_to_fragment_change_base_url 0x7f0a03c1
 int id action_fragment_manufacturing_quality_to_fragment_random_quality_inception 0x7f0a0045
 int id action_fragment_production_repair_to_fragment_production_defect_repair 0x7f0a0046
 int id action_fragment_quality_decision_to_fragment_display_defect_details 0x7f0a0047
@@ -2131,6 +2132,11 @@ int id center_horizontal 0x7f0a00e7
 int id center_vertical 0x7f0a00e8
 int id chain 0x7f0a00e9
 int id chains 0x7f0a00ea
+int id changeIpFragment 0x7f0a03c2
+int id change_ip 0x7f0a03c3
+int id check_description 0x7f0a03bb
+int id check_list 0x7f0a03bc
+int id check_list_btn 0x7f0a03bd
 int id checkbox 0x7f0a00eb
 int id checked 0x7f0a00ec
 int id child 0x7f0a00ed
@@ -2476,6 +2482,7 @@ int id never 0x7f0a0240
 int id neverCompleteToEnd 0x7f0a0241
 int id neverCompleteToStart 0x7f0a0242
 int id new_basket_code 0x7f0a0243
+int id new_ip 0x7f0a03c4
 int id new_sample 0x7f0a0244
 int id newdef_btn 0x7f0a0245
 int id newrequest_btn 0x7f0a0246
@@ -2593,11 +2600,11 @@ int id qtnok_btn 0x7f0a02b5
 int id qualityScrapFragment 0x7f0a02b6
 int id quality_appbar 0x7f0a02b7
 int id quality_approved_qty 0x7f0a02b8
+int id quality_desicion_fragment 0x7f0a03bf
 int id quality_img 0x7f0a02b9
 int id quality_operation_btn 0x7f0a02ba
 int id quality_repair_txt 0x7f0a02bb
 int id quality_txt 0x7f0a02bc
-int id qualitydesicionFragment 0x7f0a02bd
 int id qualitydesicion_btn 0x7f0a02be
 int id qualitydesicion_txt 0x7f0a02bf
 int id qualitydesicionpaintFragment 0x7f0a02c0
@@ -2661,6 +2668,7 @@ int id sampleqtn_txt 0x7f0a02f8
 int id sampleqty 0x7f0a02f9
 int id sampleqty_txt 0x7f0a02fa
 int id samplesize_txt 0x7f0a02fb
+int id save 0x7f0a03c5
 int id save_btn 0x7f0a02fc
 int id save_non_transition_alpha 0x7f0a02fd
 int id save_overlay_view 0x7f0a02fe
@@ -2789,6 +2797,7 @@ int id textWatcher 0x7f0a0378
 int id text_input_end_icon 0x7f0a0379
 int id text_input_error_icon 0x7f0a037a
 int id text_input_start_icon 0x7f0a037b
+int id text_view 0x7f0a03c6
 int id textinput_counter 0x7f0a037c
 int id textinput_error 0x7f0a037d
 int id textinput_helper_text 0x7f0a037e
@@ -2799,6 +2808,7 @@ int id time 0x7f0a0382
 int id title 0x7f0a0383
 int id titleDividerNoCustom 0x7f0a0384
 int id title_template 0x7f0a0385
+int id title_txt 0x7f0a03c0
 int id toggle 0x7f0a0386
 int id top 0x7f0a0387
 int id topPanel 0x7f0a0388
@@ -2924,6 +2934,7 @@ int layout adddefectdialog 0x7f0d001e
 int layout adddefectpaintcustomdialog 0x7f0d001f
 int layout adddefectwecustomdialog 0x7f0d0020
 int layout basketcode_lst 0x7f0d0021
+int layout check_list_item 0x7f0d00dd
 int layout custom_dialog 0x7f0d0022
 int layout defect_item 0x7f0d0023
 int layout defectinproductionrepstatus_lst 0x7f0d0024
@@ -2952,6 +2963,8 @@ int layout fragment_adddefectwe 0x7f0d003a
 int layout fragment_addworkers 0x7f0d003b
 int layout fragment_baskettransfer 0x7f0d003c
 int layout fragment_baskettransferwe 0x7f0d003d
+int layout fragment_change_base_url 0x7f0d00df
+int layout fragment_checklist 0x7f0d00de
 int layout fragment_colorverification 0x7f0d003e
 int layout fragment_continue_loading 0x7f0d003f
 int layout fragment_display_defect_details 0x7f0d0040
@@ -3171,6 +3184,7 @@ int string bottomsheet_action_expand_halfway 0x7f120032
 int string character_counter_content_description 0x7f120033
 int string character_counter_overflowed_content_description 0x7f120034
 int string character_counter_pattern 0x7f120035
+int string check_list 0x7f120109
 int string child 0x7f120036
 int string child_card 0x7f120037
 int string child_code 0x7f120038
