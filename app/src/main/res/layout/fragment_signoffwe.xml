@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".welding.SignoffweFragment"
+    tools:context=".welding.weldingsignoff.SignoffweFragment"
     android:background="@drawable/background"
     >
     <TextView
@@ -181,28 +181,28 @@
                 style="@style/styleoftext"
                 />
 
-            <TextView
-                android:id="@+id/qtn_txt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/basketqtn_edt"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/sign_off_qty"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="55dp"
-                style="@style/styleoftextbold"
-                />
-            <TextView
-                android:id="@+id/qtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/qtn_txt"
-                app:layout_constraintStart_toStartOf="@id/qtn_txt"
-                app:layout_constraintEnd_toEndOf="@id/qtn_txt"
-                android:layout_marginTop="15dp"
-                android:text="120"
-                style="@style/styleoftext"
-                />
+<!--            <TextView-->
+<!--                android:id="@+id/qtn_txt"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/basketqtn_edt"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:text="@string/sign_off_qty"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:layout_marginEnd="55dp"-->
+<!--                style="@style/styleoftextbold"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/signoff_qtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/qtn_txt"-->
+<!--                app:layout_constraintStart_toStartOf="@id/qtn_txt"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/qtn_txt"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:text="120"-->
+<!--                style="@style/styleoftext"-->
+<!--                />-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_btn"
                 android:layout_width="170dp"

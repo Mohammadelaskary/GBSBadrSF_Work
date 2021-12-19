@@ -48,12 +48,12 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_welding_add_deffects.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_sample.xml",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\activity_sample.xml"
-    },
-    {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_planning_menu.xml",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_planning_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\weldingsequence_rv.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\weldingsequence_rv.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\defect_item.xml",
@@ -122,6 +122,10 @@
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_machine_loading.xml",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_machine_loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\machinewip_lst.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\machinewip_lst.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionsetqtn.xml",
@@ -320,12 +324,16 @@
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_welding_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qualitymainmenu.xml",
-        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qualitymainmenu.xml"
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_machine_wip.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_machine_wip.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionrepairpaint.xml",
         "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_productionrepairpaint.xml"
+    },
+    {
+        "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qualitymainmenu.xml",
+        "source": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\src\\main\\res\\layout\\fragment_qualitymainmenu.xml"
     },
     {
         "merged": "C:\\Users\\Walid ElMarassy\\AndroidStudioProjects\\GBSBadrSF_Work\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_scraprequest.xml",

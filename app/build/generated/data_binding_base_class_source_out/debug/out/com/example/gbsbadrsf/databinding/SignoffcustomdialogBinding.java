@@ -39,7 +39,19 @@ public final class SignoffcustomdialogBinding implements ViewBinding {
   public final TextView basketqty;
 
   @NonNull
+  public final TextView childdesc;
+
+  @NonNull
+  public final TextView childdescTxt;
+
+  @NonNull
   public final MaterialButton saveBtn;
+
+  @NonNull
+  public final TextView signoffqty;
+
+  @NonNull
+  public final TextView signoffqtyTxt;
 
   @NonNull
   public final Switch simpleSwitch;
@@ -53,15 +65,21 @@ public final class SignoffcustomdialogBinding implements ViewBinding {
   private SignoffcustomdialogBinding(@NonNull ConstraintLayout rootView,
       @NonNull EditText basketcodeEdt, @NonNull ImageView basketcodeImg,
       @NonNull RecyclerView basketcodeRv, @NonNull TextView basketcodeTxt,
-      @NonNull TextView basketqty, @NonNull MaterialButton saveBtn, @NonNull Switch simpleSwitch,
-      @NonNull EditText totalqtnEdt, @NonNull TextView totalqtnTxt) {
+      @NonNull TextView basketqty, @NonNull TextView childdesc, @NonNull TextView childdescTxt,
+      @NonNull MaterialButton saveBtn, @NonNull TextView signoffqty,
+      @NonNull TextView signoffqtyTxt, @NonNull Switch simpleSwitch, @NonNull EditText totalqtnEdt,
+      @NonNull TextView totalqtnTxt) {
     this.rootView = rootView;
     this.basketcodeEdt = basketcodeEdt;
     this.basketcodeImg = basketcodeImg;
     this.basketcodeRv = basketcodeRv;
     this.basketcodeTxt = basketcodeTxt;
     this.basketqty = basketqty;
+    this.childdesc = childdesc;
+    this.childdescTxt = childdescTxt;
     this.saveBtn = saveBtn;
+    this.signoffqty = signoffqty;
+    this.signoffqtyTxt = signoffqtyTxt;
     this.simpleSwitch = simpleSwitch;
     this.totalqtnEdt = totalqtnEdt;
     this.totalqtnTxt = totalqtnTxt;
@@ -124,9 +142,33 @@ public final class SignoffcustomdialogBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.childdesc;
+      TextView childdesc = rootView.findViewById(id);
+      if (childdesc == null) {
+        break missingId;
+      }
+
+      id = R.id.childdesc_txt;
+      TextView childdescTxt = rootView.findViewById(id);
+      if (childdescTxt == null) {
+        break missingId;
+      }
+
       id = R.id.save_btn;
       MaterialButton saveBtn = rootView.findViewById(id);
       if (saveBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.signoffqty;
+      TextView signoffqty = rootView.findViewById(id);
+      if (signoffqty == null) {
+        break missingId;
+      }
+
+      id = R.id.signoffqty_txt;
+      TextView signoffqtyTxt = rootView.findViewById(id);
+      if (signoffqtyTxt == null) {
         break missingId;
       }
 
@@ -149,8 +191,8 @@ public final class SignoffcustomdialogBinding implements ViewBinding {
       }
 
       return new SignoffcustomdialogBinding((ConstraintLayout) rootView, basketcodeEdt,
-          basketcodeImg, basketcodeRv, basketcodeTxt, basketqty, saveBtn, simpleSwitch, totalqtnEdt,
-          totalqtnTxt);
+          basketcodeImg, basketcodeRv, basketcodeTxt, basketqty, childdesc, childdescTxt, saveBtn,
+          signoffqty, signoffqtyTxt, simpleSwitch, totalqtnEdt, totalqtnTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

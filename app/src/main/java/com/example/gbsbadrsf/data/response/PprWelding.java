@@ -82,6 +82,9 @@ public class PprWelding {
     @SerializedName("loadingSequenceStatus")
     @Expose
     private Integer loadingSequenceStatus;
+//    @SerializedName("baskets")
+//    @Expose
+//    private Baskets baskets;
 
     public Integer getLoadingSequenceID() {
         return loadingSequenceID;
@@ -290,4 +293,12 @@ public class PprWelding {
     public void setLoadingSequenceStatus(Integer loadingSequenceStatus) {
         this.loadingSequenceStatus = loadingSequenceStatus;
     }
+//    public Baskets getBaskets() {
+//        return baskets;
+//    }
+//
+//    public void setBaskets(Baskets baskets) {
+//        this.baskets = baskets;
+//    }
+
 }

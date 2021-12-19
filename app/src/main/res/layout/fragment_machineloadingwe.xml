@@ -186,7 +186,7 @@
                 android:id="@+id/childqtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="55"
+                android:text=""
                 style="@style/styleoftext"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="2dp"

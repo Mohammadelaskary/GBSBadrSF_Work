@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.gbsbadrsf.MainActivity;
 import com.example.gbsbadrsf.R;
 import com.example.gbsbadrsf.Util.ViewModelProviderFactory;
+import com.example.gbsbadrsf.data.response.Baskets;
 import com.example.gbsbadrsf.data.response.Ppr;
 import com.example.gbsbadrsf.data.response.PprWelding;
 import com.example.gbsbadrsf.databinding.FragmentProductionSequenceBinding;
@@ -62,11 +63,13 @@ public class WeldingSequence extends DaggerFragment implements BarcodeReader.Bar
     Gson gson;
     WeldingsequenceAdapter adapter;
     List<PprWelding> Weldingsequenceresponse;
+    List<Baskets>basketlist;
     WeldingsequenceViewModel viewModel;
     InfoForSelectedStationViewModel infoForSelectedStationViewModel;
 
     List<String> selectedsequence;
     PprWelding clickedPprwelding;
+    Baskets baskets;
 
 
 
@@ -164,11 +167,17 @@ public class WeldingSequence extends DaggerFragment implements BarcodeReader.Bar
                 switch (staustype)
                 {
                     case gettingdatasuccesfully:
-                        Bundle bundle = new Bundle();
+                      Bundle bundle = new Bundle();
                         bundle.putString("operationrname",clickedPprwelding.getOperationEnName());
                         bundle.putString("loadingqty",clickedPprwelding.getLoadingQty().toString());
                         bundle.putString("parentdesc",clickedPprwelding.getParentDescription());
                         bundle.putString("parentcode",clickedPprwelding.getParentCode());
+                        bundle.putString("parentid",clickedPprwelding.getParentID().toString());
+                        //bundle.putString("basketcode",clickedPprwelding.getBaskets().getBasketCode());
+                       // bundle.putString("ddd",baskets.getBasketCode());
+                      // bundle.putString("slslsl",infoForSelectedStationViewModel.getBaskets().getValue().getJobOrderId().toString());
+
+
 
 
                         Navigation.findNavController(getView()).navigate(R.id.action_weldingSequence_to_machineloadingweFragment, bundle);
@@ -291,12 +300,9 @@ public class WeldingSequence extends DaggerFragment implements BarcodeReader.Bar
 
 
             if (isChecked) {
-                infoForSelectedStationViewModel.getselectedweldingsequence("1", "S123", Weldingsequenceresponse.get(position).getProductionStationEnName());
+                infoForSelectedStationViewModel.getselectedweldingsequence("1", "S123", Weldingsequenceresponse.get(position).getLoadingSequenceID().toString());
                 clickedPprwelding = item;
 
-            }
-            else {
-                Toast.makeText(getActivity(), "Please check production sequence", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -58,12 +58,6 @@ public final class FragmentSignoffweBinding implements ViewBinding {
   public final ImageView plusImg;
 
   @NonNull
-  public final TextView qtn;
-
-  @NonNull
-  public final TextView qtnTxt;
-
-  @NonNull
   public final MaterialButton saveBtn;
 
   @NonNull
@@ -80,8 +74,8 @@ public final class FragmentSignoffweBinding implements ViewBinding {
       @NonNull TextView basketqtnTxt, @NonNull ImageView itemcardbarcodeImg,
       @NonNull TextView loadingqtn, @NonNull TextView loadingqtnTxt, @NonNull TextView parentTxt,
       @NonNull TextView parentcode, @NonNull TextView parentdesc, @NonNull ImageView plusImg,
-      @NonNull TextView qtn, @NonNull TextView qtnTxt, @NonNull MaterialButton saveBtn,
-      @NonNull TextView signoffqtnTxt, @NonNull EditText stationEdt, @NonNull TextView stationTxt) {
+      @NonNull MaterialButton saveBtn, @NonNull TextView signoffqtnTxt,
+      @NonNull EditText stationEdt, @NonNull TextView stationTxt) {
     this.rootView = rootView;
     this.basketEdt = basketEdt;
     this.basketImg = basketImg;
@@ -95,8 +89,6 @@ public final class FragmentSignoffweBinding implements ViewBinding {
     this.parentcode = parentcode;
     this.parentdesc = parentdesc;
     this.plusImg = plusImg;
-    this.qtn = qtn;
-    this.qtnTxt = qtnTxt;
     this.saveBtn = saveBtn;
     this.signoffqtnTxt = signoffqtnTxt;
     this.stationEdt = stationEdt;
@@ -202,18 +194,6 @@ public final class FragmentSignoffweBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.qtn;
-      TextView qtn = rootView.findViewById(id);
-      if (qtn == null) {
-        break missingId;
-      }
-
-      id = R.id.qtn_txt;
-      TextView qtnTxt = rootView.findViewById(id);
-      if (qtnTxt == null) {
-        break missingId;
-      }
-
       id = R.id.save_btn;
       MaterialButton saveBtn = rootView.findViewById(id);
       if (saveBtn == null) {
@@ -240,8 +220,8 @@ public final class FragmentSignoffweBinding implements ViewBinding {
 
       return new FragmentSignoffweBinding((ConstraintLayout) rootView, basketEdt, basketImg,
           basketTxt, basketqtnEdt, basketqtnTxt, itemcardbarcodeImg, loadingqtn, loadingqtnTxt,
-          parentTxt, parentcode, parentdesc, plusImg, qtn, qtnTxt, saveBtn, signoffqtnTxt,
-          stationEdt, stationTxt);
+          parentTxt, parentcode, parentdesc, plusImg, saveBtn, signoffqtnTxt, stationEdt,
+          stationTxt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

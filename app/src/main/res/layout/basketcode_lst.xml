@@ -14,5 +14,17 @@
         android:text="Bsket 1"
         style="@style/styleoftext"
         />
+    <TextView
+        android:id="@+id/basketQnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:text=" 1"
+        style="@style/styleoftext"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

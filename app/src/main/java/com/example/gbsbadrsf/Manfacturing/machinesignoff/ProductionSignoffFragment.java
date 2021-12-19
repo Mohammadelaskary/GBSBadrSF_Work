@@ -3,6 +3,7 @@ package com.example.gbsbadrsf.Manfacturing.machinesignoff;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -24,6 +25,7 @@ import com.example.gbsbadrsf.data.response.BasketLst;
 import com.example.gbsbadrsf.data.response.MachineLoading;
 import com.example.gbsbadrsf.data.response.MachineSignoffBody;
 import com.example.gbsbadrsf.databinding.FragmentProductionSignoffBinding;
+import com.example.gbsbadrsf.databinding.SignoffcustomdialogBinding;
 import com.example.gbsbadrsf.productionsequence.Loadingstatus;
 import com.google.gson.Gson;
 
@@ -43,7 +45,7 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
     private MachinesignoffViewModel machinesignoffViewModel;
     MachineLoading machineLoading;
     List<Basketcodelst> passedinput;
-    String passedtext;
+    //String passedtext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,6 +79,7 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
         });
 
         getdata();
+
         initViews();
         subscribeRequest();
 
@@ -101,9 +104,23 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
         fragmentProductionSignoffBinding.signoffitemsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Constant c = new Constant();
+                try {
+                    if (c.getTotalQty().equals(null)){
+                        c.setTotalQty(0);
+                    }
+                }catch (Exception e){
+                    c.setTotalQty(0);
+                }*/
                 Signoffitemsdialog dialog = new Signoffitemsdialog();
                 dialog.setTargetFragment(ProductionSignoffFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
+                Bundle args = new Bundle();
+                args.putString("childdesc", fragmentProductionSignoffBinding.childesc.toString());
+                DialogFragment newFragment = new Signoffitemsdialog();
+                newFragment.setArguments(args);
+             //   newFragment.show(getSupportFragmentManager(), "TAG");
+
             }
         });
         fragmentProductionSignoffBinding.saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +131,7 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
                 MachineSignoffBody machineSignoffBody = new MachineSignoffBody();
                
                 machineSignoffBody.setMachineCode(fragmentProductionSignoffBinding.machinecodeEdt.getText().toString());
-                machineSignoffBody.setSignOutQty(passedtext);
+              //  machineSignoffBody.setSignOutQty(passedtext);
                 machineSignoffBody.setBasketLst(passedinput);
                 machinesignoffViewModel.getmachinesignoff(machineSignoffBody, getContext());
 
@@ -175,11 +192,11 @@ public class ProductionSignoffFragment extends DaggerFragment implements Signoff
     }
 
 
-    @Override
-    public void sendInput(String input) {
-        //fragmentProductionSignoffBinding.totalqtn.setText(input);
-        passedtext=input;
-    }
+//    @Override
+//    public void sendInput(String input) {
+//        //fragmentProductionSignoffBinding.totalqtn.setText(input);
+//        passedtext=input;
+//    }
 
     //that for send list
     @Override

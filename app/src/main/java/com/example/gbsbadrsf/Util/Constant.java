@@ -7,7 +7,22 @@ public class Constant {
     public static final String LANG = "LANGUAGE";
     public static final String SCREEN_MODE = "SCREEN_MODEL";
     public static final String PASSED_OBJECT = "PASSED_OBJECT";
+    public Integer totalQtyVar;
 
+    public final Integer getTotalQtyVar() {
+        return totalQtyVar;
+    }
 
+    public void setTotalQty(Integer totalQty) {
+        this.totalQtyVar = totalQty;
+    }
 
+    public void incrementTotalQty(Integer totalQty) {
+        try {
+            this.totalQtyVar= this.totalQtyVar + totalQty;
+        }catch (Exception e){
+            this.totalQtyVar = 0;
+            this.totalQtyVar= this.totalQtyVar + totalQty;
+        }
+    }
 }
