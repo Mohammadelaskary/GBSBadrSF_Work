@@ -36,12 +36,12 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\repairorder_lst.xml"
     },
     {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_production_defect_repair.xml",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_production_defect_repair.xml"
-    },
-    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\qcnotes_lst.xml",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\qcnotes_lst.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_production_defect_repair.xml",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_production_defect_repair.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_paintsignoff.xml",
@@ -56,12 +56,12 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_qualityscrapapproval.xml"
     },
     {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionrepstatus.xml",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_productionrepstatus.xml"
-    },
-    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_machinehold.xml",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_machinehold.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionrepstatus.xml",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_productionrepstatus.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\defectqtns_lst.xml",
@@ -208,12 +208,12 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\mainschedulelst.xml"
     },
     {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_add_defects.xml",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_add_defects.xml"
-    },
-    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qualityscraprequestwe.xml",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_qualityscraprequestwe.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_add_defects.xml",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_add_defects.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qualitymainmenu.xml",
@@ -328,16 +328,16 @@
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_signin.xml"
     },
     {
+        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\check_list_item.xml",
+        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\check_list_item.xml"
+    },
+    {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qcdesicionwe.xml",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_qcdesicionwe.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_colorverification.xml",
         "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\fragment_colorverification.xml"
-    },
-    {
-        "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\check_list_item.xml",
-        "source": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\src\\main\\res\\layout\\check_list_item.xml"
     },
     {
         "merged": "C:\\Users\\Dell\\Ghabbour shop floor project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_productionscraplist.xml",

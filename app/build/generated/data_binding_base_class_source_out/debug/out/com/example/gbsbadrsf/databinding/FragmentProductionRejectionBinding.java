@@ -30,9 +30,6 @@ public final class FragmentProductionRejectionBinding implements ViewBinding {
   public final ImageView basketbarcodeImg;
 
   @NonNull
-  public final TextView basketcodescanTxt;
-
-  @NonNull
   public final TextView basketqtn;
 
   @NonNull
@@ -82,18 +79,17 @@ public final class FragmentProductionRejectionBinding implements ViewBinding {
 
   private FragmentProductionRejectionBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageView basketbarcode, @NonNull ImageView basketbarcodeImg,
-      @NonNull TextView basketcodescanTxt, @NonNull TextView basketqtn,
-      @NonNull TextView basketqtnTxt, @NonNull TextView childcode, @NonNull TextView childdesc,
-      @NonNull MaterialButton existingdefBtn, @NonNull TextView jobordername,
-      @NonNull TextView jobordernameTxt, @NonNull TextInputLayout newBasketCode,
-      @NonNull MaterialButton newdefBtn, @NonNull TextInputLayout oldBasketCode,
-      @NonNull TextView parentTxt, @NonNull TextView productionscrapTxt,
-      @NonNull TextInputLayout rejectedQtyEdt, @NonNull TextView responsibleTxt,
-      @NonNull Spinner responsibledepSpin, @NonNull MaterialButton saveBtn) {
+      @NonNull TextView basketqtn, @NonNull TextView basketqtnTxt, @NonNull TextView childcode,
+      @NonNull TextView childdesc, @NonNull MaterialButton existingdefBtn,
+      @NonNull TextView jobordername, @NonNull TextView jobordernameTxt,
+      @NonNull TextInputLayout newBasketCode, @NonNull MaterialButton newdefBtn,
+      @NonNull TextInputLayout oldBasketCode, @NonNull TextView parentTxt,
+      @NonNull TextView productionscrapTxt, @NonNull TextInputLayout rejectedQtyEdt,
+      @NonNull TextView responsibleTxt, @NonNull Spinner responsibledepSpin,
+      @NonNull MaterialButton saveBtn) {
     this.rootView = rootView;
     this.basketbarcode = basketbarcode;
     this.basketbarcodeImg = basketbarcodeImg;
-    this.basketcodescanTxt = basketcodescanTxt;
     this.basketqtn = basketqtn;
     this.basketqtnTxt = basketqtnTxt;
     this.childcode = childcode;
@@ -148,12 +144,6 @@ public final class FragmentProductionRejectionBinding implements ViewBinding {
       id = R.id.basketbarcode_img;
       ImageView basketbarcodeImg = ViewBindings.findChildViewById(rootView, id);
       if (basketbarcodeImg == null) {
-        break missingId;
-      }
-
-      id = R.id.basketcodescan_txt;
-      TextView basketcodescanTxt = ViewBindings.findChildViewById(rootView, id);
-      if (basketcodescanTxt == null) {
         break missingId;
       }
 
@@ -254,10 +244,9 @@ public final class FragmentProductionRejectionBinding implements ViewBinding {
       }
 
       return new FragmentProductionRejectionBinding((ConstraintLayout) rootView, basketbarcode,
-          basketbarcodeImg, basketcodescanTxt, basketqtn, basketqtnTxt, childcode, childdesc,
-          existingdefBtn, jobordername, jobordernameTxt, newBasketCode, newdefBtn, oldBasketCode,
-          parentTxt, productionscrapTxt, rejectedQtyEdt, responsibleTxt, responsibledepSpin,
-          saveBtn);
+          basketbarcodeImg, basketqtn, basketqtnTxt, childcode, childdesc, existingdefBtn,
+          jobordername, jobordernameTxt, newBasketCode, newdefBtn, oldBasketCode, parentTxt,
+          productionscrapTxt, rejectedQtyEdt, responsibleTxt, responsibledepSpin, saveBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
